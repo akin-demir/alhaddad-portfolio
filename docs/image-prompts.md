@@ -15,6 +15,7 @@ it is a screenshot of the real system.
 |---|---------|------|-----------|-------|-------|
 | 1 | Enterprise Knowledge Graph | `enterprise-knowledge-graph` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/enterprise-knowledge-graph.png` |
 | 2 | Document Intelligence Suite | `document-intelligence-suite` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/document-intelligence-suite.png` |
+| 6 | Sales Lead Proposal System | `sales-lead-proposal-system` | ☐ | — | — |
 | 3 | Tunnel & Highway Incident Detection | `tunnel-incident-detection` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/tunnel-incident-detection.png` |
 | 4 | Rail Crossing Incident Detection | `rail-crossing-detection` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/rail-crossing-detection.png` |
 | 5 | 3D Port Container Scanner | `port-container-scanner` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/port-container-scanner.png` |
@@ -91,6 +92,19 @@ A shipping container passing through an industrial scanning gantry at a
 working port, early morning, cool blue light with amber sodium lamps.
 Weathered container steel with scuffs and rust streaks, structural gantry
 framing the shot. Faint haze, long shadows, industrial scale.
+```
+
+## 6. Sales Lead Proposal System
+
+Software project with no physical site, so this leans abstract — same
+treatment as #1 and #2 rather than the industrial photography of #3–5.
+
+```
+Macro photograph of a dark glass surface holding a scattered constellation
+of small warm amber light points at varying brightness, some clustered
+densely and some isolated, with faint connecting reflections. Shallow focus
+so only a narrow band of points is sharp. Suggests sorting and ranking
+without depicting any interface. Quiet, precise, analytical mood.
 ```
 
 ---

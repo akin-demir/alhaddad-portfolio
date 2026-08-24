@@ -6,7 +6,7 @@ tags: [Computer Vision, 3D Scanning, Industrial ML, C++]
 deployment:
   - Istanbul, Turkey — commercial port terminal
 status: Deployed
-order: 5
+order: 6
 cover: ../../src/assets/projects/port-container-scanner.png
 coverAlt: A shipping container passing through an industrial scanning gantry at a port at night
 ---

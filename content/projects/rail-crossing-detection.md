@@ -7,7 +7,7 @@ deployment:
   - Serbia — national rail crossings
 partners: [Huawei]
 status: Deployed
-order: 4
+order: 5
 cover: ../../src/assets/projects/rail-crossing-detection.png
 coverAlt: A level crossing at dusk in rain, barriers down and red warning lights lit, with a camera on a pole
 ---
