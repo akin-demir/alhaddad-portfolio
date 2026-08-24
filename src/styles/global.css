@@ -1,51 +1,85 @@
-/* ---- Tokens -------------------------------------------------------------- */
-/* Light palette is the base. Dark is redefined in the media query below, and
-   again under [data-theme="dark"] so an explicit toggle can win later. */
+/* ===========================================================================
+   Tokens
+   Light is the base palette. Dark is redefined in a prefers-color-scheme block
+   AND under [data-theme="dark"], so the toggle wins in both directions and no
+   color has its only definition inside a conditional block.
+   ========================================================================= */
 :root {
-  --bg: #fbfbfa;
+  --bg: #fcfcfb;
   --surface: #ffffff;
-  --border: #e4e2dd;
-  --text: #1a1917;
-  --muted: #6b6862;
-  --accent: #b4532a;
-  --accent-soft: #f5e9e3;
+  --surface-2: #f6f5f2;
+  --border: #e6e3dd;
+  --border-strong: #d3cfc6;
+  --text: #171614;
+  --muted: #6d6a63;
+  --accent: #c2410c;
+  --accent-2: #7c3aed;
+  --accent-soft: #fdf2ec;
+  --shadow: 0 1px 2px rgb(23 22 20 / 0.04), 0 8px 24px -8px rgb(23 22 20 / 0.1);
+  --shadow-lift: 0 2px 4px rgb(23 22 20 / 0.05), 0 20px 40px -12px rgb(23 22 20 / 0.18);
+  --aurora-1: #f97316;
+  --aurora-2: #8b5cf6;
+  --aurora-3: #06b6d4;
+  --aurora-opacity: 0.16;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
   --measure: 68ch;
   --gap: 1.5rem;
-  --radius: 10px;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shell: 58rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #14141a;
-    --surface: #1c1c23;
-    --border: #2f2f39;
-    --text: #eceaf0;
-    --muted: #9a97a4;
-    --accent: #e0916b;
-    --accent-soft: #2a2027;
+    --bg: #0d0d11;
+    --surface: #16161c;
+    --surface-2: #1d1d25;
+    --border: #292933;
+    --border-strong: #3a3a47;
+    --text: #edecf1;
+    --muted: #9b98a5;
+    --accent: #fb923c;
+    --accent-2: #a78bfa;
+    --accent-soft: #241a18;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.6);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -12px rgb(0 0 0 / 0.7);
+    --aurora-opacity: 0.2;
   }
 }
 
 :root[data-theme='dark'] {
-  --bg: #14141a;
-  --surface: #1c1c23;
-  --border: #2f2f39;
-  --text: #eceaf0;
-  --muted: #9a97a4;
-  --accent: #e0916b;
-  --accent-soft: #2a2027;
+  --bg: #0d0d11;
+  --surface: #16161c;
+  --surface-2: #1d1d25;
+  --border: #292933;
+  --border-strong: #3a3a47;
+  --text: #edecf1;
+  --muted: #9b98a5;
+  --accent: #fb923c;
+  --accent-2: #a78bfa;
+  --accent-soft: #241a18;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -12px rgb(0 0 0 / 0.7);
+  --aurora-opacity: 0.2;
 }
 
-/* ---- Reset -------------------------------------------------------------- */
+/* ===========================================================================
+   Reset & base
+   ========================================================================= */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -56,9 +90,11 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
 }
 
 img,
@@ -71,7 +107,8 @@ svg {
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease), opacity 0.2s var(--ease);
 }
 
 a:hover {
@@ -81,23 +118,28 @@ a:hover {
 :where(a, button):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 h1,
 h2,
 h3 {
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0 0 0.5em;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  letter-spacing: -0.025em;
 }
+
 h2 {
-  font-size: clamp(1.35rem, 3vw, 1.6rem);
+  font-size: clamp(1.3rem, 3vw, 1.55rem);
+  font-weight: 600;
 }
 
 p {
@@ -105,120 +147,422 @@ p {
   max-width: var(--measure);
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 code {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background: var(--accent-soft);
+  background: var(--surface-2);
   padding: 0.15em 0.4em;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-/* ---- Shell -------------------------------------------------------------- */
-.site-header,
-main,
-.site-footer {
+/* ===========================================================================
+   Animated background — three slow-drifting blobs, fixed behind everything.
+   ========================================================================= */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 45vw;
+  height: 45vw;
+  min-width: 22rem;
+  min-height: 22rem;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: var(--aurora-opacity);
+  will-change: transform;
+}
+
+.blob-1 {
+  background: var(--aurora-1);
+  top: -12vw;
+  left: -8vw;
+  animation: drift-1 26s var(--ease) infinite alternate;
+}
+
+.blob-2 {
+  background: var(--aurora-2);
+  top: 20vh;
+  right: -12vw;
+  animation: drift-2 32s var(--ease) infinite alternate;
+}
+
+.blob-3 {
+  background: var(--aurora-3);
+  bottom: -15vw;
+  left: 25vw;
+  animation: drift-3 38s var(--ease) infinite alternate;
+}
+
+@keyframes drift-1 {
+  to {
+    transform: translate3d(12vw, 8vh, 0) scale(1.15);
+  }
+}
+@keyframes drift-2 {
+  to {
+    transform: translate3d(-14vw, 14vh, 0) scale(0.9);
+  }
+}
+@keyframes drift-3 {
+  to {
+    transform: translate3d(10vw, -12vh, 0) scale(1.2);
+  }
+}
+
+/* ===========================================================================
+   Scroll progress
+   ========================================================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
   width: 100%;
-  max-width: 56rem;
+  z-index: 100;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.1s linear;
+}
+
+/* ===========================================================================
+   Shell
+   ========================================================================= */
+main,
+.site-footer,
+.header-inner {
+  width: 100%;
+  max-width: var(--shell);
   margin-inline: auto;
   padding-inline: clamp(1rem, 5vw, 2rem);
 }
 
+/* Full-bleed sticky bar; the inner div carries the page's shared measure so
+   the wordmark lines up with the h1 below it. */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  padding-block: 0.9rem;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.header-inner {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  padding-block: 2rem 1rem;
+}
+
+/* Only frost the header once you've scrolled — at rest it floats. */
+.site-header.is-stuck {
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px) saturate(1.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.6);
+  border-bottom-color: var(--border);
 }
 
 .wordmark {
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.01em;
 }
 
+.wordmark .dot {
+  color: var(--accent);
+}
+
 .site-header nav {
   display: flex;
-  gap: 1.25rem;
-  font-size: 0.925rem;
+  gap: 1.4rem;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  padding-block: 0.15rem;
+}
+
+.site-header nav a::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 0.25s var(--ease);
+}
+
+.site-header nav a:hover {
+  color: var(--text);
+}
+
+.site-header nav a:hover::after {
+  transform: scaleX(1);
 }
 
 main {
   flex: 1;
-  padding-block: 2rem 4rem;
+  padding-block: 2rem 5rem;
 }
 
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding-block: 1.5rem 3rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
-  align-items: center;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 0.875rem;
-}
-
-.site-footer p {
-  margin: 0;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  list-style: none;
-  margin: 0;
+/* ===========================================================================
+   Theme toggle
+   ========================================================================= */
+.theme-toggle {
+  --size: 2rem;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-items: center;
   padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+    transform 0.3s var(--ease);
 }
 
-/* ---- Sections ----------------------------------------------------------- */
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(25deg);
+}
+
+.theme-toggle svg {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  transition: opacity 0.3s var(--ease), transform 0.4s var(--ease);
+}
+
+/* Sun in light mode, moon in dark. Both states defined for each of the three
+   theme conditions so the toggle is correct however the theme was decided. */
+.icon-moon {
+  opacity: 0;
+  transform: rotate(-70deg) scale(0.5);
+}
+.icon-sun {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .icon-moon {
+    opacity: 1;
+    transform: none;
+  }
+  :root:not([data-theme='light']) .icon-sun {
+    opacity: 0;
+    transform: rotate(70deg) scale(0.5);
+  }
+}
+
+:root[data-theme='dark'] .icon-moon {
+  opacity: 1;
+  transform: none;
+}
+:root[data-theme='dark'] .icon-sun {
+  opacity: 0;
+  transform: rotate(70deg) scale(0.5);
+}
+
+/* ===========================================================================
+   Reveal on scroll
+   Guarded behind .js so the content is never hidden without JavaScript.
+   ========================================================================= */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition-delay: var(--delay, 0ms);
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===========================================================================
+   Hero
+   ========================================================================= */
 .hero {
-  padding-block: 1rem 3rem;
+  padding-block: clamp(2rem, 8vh, 5rem) 4rem;
   display: flex;
   flex-wrap: wrap-reverse;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
   justify-content: space-between;
 }
 
 .hero-text {
-  flex: 1 1 20rem;
+  flex: 1 1 22rem;
 }
 
-.portrait {
-  width: 9rem;
-  height: 9rem;
-  border-radius: 50%;
-  object-fit: cover;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
   border: 1px solid var(--border);
-  flex: none;
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgb(34 197 94 / 0.6);
+  animation: pulse 2.4s ease-out infinite;
+}
+
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 7px rgb(34 197 94 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(34 197 94 / 0);
+  }
+}
+
+.hero h1 {
+  margin-bottom: 0.35em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero .role {
+  color: var(--muted);
+  font-size: 1rem;
+  font-family: var(--font-mono);
+  margin-bottom: 1.25rem;
+}
+
+.hero .tagline {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  max-width: 44ch;
+  color: var(--text);
 }
 
 .hero-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
-  font-size: 0.925rem;
-  margin-top: 1.25rem;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
 }
 
-.hero .role {
-  color: var(--muted);
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease), color 0.25s var(--ease);
 }
 
-.hero .tagline {
-  font-size: 1.2rem;
-  max-width: 40ch;
+.pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: var(--shadow);
 }
 
+.pill-primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.pill-primary:hover {
+  color: var(--bg);
+  opacity: 0.88;
+  border-color: var(--text);
+}
+
+/* Portrait with a soft conic ring that rotates on hover */
+.portrait-wrap {
+  position: relative;
+  flex: none;
+  padding: 4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent),
+    var(--accent-2),
+    var(--aurora-3),
+    var(--accent)
+  );
+  animation: spin 14s linear infinite;
+}
+
+.portrait {
+  width: clamp(8rem, 18vw, 11rem);
+  height: clamp(8rem, 18vw, 11rem);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg);
+  animation: spin 14s linear infinite reverse;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===========================================================================
+   Sections
+   ========================================================================= */
 section + section {
-  margin-top: 3.5rem;
+  margin-top: clamp(3rem, 8vh, 4.5rem);
 }
 
 .section-head {
@@ -227,20 +571,35 @@ section + section {
   justify-content: space-between;
   gap: var(--gap);
   border-bottom: 1px solid var(--border);
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.6rem;
   margin-bottom: 1.75rem;
 }
 
+.section-head h1,
 .section-head h2 {
   margin: 0;
 }
 
-.section-head a {
-  font-size: 0.9rem;
+.section-head a,
+.section-head span {
+  font-size: 0.85rem;
   white-space: nowrap;
+  color: var(--muted);
+  font-family: var(--font-mono);
 }
 
-/* ---- Project cards ------------------------------------------------------ */
+.section-head a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.section-head a:hover {
+  opacity: 0.75;
+}
+
+/* ===========================================================================
+   Project cards
+   ========================================================================= */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
@@ -251,53 +610,71 @@ section + section {
 }
 
 .card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 1.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+
+/* Gradient wash that fades in on hover, behind the content */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--accent) 8%, transparent),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+  pointer-events: none;
 }
 
 .card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lift);
 }
 
-/* Cover images: fixed aspect box so a grid of mixed-size screenshots still
-   lines up. object-fit crops rather than distorts. */
+.card:hover::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+}
+
 .card-media {
   display: block;
-  margin: -1.25rem -1.25rem 0.25rem;
-  border-radius: var(--radius) var(--radius) 0 0;
+  margin: -1.4rem -1.4rem 0.35rem;
   overflow: hidden;
   aspect-ratio: 16 / 10;
-  background: var(--accent-soft);
+  background: var(--surface-2);
 }
 
 .card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s var(--ease);
 }
 
-.detail-media {
-  margin: 0 0 2rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--accent-soft);
-}
-
-.detail-media img {
-  width: 100%;
+.card:hover .card-media img {
+  transform: scale(1.05);
 }
 
 .card h3 {
   margin: 0;
   font-size: 1.05rem;
+  letter-spacing: -0.01em;
 }
 
 .card h3 a {
@@ -305,13 +682,20 @@ section + section {
   text-decoration: none;
 }
 
-.card h3 a:hover {
+/* Stretch the title link over the whole card so the entire surface is clickable */
+.card h3 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card:hover h3 a {
   color: var(--accent);
 }
 
 .card .summary {
   color: var(--muted);
-  font-size: 0.925rem;
+  font-size: 0.9rem;
   margin: 0;
   flex: 1;
   max-width: none;
@@ -326,31 +710,139 @@ section + section {
   color: var(--muted);
 }
 
+.card-meta > span:first-child {
+  font-family: var(--font-mono);
+}
+
 .tag {
-  background: var(--accent-soft);
-  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
   border-radius: 999px;
   padding: 0.15rem 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 
-/* ---- Skills ------------------------------------------------------------- */
+.skills li.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===========================================================================
+   Timeline
+   ========================================================================= */
+.timeline,
+.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* The vertical rail, fading out at the bottom */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 1px;
+  background: linear-gradient(var(--border-strong), transparent);
+}
+
+.timeline > li {
+  position: relative;
+}
+
+.timeline > li::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.timeline > li:hover::before {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.timeline > li + li {
+  margin-top: 2.25rem;
+}
+
+.timeline-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.timeline-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.dates {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.org {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.15rem 0 0.85rem;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.bullets li {
+  max-width: var(--measure);
+  font-size: 0.95rem;
+}
+
+.bullets li::marker {
+  color: var(--accent);
+}
+
+/* ===========================================================================
+   Skills / publications / closing
+   ========================================================================= */
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1.75rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .skills h3 {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--muted);
-  margin-bottom: 0.6rem;
+  font-family: var(--font-mono);
+  margin-bottom: 0.7rem;
 }
 
 .skills ul {
@@ -362,7 +854,75 @@ section + section {
   gap: 0.4rem;
 }
 
-/* ---- Project detail ----------------------------------------------------- */
+.pubs {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.pubs li {
+  display: grid;
+  gap: 0.15rem;
+  max-width: var(--measure);
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+  transition: border-color 0.25s var(--ease), padding-left 0.25s var(--ease);
+}
+
+.pubs li:hover {
+  border-left-color: var(--accent);
+  padding-left: 1.25rem;
+}
+
+.pub-title {
+  font-weight: 500;
+}
+
+.pub-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.pub-title a:hover {
+  color: var(--accent);
+}
+
+.pub-venue {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+.closing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2.5rem;
+}
+
+.closing .section-head {
+  margin-bottom: 1rem;
+}
+
+.langs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 17rem;
+}
+
+.langs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.925rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+/* ===========================================================================
+   Project detail
+   ========================================================================= */
 .prose {
   max-width: var(--measure);
 }
@@ -392,9 +952,19 @@ section + section {
 }
 
 .back-link {
-  display: inline-block;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
   margin-bottom: 1.5rem;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.back-link:hover {
+  color: var(--accent);
+  gap: 0.65rem;
 }
 
 .detail-header {
@@ -405,117 +975,127 @@ section + section {
 
 .detail-links {
   display: flex;
-  gap: 1rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
-  font-size: 0.9rem;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
+.detail-media {
+  margin: 0 0 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-2);
 }
 
-/* ---- Timeline ----------------------------------------------------------- */
-.timeline,
-.pubs {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.detail-media img {
+  width: 100%;
 }
 
-.timeline > li + li {
-  margin-top: 2rem;
+/* ===========================================================================
+   Footer
+   ========================================================================= */
+.site-footer {
   border-top: 1px solid var(--border);
-  padding-top: 2rem;
-}
-
-.timeline-head {
+  padding-block: 1.75rem 3rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  align-items: baseline;
+  gap: var(--gap);
+  align-items: center;
   justify-content: space-between;
-}
-
-.timeline-head h3 {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.dates {
-  color: var(--muted);
-  font-size: 0.825rem;
-  font-family: var(--font-mono);
-  white-space: nowrap;
-}
-
-.org {
-  color: var(--muted);
-  font-size: 0.925rem;
-  margin: 0.15rem 0 0.75rem;
-}
-
-.bullets {
-  margin: 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.4rem;
-}
-
-.bullets li {
-  max-width: var(--measure);
-}
-
-/* ---- Publications ------------------------------------------------------- */
-.pubs {
-  counter-reset: pub;
-  display: grid;
-  gap: 1rem;
-}
-
-.pubs li {
-  display: grid;
-  gap: 0.15rem;
-  max-width: var(--measure);
-}
-
-.pub-title {
-  font-weight: 500;
-}
-
-.pub-venue {
   color: var(--muted);
   font-size: 0.85rem;
 }
 
-/* ---- Closing two-up ----------------------------------------------------- */
-.closing {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
-  gap: 2.5rem;
+.site-footer p {
+  margin: 0;
 }
 
-.closing .section-head {
-  margin-bottom: 1rem;
-}
-
-.langs {
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0.4rem;
-  max-width: 16rem;
 }
 
-.langs li {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.925rem;
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ===========================================================================
+   Motion preferences — kill every animation, keep every layout.
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===========================================================================
+   Stat row
+   ========================================================================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 0 !important;
+}
+
+.stat {
+  background: var(--surface);
+  padding: 1.25rem 1.4rem;
+  display: grid;
+  gap: 0.15rem;
+  transition: background 0.3s var(--ease);
+}
+
+.stat:hover {
+  background: var(--surface-2);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+/* Education block reuses .org for the sub-line */
+.closing .org {
+  margin: 0;
 }

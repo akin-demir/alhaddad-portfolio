@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import site from '../../content/site.json';
 
 interface Props {
@@ -26,15 +28,49 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <ClientRouter />
+
+    {/* Set theme and mark JS available before first paint — no flash, and the
+        reveal animations only arm when JS can actually un-hide them. */}
+    <script is:inline>
+      (() => {
+        document.documentElement.classList.add('js');
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved) document.documentElement.dataset.theme = saved;
+        } catch {}
+      })();
+    </script>
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <div class="aurora" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+
     <header class="site-header">
-      <a href="/" class="wordmark">{site.name}</a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/projects/">Projects</a>
-        {site.resume && <a href={site.resume}>CV</a>}
-      </nav>
+      <div class="header-inner">
+        <a href="/" class="wordmark">
+          {site.firstName ?? site.name.split(' ')[0]}<span class="dot">.</span>
+        </a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/projects/">Projects</a>
+          {site.resume && <a href={site.resume}>CV</a>}
+          <ThemeToggle />
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -49,5 +85,55 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         ))}
       </ul>
     </footer>
+
+    <script>
+      // Scroll-reveal + progress bar. Re-run after every view transition,
+      // since astro:page-load fires on initial load and on each navigation.
+      const init = () => {
+        const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+        if (reduced || !('IntersectionObserver' in window)) {
+          targets.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              });
+            },
+            { rootMargin: '0px 0px -12% 0px', threshold: 0.1 },
+          );
+          targets.forEach((el) => io.observe(el));
+        }
+
+        const bar = document.querySelector<HTMLElement>('.scroll-progress');
+        const header = document.querySelector<HTMLElement>('.site-header');
+        const onScroll = () => {
+          const max = document.body.scrollHeight - innerHeight;
+          if (bar) bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+          header?.classList.toggle('is-stuck', scrollY > 12);
+        };
+        onScroll();
+        addEventListener('scroll', onScroll, { passive: true });
+      };
+
+      document.addEventListener('astro:page-load', init);
+
+      // Failsafe: reveal styles hide content until JS un-hides it, so if
+      // astro:page-load never fires the page would read as blank. Force
+      // everything visible shortly after load if nothing has revealed yet.
+      addEventListener('load', () => {
+        setTimeout(() => {
+          if (!document.querySelector('[data-reveal].is-visible')) {
+            document
+              .querySelectorAll('[data-reveal]')
+              .forEach((el) => el.classList.add('is-visible'));
+          }
+        }, 1200);
+      });
+    </script>
   </body>
 </html>

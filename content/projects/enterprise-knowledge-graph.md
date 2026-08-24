@@ -1,22 +1,29 @@
 ---
 title: Enterprise Knowledge Graph
-summary: Agentic AI pipelines that extract structured data from European enterprises into a queryable knowledge graph.
+summary: Agentic pipelines that turn scattered public data on European enterprises into a graph you can actually query.
 year: 2025
-tags: [Agentic AI, NLP, Knowledge Graphs, JanusGraph, Python]
+tags: [Agentic AI, Knowledge Graphs, NLP, JanusGraph, Python]
 featured: true
 order: 1
 ---
 
-A pipeline that turns unstructured public and semi-structured enterprise data
-into a knowledge graph you can actually query.
+The problem wasn't finding data about European companies. It was that the data
+arrived in a dozen shapes from a dozen places, and none of it agreed on what
+counted as the same entity.
 
-The extraction layer is agentic: LLM agents with tool access decide what to
-pull and how to normalize it, backed by NLP models for entity resolution and
-deep text analysis for the harder classification passes. Output lands in a
-graph store (JanusGraph / AWS Neptune) alongside vector indexes for semantic
-retrieval.
+The extraction layer is agentic rather than a fixed pipeline: LLM agents with
+tool access decide what to pull and how to normalize it, which matters because
+every source has its own idea of structure. NLP models handle entity
+resolution, and deep text analysis takes the classification passes too
+ambiguous for rules. Output lands in a graph store — JanusGraph, later AWS
+Neptune — alongside vector indexes so the same data is reachable by traversal
+or by semantic search.
 
-**Built at** Innoscripta AG.
+The interesting engineering was in the failure modes. Agents that decide
+things also decide things wrongly, so most of the work went into constraining
+what an agent could conclude and making its output checkable.
 
-<!-- Worth expanding: scale (how many entities/companies), what the graph is
-     used for downstream, and where the agentic approach beat a fixed pipeline. -->
+**Innoscripta AG** · 2021–2026
+
+<!-- Worth adding when you have the numbers: entity/company scale, what the
+     graph feeds downstream, and where agentic beat a fixed pipeline. -->

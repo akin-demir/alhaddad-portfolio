@@ -16,43 +16,73 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
 <Base>
   <section class="hero">
     <div class="hero-text">
-      <h1>{site.name}</h1>
-      <p class="role">{site.role} &middot; {site.location}</p>
-      <p class="tagline">{site.tagline}</p>
-      <div class="hero-links">
-        {site.links.map((link) => <a href={link.url}>{link.label}</a>)}
+      {site.available && (
+        <p class="eyebrow" data-reveal>
+          <span class="pulse"></span>{site.availableLabel}
+        </p>
+      )}
+      <h1 data-reveal style="--delay: 80ms">
+        {site.headline.lead} <em>{site.headline.emphasis}</em>.
+      </h1>
+      <p class="role" data-reveal style="--delay: 160ms">
+        {site.role} &middot; {site.location}
+      </p>
+      <p class="tagline" data-reveal style="--delay: 220ms">{site.tagline}</p>
+      <div class="hero-links" data-reveal style="--delay: 300ms">
+        {site.links.map((link) => (
+          <a href={link.url} class={link.primary ? 'pill pill-primary' : 'pill'}>
+            {link.label}
+          </a>
+        ))}
+        <a href={site.resume} class="pill">Download CV</a>
       </div>
     </div>
-    <Image
-      src={portrait}
-      alt={`Portrait of ${site.name}`}
-      widths={[160, 320]}
-      sizes="10rem"
-      class="portrait"
-      loading="eager"
-    />
+
+    <div class="portrait-wrap" data-reveal style="--delay: 120ms">
+      <Image
+        src={portrait}
+        alt={`Portrait of ${site.name}`}
+        widths={[176, 352]}
+        sizes="11rem"
+        class="portrait"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <section class="stats" data-reveal>
+    {site.stats.map((stat) => (
+      <div class="stat">
+        <span class="stat-value">{stat.value}</span>
+        <span class="stat-label">{stat.label}</span>
+      </div>
+    ))}
   </section>
 
   <section>
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <h2>Selected work</h2>
       <a href="/projects/">All projects &rarr;</a>
     </div>
     <ul class="project-grid">
-      {shown.map((project) => <ProjectCard project={project} />)}
+      {shown.map((project, i) => (
+        <ProjectCard project={project} delay={i * 90} />
+      ))}
     </ul>
   </section>
 
   <section>
-    <div class="section-head"><h2>About</h2></div>
-    {site.about.map((para) => <p>{para}</p>)}
+    <div class="section-head" data-reveal><h2>About</h2></div>
+    {site.about.map((para, i) => (
+      <p data-reveal style={`--delay: ${i * 80}ms`}>{para}</p>
+    ))}
   </section>
 
   <section>
-    <div class="section-head"><h2>Experience</h2></div>
+    <div class="section-head" data-reveal><h2>Experience</h2></div>
     <ol class="timeline">
-      {site.experience.map((job) => (
-        <li>
+      {site.experience.map((job, i) => (
+        <li data-reveal style={`--delay: ${i * 100}ms`}>
           <div class="timeline-head">
             <h3>{job.role}</h3>
             <span class="dates">{job.start} &ndash; {job.end}</span>
@@ -67,10 +97,10 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
   </section>
 
   <section>
-    <div class="section-head"><h2>Toolkit</h2></div>
+    <div class="section-head" data-reveal><h2>Toolkit</h2></div>
     <ul class="skills">
-      {site.skills.map((group) => (
-        <li>
+      {site.skills.map((group, i) => (
+        <li data-reveal style={`--delay: ${i * 70}ms`}>
           <h3>{group.group}</h3>
           <ul>
             {group.items.map((item) => <li class="tag">{item}</li>)}
@@ -81,32 +111,32 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
   </section>
 
   <section>
-    <div class="section-head"><h2>Publications</h2></div>
+    <div class="section-head" data-reveal><h2>Publications</h2></div>
     <ol class="pubs">
-      {site.publications.map((pub) => (
-        <li>
+      {site.publications.map((pub, i) => (
+        <li data-reveal style={`--delay: ${i * 80}ms`}>
           <span class="pub-title">
             {pub.url ? <a href={pub.url}>{pub.title}</a> : pub.title}
           </span>
-          <span class="pub-venue">{pub.venue}, {pub.year}</span>
+          <span class="pub-venue">{pub.venue} &middot; {pub.year}</span>
         </li>
       ))}
     </ol>
   </section>
 
   <section class="closing">
-    <div class="closing-col">
-      <div class="section-head"><h2>Education</h2></div>
+    <div>
+      <div class="section-head" data-reveal><h2>Education</h2></div>
       {site.education.map((ed) => (
-        <p>
+        <p data-reveal>
           <strong>{ed.degree}</strong><br />
-          {ed.org} &middot; {ed.years}
+          <span class="org">{ed.org} &middot; {ed.years}</span>
         </p>
       ))}
     </div>
-    <div class="closing-col">
-      <div class="section-head"><h2>Languages</h2></div>
-      <ul class="langs">
+    <div>
+      <div class="section-head" data-reveal><h2>Languages</h2></div>
+      <ul class="langs" data-reveal>
         {site.languages.map((lang) => (
           <li><span>{lang.name}</span> <span class="dates">{lang.level}</span></li>
         ))}

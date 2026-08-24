@@ -4,16 +4,17 @@ import { Image } from 'astro:assets';
 
 interface Props {
   project: CollectionEntry<'projects'>;
+  delay?: number;
 }
 
-const { project } = Astro.props;
+const { project, delay = 0 } = Astro.props;
 const { title, summary, year, tags, cover, coverAlt } = project.data;
 const href = `/projects/${project.id}/`;
 ---
 
-<li class="card">
+<li class="card" data-reveal style={`--delay: ${delay}ms`}>
   {cover && (
-    <a href={href} class="card-media">
+    <span class="card-media">
       <Image
         src={cover}
         alt={coverAlt || `${title} preview`}
@@ -21,12 +22,12 @@ const href = `/projects/${project.id}/`;
         sizes="(max-width: 640px) 100vw, 20rem"
         loading="lazy"
       />
-    </a>
+    </span>
   )}
   <h3><a href={href}>{title}</a></h3>
   <p class="summary">{summary}</p>
   <div class="card-meta">
     <span>{year}</span>
-    {tags.map((tag) => <span class="tag">{tag}</span>)}
+    {tags.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}
   </div>
 </li>

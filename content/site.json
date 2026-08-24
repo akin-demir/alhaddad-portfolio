@@ -1,65 +1,75 @@
 {
   "name": "Mohamad Alhaddad",
+  "firstName": "Mohamad",
   "role": "AI Solutions Engineer",
-  "tagline": "I build LLM agent systems and computer vision pipelines that run in production, not in notebooks.",
+  "available": true,
+  "availableLabel": "Open to new roles",
+  "headline": {
+    "lead": "I build AI systems that",
+    "emphasis": "survive production"
+  },
   "location": "Germany",
   "email": "mohd1haddad@gmail.com",
   "resume": "/files/cv.pdf",
+  "tagline": "Seven years turning models into systems people actually depend on — LLM agents, retrieval pipelines, and computer vision running on real hardware under real load.",
   "about": [
-    "Machine learning engineer with 7+ years building and shipping AI systems — LLM-powered multi-agent architectures, RAG pipelines, and real-time computer vision. I work end to end: model design, the async services around it, and the deployment that keeps it running.",
-    "Most recently at Innoscripta AG in Germany, building agentic extraction pipelines and document intelligence tooling over enterprise-scale knowledge graphs. Before that, real-time incident detection for tunnels, highways, and rail crossings in collaboration with Intel and Huawei.",
-    "Three peer-reviewed and preprint publications in computer vision and neural network dependability."
+    "Most machine learning work dies in a notebook. My job has been the other part: the async services, the retries, the evaluation harness, and the deployment that keeps a model useful on the thousandth request instead of the first.",
+    "Lately that means LLM agents — multi-step tool use, retrieval over knowledge graphs, and the unglamorous plumbing that makes non-deterministic systems dependable enough to put in front of a business process. Before that it was computer vision on edge hardware, where being wrong at 60 frames per second has consequences you can measure in ambulances.",
+    "I like problems where the interesting constraint isn't model accuracy but everything around it — latency budgets, messy inputs, and the gap between a benchmark and a Tuesday afternoon."
   ],
   "links": [
+    { "label": "Email", "url": "mailto:mohd1haddad@gmail.com", "primary": true },
     { "label": "GitHub", "url": "https://github.com/USERNAME" },
     {
       "label": "LinkedIn",
       "url": "https://www.linkedin.com/in/alhaddad-mohamad-375532117/"
-    },
-    { "label": "Email", "url": "mailto:mohd1haddad@gmail.com" }
+    }
+  ],
+  "stats": [
+    { "value": "7+", "label": "Years shipping AI" },
+    { "value": "90%+", "label": "Extraction accuracy" },
+    { "value": "3", "label": "Publications" }
   ],
   "skills": [
     {
-      "group": "AI & LLM Systems",
+      "group": "LLM Systems",
       "items": [
-        "LLM Integration",
-        "Multi-Agent Systems",
-        "RAG Pipelines",
+        "Multi-agent orchestration",
+        "RAG pipelines",
+        "Tool calling",
         "LangChain",
         "Autogen",
-        "MCP",
-        "Agentic AI"
+        "MCP"
       ]
     },
     {
       "group": "ML & Vision",
       "items": [
         "NLP",
-        "Deep Text Analysis",
-        "Object Detection",
-        "Crowd Analysis",
-        "Incident Detection",
-        "Time Series Forecasting"
+        "Object detection",
+        "Incident detection",
+        "Crowd analysis",
+        "Time series forecasting"
       ]
     },
     {
       "group": "Backend",
-      "items": ["Python (asyncio)", "FastAPI", "C++", "Qt", "REST APIs", "Microservices"]
+      "items": ["Python (asyncio)", "FastAPI", "C++", "Qt", "Microservices"]
     },
     {
-      "group": "Cloud & MLOps",
-      "items": ["AWS", "Docker", "Kubernetes", "OpenVINO", "CI/CD", "GitHub Actions"]
+      "group": "Infrastructure",
+      "items": ["AWS", "Docker", "Kubernetes", "OpenVINO", "CI/CD"]
     },
     {
-      "group": "Data",
+      "group": "Data Stores",
       "items": [
         "PostgreSQL",
-        "MongoDB",
-        "Redis",
         "Qdrant",
         "Elasticsearch",
         "JanusGraph",
-        "AWS Neptune"
+        "AWS Neptune",
+        "Redis",
+        "MongoDB"
       ]
     }
   ],
@@ -67,38 +77,40 @@
     {
       "role": "AI Solutions Engineer",
       "org": "Innoscripta AG",
-      "location": "Hybrid · Germany",
+      "location": "Germany · Hybrid",
       "start": "Oct 2021",
       "end": "Jan 2026",
+      "summary": "Agentic extraction and document intelligence at enterprise scale.",
       "points": [
-        "Built agentic AI pipelines extracting structured data from European enterprises, feeding a scalable knowledge graph built on NLP and deep learning models.",
-        "Led development of document intelligence tools — scanned invoice parser, email analyzer, timesheet parser — reaching 90%+ extraction accuracy.",
-        "Exposed LLM agents as async FastAPI services, with Docker deployments and CI/CD on AWS."
+        "Built the agentic extraction pipeline behind a knowledge graph of European enterprise data — LLM agents deciding what to pull, NLP models resolving entities, everything landing somewhere queryable.",
+        "Led three document-intelligence tools to production — invoice, email, and timesheet parsers — past 90% field-level accuracy on documents that often arrive as photographs of paper.",
+        "Exposed the agents as async FastAPI services so other teams could integrate without touching a model, deployed via Docker and CI/CD on AWS."
       ]
     },
     {
       "role": "ML Solutions Engineer",
       "org": "ISSD Bilisim Elektronik",
-      "location": "Hybrid · Turkey",
+      "location": "Turkey · Hybrid",
       "start": "Aug 2018",
       "end": "Sep 2021",
+      "summary": "Real-time computer vision for transport and industrial safety.",
       "points": [
-        "Designed a smart incident detection system for tunnels and highways with Intel, identifying incidents in real time on optimized models.",
-        "Built a 3D port container scanner integrating ML models to scan logistics containers, improving throughput and reducing error rates.",
-        "Developed a train crossing incident detection system with Huawei using object detection to improve intersection safety."
+        "Shipped real-time incident detection for tunnels and highways with Intel, running optimized models on edge hardware because shipping video to a datacenter was never going to be fast enough.",
+        "Built a 3D container scanner for port logistics, raising throughput while cutting misreads.",
+        "Developed train-crossing detection with Huawei, catching hazards at intersections before they became collisions."
       ]
     }
   ],
   "publications": [
     {
       "title": "Incident Detection on Junction Using Image Processing",
-      "venue": "arXiv preprint",
+      "venue": "arXiv preprint 2104.13437",
       "year": 2021,
       "url": "https://arxiv.org/abs/2104.13437"
     },
     {
       "title": "Application of the Neural Network Dependability Kit in Real-World Environments",
-      "venue": "arXiv preprint",
+      "venue": "arXiv preprint 2012.09602",
       "year": 2020,
       "url": "https://arxiv.org/abs/2012.09602"
     },
@@ -116,9 +128,9 @@
     }
   ],
   "languages": [
-    { "name": "English", "level": "Fluent" },
     { "name": "Turkish", "level": "Native" },
     { "name": "Arabic", "level": "Native" },
+    { "name": "English", "level": "Fluent" },
     { "name": "German", "level": "Beginner" }
   ]
 }
