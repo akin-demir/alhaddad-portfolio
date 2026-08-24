@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import site from '../../content/site.json';
-import portrait from '../assets/portrait.jpeg';
+import portrait from '../assets/portrait.png';
 
 const all = await getCollection('projects');
 const featured = all
@@ -42,8 +42,8 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
       <Image
         src={portrait}
         alt={`Portrait of ${site.name}`}
-        widths={[176, 352]}
-        sizes="11rem"
+        widths={[280, 560]}
+        sizes="(max-width: 40rem) 60vw, 17rem"
         class="portrait"
         loading="eager"
       />

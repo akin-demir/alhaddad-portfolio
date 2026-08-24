@@ -527,35 +527,47 @@ main {
   border-color: var(--text);
 }
 
-/* Portrait with a soft conic ring that rotates on hover */
+/* Portrait: a rounded frame rather than a circle, because the source photo is
+   a wide three-quarter shot — a tight circle would crop the composition badly.
+   The gradient sits behind as an offset frame that slides on hover. */
 .portrait-wrap {
   position: relative;
   flex: none;
-  padding: 4px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    var(--accent),
-    var(--accent-2),
-    var(--aurora-3),
-    var(--accent)
-  );
-  animation: spin 14s linear infinite;
+  width: clamp(11rem, 34vw, 17rem);
+  border-radius: var(--radius);
+  isolation: isolate;
+}
+
+.portrait-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(140deg, var(--accent), var(--accent-2));
+  transform: translate(10px, 10px);
+  transition: transform 0.45s var(--ease);
+  z-index: -1;
+}
+
+.portrait-wrap:hover::before {
+  transform: translate(4px, 4px);
 }
 
 .portrait {
-  width: clamp(8rem, 18vw, 11rem);
-  height: clamp(8rem, 18vw, 11rem);
-  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  border: 3px solid var(--bg);
-  animation: spin 14s linear infinite reverse;
+  /* Square source in a 4:5 frame crops the sides, not the top, so the vertical
+     value is only insurance for a taller replacement image. */
+  object-position: 50% 25%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: transform 0.45s var(--ease);
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.portrait-wrap:hover .portrait {
+  transform: translate(-3px, -3px);
 }
 
 /* ===========================================================================
