@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import site from '../../content/site.json';
+
+const all = await getCollection('projects');
+const featured = all
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const shown = featured.length > 0 ? featured : all.slice(0, 3);
+---
+
+<Base>
+  <section class="hero">
+    <h1>{site.name}</h1>
+    <p class="role">{site.role} &middot; {site.location}</p>
+    <p class="tagline">{site.tagline}</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <a href="/projects/">All projects &rarr;</a>
+    </div>
+    {shown.length > 0 ? (
+      <ul class="project-grid">
+        {shown.map((project) => <ProjectCard project={project} />)}
+      </ul>
+    ) : (
+      <p>No projects yet — add a markdown file to <code>content/projects/</code>.</p>
+    )}
+  </section>
+
+  <section>
+    <div class="section-head"><h2>About</h2></div>
+    {site.about.map((para) => <p>{para}</p>)}
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Toolkit</h2></div>
+    <ul class="skills">
+      {site.skills.map((group) => (
+        <li>
+          <h3>{group.group}</h3>
+          <ul>
+            {group.items.map((item) => <li class="tag">{item}</li>)}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

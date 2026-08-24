@@ -1,0 +1,21 @@
+{
+  "name": "Mo Alhaddad",
+  "role": "Software Engineer",
+  "tagline": "I build tools that get out of the way.",
+  "location": "Germany",
+  "email": "alhaddad@innoscripta.com",
+  "about": [
+    "Replace this with a couple of paragraphs about yourself. Each string in this array becomes its own paragraph on the page.",
+    "Keep it short — two or three sentences per paragraph reads better than one long block."
+  ],
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/USERNAME" },
+    { "label": "LinkedIn", "url": "https://linkedin.com/in/USERNAME" },
+    { "label": "Email", "url": "mailto:alhaddad@innoscripta.com" }
+  ],
+  "skills": [
+    { "group": "Languages", "items": ["TypeScript", "Python", "Go", "SQL"] },
+    { "group": "Frontend", "items": ["React", "Astro", "Tailwind"] },
+    { "group": "Backend", "items": ["Node", "PostgreSQL", "Docker"] }
+  ]
+}
