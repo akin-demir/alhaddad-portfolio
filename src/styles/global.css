@@ -1111,3 +1111,69 @@ section + section {
 .closing .org {
   margin: 0;
 }
+
+/* ===========================================================================
+   Project facts strip
+   ========================================================================= */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.fact {
+  background: var(--surface);
+  padding: 0.9rem 1.1rem;
+  display: grid;
+  gap: 0.2rem;
+  align-content: start;
+}
+
+/* Deployment sites can be long, so let that cell span the row */
+.fact-wide {
+  grid-column: 1 / -1;
+}
+
+.fact dt {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.fact dd {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.deploy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.deploy-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Small location marker before each deployment site */
+.deploy-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}

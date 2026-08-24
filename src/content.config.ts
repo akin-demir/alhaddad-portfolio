@@ -18,6 +18,13 @@ const projects = defineCollection({
       order: z.number().default(0),
       cover: image().optional(),
       coverAlt: z.string().default(''),
+      // Deployment facts — rendered as a strip on the project page. All
+      // optional, so a project with none simply omits the block.
+      deployment: z.array(z.string()).default([]),
+      partners: z.array(z.string()).default([]),
+      program: z.string().optional(),
+      status: z.string().optional(),
+      role: z.string().optional(),
     }),
 });
 

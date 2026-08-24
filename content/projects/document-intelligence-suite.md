@@ -3,8 +3,12 @@ title: Document Intelligence Suite
 summary: Three parsers reading invoices, emails, and timesheets past 90% field accuracy — including the ones that arrive as photographs of paper.
 year: 2026
 tags: [LLMs, RAG, Document AI, FastAPI, Python]
+status: In production
+role: Led development
 featured: true
 order: 2
+cover: ../../src/assets/projects/document-intelligence-suite.png
+coverAlt: A stack of creased paper invoices on a dark surface, crossed by a bright scanning light
 ---
 
 Three production tools on one extraction backbone:

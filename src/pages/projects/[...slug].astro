@@ -16,8 +16,17 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 // `url` is the imported base-path helper, so the frontmatter field is
 // renamed to avoid shadowing it.
-const { title, summary, year, tags, url: liveUrl, repo, cover, coverAlt } =
-  project.data;
+const {
+  title, summary, year, tags, url: liveUrl, repo, cover, coverAlt,
+  deployment, partners, program, status, role,
+} = project.data;
+
+const facts = [
+  status && { label: 'Status', value: status },
+  role && { label: 'Role', value: role },
+  partners.length && { label: 'Partners', value: partners.join(' · ') },
+  program && { label: 'Programme', value: program },
+].filter(Boolean) as { label: string; value: string }[];
 ---
 
 <Base title={title} description={summary}>
@@ -37,6 +46,27 @@ const { title, summary, year, tags, url: liveUrl, repo, cover, coverAlt } =
       </div>
     )}
   </header>
+
+  {(facts.length > 0 || deployment.length > 0) && (
+    <section class="facts">
+      {facts.map((fact) => (
+        <div class="fact">
+          <dt>{fact.label}</dt>
+          <dd>{fact.value}</dd>
+        </div>
+      ))}
+      {deployment.length > 0 && (
+        <div class="fact fact-wide">
+          <dt>Deployed</dt>
+          <dd>
+            <ul class="deploy-list">
+              {deployment.map((site) => <li>{site}</li>)}
+            </ul>
+          </dd>
+        </div>
+      )}
+    </section>
+  )}
 
   {cover && (
     <figure class="detail-media">

@@ -13,11 +13,11 @@ it is a screenshot of the real system.
 
 | # | Project | Slug | Generated | Model | Asset |
 |---|---------|------|-----------|-------|-------|
-| 1 | Enterprise Knowledge Graph | `enterprise-knowledge-graph` | ☐ | — | — |
-| 2 | Document Intelligence Suite | `document-intelligence-suite` | ☐ | — | — |
-| 3 | Tunnel & Highway Incident Detection | `tunnel-incident-detection` | ☐ | — | — |
-| 4 | Rail Crossing Incident Detection | `rail-crossing-detection` | ☐ | — | — |
-| 5 | 3D Port Container Scanner | `port-container-scanner` | ☐ | — | — |
+| 1 | Enterprise Knowledge Graph | `enterprise-knowledge-graph` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/enterprise-knowledge-graph.png` |
+| 2 | Document Intelligence Suite | `document-intelligence-suite` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/document-intelligence-suite.png` |
+| 3 | Tunnel & Highway Incident Detection | `tunnel-incident-detection` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/tunnel-incident-detection.png` |
+| 4 | Rail Crossing Incident Detection | `rail-crossing-detection` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/rail-crossing-detection.png` |
+| 5 | 3D Port Container Scanner | `port-container-scanner` | ☑ 2026-08-24 | ChatGPT | `src/assets/projects/port-container-scanner.png` |
 
 ## Output requirements
 

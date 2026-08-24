@@ -3,8 +3,12 @@ title: Enterprise Knowledge Graph
 summary: Agentic pipelines that turn scattered public data on European enterprises into a graph you can actually query.
 year: 2026
 tags: [Agentic AI, Knowledge Graphs, NLP, JanusGraph, Python]
+status: In production
+role: Pipeline design and implementation
 featured: true
 order: 1
+cover: ../../src/assets/projects/enterprise-knowledge-graph.png
+coverAlt: Dark data-centre corridor with an open server rack, overlaid with a glowing network-graph motif
 ---
 
 The problem wasn't finding data about European companies. It was that the data
