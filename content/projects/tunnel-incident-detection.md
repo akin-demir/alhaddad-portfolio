@@ -45,4 +45,4 @@ Both published outputs came from this work:
 - [Incident Detection on Junction Using Image Processing](https://arxiv.org/abs/2104.13437)
 - [Application of the Neural Network Dependability Kit in Real-World Environments](https://arxiv.org/abs/2012.09602)
 
-**ISSD Bilisim Elektronik** · 2018–2021
+**ISSD Bilişim Elektronik A.Ş.** · 2018–2021

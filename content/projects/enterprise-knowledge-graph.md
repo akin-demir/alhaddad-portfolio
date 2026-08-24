@@ -27,7 +27,7 @@ The interesting engineering was in the failure modes. Agents that decide
 things also decide things wrongly, so most of the work went into constraining
 what an agent could conclude and making its output checkable.
 
-**Innoscripta AG** · 2021–present
+**innoscripta SE** · 2021–present
 
 <!-- Worth adding when you have the numbers: entity/company scale, what the
      graph feeds downstream, and where agentic beat a fixed pipeline. -->

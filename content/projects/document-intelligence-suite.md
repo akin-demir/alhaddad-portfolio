@@ -29,7 +29,7 @@ The accuracy number is the headline, but the useful lesson was about scope —
 each parser got dramatically better once we stopped trying to extract every
 field and focused on the ones downstream systems actually consumed.
 
-**Innoscripta AG** · Led development
+**innoscripta SE** · Led development
 
 <!-- Worth adding: what 90% is measured against, the hard failure cases, and
      the LLM vs. classical-layout-model split. -->

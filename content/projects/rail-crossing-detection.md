@@ -24,4 +24,4 @@ Timing defined the whole problem. A detection that arrives after the train
 does is worthless, so the useful metric was how early a hazard could be called
 with acceptable confidence — not raw accuracy.
 
-**ISSD Bilisim Elektronik**
+**ISSD Bilişim Elektronik A.Ş.**

@@ -20,4 +20,4 @@ hour, and fewer misreads than the manual process it replaced. In a port,
 throughput is the metric — a model that's slightly more accurate but slower
 makes things worse.
 
-**ISSD Bilisim Elektronik**
+**ISSD Bilişim Elektronik A.Ş.**
