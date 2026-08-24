@@ -4,6 +4,7 @@
   "tagline": "I build tools that get out of the way.",
   "location": "Germany",
   "email": "alhaddad@innoscripta.com",
+  "resume": "/files/cv.pdf",
   "about": [
     "Replace this with a couple of paragraphs about yourself. Each string in this array becomes its own paragraph on the page.",
     "Keep it short — two or three sentences per paragraph reads better than one long block."

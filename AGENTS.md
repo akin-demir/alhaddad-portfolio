@@ -18,6 +18,25 @@ Project frontmatter: `title`, `summary`, `year` (number), `tags` (array),
 `url` (optional, must be a valid URL), `repo` (optional URL),
 `featured` (bool — surfaces it on the home page), `order` (number, ascending).
 
+## Assets
+
+Three locations, and the difference matters:
+
+- `src/assets/` — **images the site displays.** Astro optimizes these: WebP
+  conversion, responsive `srcset`, content-hashed filenames, `width`/`height`
+  baked in. Reference from frontmatter as a relative path
+  (`cover: ../../src/assets/projects/foo.png`) and it is validated at build time.
+  Always render with `<Image>` from `astro:assets`, never a bare `<img>`.
+- `public/files/` — **downloads served verbatim.** PDFs, .ics, anything the user
+  clicks to save. Served at `/files/<name>`. No processing, so no optimization.
+  `content/site.json:resume` points at one of these and renders a nav link;
+  set it to `null` if there is no CV, or the link 404s.
+- `_inbox/` — **gitignored scratch.** Raw source material to read, not publish.
+  Move anything worth shipping into one of the two above and delete the original.
+
+Never put a displayed image in `public/` — it skips the optimizer entirely and
+ships the full-size original.
+
 ## Adding a project
 
 Write one file to `content/projects/<slug>.md`. Nothing else — the home page,

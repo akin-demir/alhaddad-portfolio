@@ -5,6 +5,8 @@ year: 2026
 tags: [TypeScript, Astro]
 url: https://example.com
 repo: https://github.com/USERNAME/example
+cover: ../../src/assets/projects/example-cover.png
+coverAlt: Placeholder gradient standing in for a real screenshot
 featured: true
 order: 1
 ---

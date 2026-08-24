@@ -33,6 +33,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       <nav>
         <a href="/">Home</a>
         <a href="/projects/">Projects</a>
+        {site.resume && <a href={site.resume}>CV</a>}
       </nav>
     </header>
 

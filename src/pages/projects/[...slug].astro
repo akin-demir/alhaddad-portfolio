@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 
 export async function getStaticPaths() {
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, summary, year, tags, url, repo } = project.data;
+const { title, summary, year, tags, url, repo, cover, coverAlt } = project.data;
 ---
 
 <Base title={title} description={summary}>
@@ -32,6 +33,18 @@ const { title, summary, year, tags, url, repo } = project.data;
       </div>
     )}
   </header>
+
+  {cover && (
+    <figure class="detail-media">
+      <Image
+        src={cover}
+        alt={coverAlt || `${title} screenshot`}
+        widths={[640, 900, 1280]}
+        sizes="(max-width: 56rem) 100vw, 52rem"
+        loading="eager"
+      />
+    </figure>
+  )}
 
   <div class="prose">
     <Content />
