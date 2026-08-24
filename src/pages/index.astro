@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import site from '../../content/site.json';
+import portrait from '../assets/portrait.jpeg';
 
 const all = await getCollection('projects');
 const featured = all
@@ -13,9 +15,22 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
 
 <Base>
   <section class="hero">
-    <h1>{site.name}</h1>
-    <p class="role">{site.role} &middot; {site.location}</p>
-    <p class="tagline">{site.tagline}</p>
+    <div class="hero-text">
+      <h1>{site.name}</h1>
+      <p class="role">{site.role} &middot; {site.location}</p>
+      <p class="tagline">{site.tagline}</p>
+      <div class="hero-links">
+        {site.links.map((link) => <a href={link.url}>{link.label}</a>)}
+      </div>
+    </div>
+    <Image
+      src={portrait}
+      alt={`Portrait of ${site.name}`}
+      widths={[160, 320]}
+      sizes="10rem"
+      class="portrait"
+      loading="eager"
+    />
   </section>
 
   <section>
@@ -23,18 +38,32 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
       <h2>Selected work</h2>
       <a href="/projects/">All projects &rarr;</a>
     </div>
-    {shown.length > 0 ? (
-      <ul class="project-grid">
-        {shown.map((project) => <ProjectCard project={project} />)}
-      </ul>
-    ) : (
-      <p>No projects yet — add a markdown file to <code>content/projects/</code>.</p>
-    )}
+    <ul class="project-grid">
+      {shown.map((project) => <ProjectCard project={project} />)}
+    </ul>
   </section>
 
   <section>
     <div class="section-head"><h2>About</h2></div>
     {site.about.map((para) => <p>{para}</p>)}
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Experience</h2></div>
+    <ol class="timeline">
+      {site.experience.map((job) => (
+        <li>
+          <div class="timeline-head">
+            <h3>{job.role}</h3>
+            <span class="dates">{job.start} &ndash; {job.end}</span>
+          </div>
+          <p class="org">{job.org} &middot; {job.location}</p>
+          <ul class="bullets">
+            {job.points.map((point) => <li>{point}</li>)}
+          </ul>
+        </li>
+      ))}
+    </ol>
   </section>
 
   <section>
@@ -49,5 +78,39 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
         </li>
       ))}
     </ul>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Publications</h2></div>
+    <ol class="pubs">
+      {site.publications.map((pub) => (
+        <li>
+          <span class="pub-title">
+            {pub.url ? <a href={pub.url}>{pub.title}</a> : pub.title}
+          </span>
+          <span class="pub-venue">{pub.venue}, {pub.year}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="closing">
+    <div class="closing-col">
+      <div class="section-head"><h2>Education</h2></div>
+      {site.education.map((ed) => (
+        <p>
+          <strong>{ed.degree}</strong><br />
+          {ed.org} &middot; {ed.years}
+        </p>
+      ))}
+    </div>
+    <div class="closing-col">
+      <div class="section-head"><h2>Languages</h2></div>
+      <ul class="langs">
+        {site.languages.map((lang) => (
+          <li><span>{lang.name}</span> <span class="dates">{lang.level}</span></li>
+        ))}
+      </ul>
+    </div>
   </section>
 </Base>

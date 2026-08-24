@@ -178,6 +178,32 @@ main {
 /* ---- Sections ----------------------------------------------------------- */
 .hero {
   padding-block: 1rem 3rem;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text {
+  flex: 1 1 20rem;
+}
+
+.portrait {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex: none;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.925rem;
+  margin-top: 1.25rem;
 }
 
 .hero .role {
@@ -392,4 +418,104 @@ section + section {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+}
+
+/* ---- Timeline ----------------------------------------------------------- */
+.timeline,
+.pubs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline > li + li {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+
+.timeline-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.timeline-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.dates {
+  color: var(--muted);
+  font-size: 0.825rem;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.org {
+  color: var(--muted);
+  font-size: 0.925rem;
+  margin: 0.15rem 0 0.75rem;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.bullets li {
+  max-width: var(--measure);
+}
+
+/* ---- Publications ------------------------------------------------------- */
+.pubs {
+  counter-reset: pub;
+  display: grid;
+  gap: 1rem;
+}
+
+.pubs li {
+  display: grid;
+  gap: 0.15rem;
+  max-width: var(--measure);
+}
+
+.pub-title {
+  font-weight: 500;
+}
+
+.pub-venue {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---- Closing two-up ----------------------------------------------------- */
+.closing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2.5rem;
+}
+
+.closing .section-head {
+  margin-bottom: 1rem;
+}
+
+.langs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+  max-width: 16rem;
+}
+
+.langs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.925rem;
 }

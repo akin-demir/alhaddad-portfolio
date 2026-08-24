@@ -1,22 +1,124 @@
 {
-  "name": "Mo Alhaddad",
-  "role": "Software Engineer",
-  "tagline": "I build tools that get out of the way.",
+  "name": "Mohamad Alhaddad",
+  "role": "AI Solutions Engineer",
+  "tagline": "I build LLM agent systems and computer vision pipelines that run in production, not in notebooks.",
   "location": "Germany",
-  "email": "alhaddad@innoscripta.com",
+  "email": "mohd1haddad@gmail.com",
   "resume": "/files/cv.pdf",
   "about": [
-    "Replace this with a couple of paragraphs about yourself. Each string in this array becomes its own paragraph on the page.",
-    "Keep it short — two or three sentences per paragraph reads better than one long block."
+    "Machine learning engineer with 7+ years building and shipping AI systems — LLM-powered multi-agent architectures, RAG pipelines, and real-time computer vision. I work end to end: model design, the async services around it, and the deployment that keeps it running.",
+    "Most recently at Innoscripta AG in Germany, building agentic extraction pipelines and document intelligence tooling over enterprise-scale knowledge graphs. Before that, real-time incident detection for tunnels, highways, and rail crossings in collaboration with Intel and Huawei.",
+    "Three peer-reviewed and preprint publications in computer vision and neural network dependability."
   ],
   "links": [
     { "label": "GitHub", "url": "https://github.com/USERNAME" },
-    { "label": "LinkedIn", "url": "https://linkedin.com/in/USERNAME" },
-    { "label": "Email", "url": "mailto:alhaddad@innoscripta.com" }
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/alhaddad-mohamad-375532117/"
+    },
+    { "label": "Email", "url": "mailto:mohd1haddad@gmail.com" }
   ],
   "skills": [
-    { "group": "Languages", "items": ["TypeScript", "Python", "Go", "SQL"] },
-    { "group": "Frontend", "items": ["React", "Astro", "Tailwind"] },
-    { "group": "Backend", "items": ["Node", "PostgreSQL", "Docker"] }
+    {
+      "group": "AI & LLM Systems",
+      "items": [
+        "LLM Integration",
+        "Multi-Agent Systems",
+        "RAG Pipelines",
+        "LangChain",
+        "Autogen",
+        "MCP",
+        "Agentic AI"
+      ]
+    },
+    {
+      "group": "ML & Vision",
+      "items": [
+        "NLP",
+        "Deep Text Analysis",
+        "Object Detection",
+        "Crowd Analysis",
+        "Incident Detection",
+        "Time Series Forecasting"
+      ]
+    },
+    {
+      "group": "Backend",
+      "items": ["Python (asyncio)", "FastAPI", "C++", "Qt", "REST APIs", "Microservices"]
+    },
+    {
+      "group": "Cloud & MLOps",
+      "items": ["AWS", "Docker", "Kubernetes", "OpenVINO", "CI/CD", "GitHub Actions"]
+    },
+    {
+      "group": "Data",
+      "items": [
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "Qdrant",
+        "Elasticsearch",
+        "JanusGraph",
+        "AWS Neptune"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "AI Solutions Engineer",
+      "org": "Innoscripta AG",
+      "location": "Hybrid · Germany",
+      "start": "Oct 2021",
+      "end": "Jan 2026",
+      "points": [
+        "Built agentic AI pipelines extracting structured data from European enterprises, feeding a scalable knowledge graph built on NLP and deep learning models.",
+        "Led development of document intelligence tools — scanned invoice parser, email analyzer, timesheet parser — reaching 90%+ extraction accuracy.",
+        "Exposed LLM agents as async FastAPI services, with Docker deployments and CI/CD on AWS."
+      ]
+    },
+    {
+      "role": "ML Solutions Engineer",
+      "org": "ISSD Bilisim Elektronik",
+      "location": "Hybrid · Turkey",
+      "start": "Aug 2018",
+      "end": "Sep 2021",
+      "points": [
+        "Designed a smart incident detection system for tunnels and highways with Intel, identifying incidents in real time on optimized models.",
+        "Built a 3D port container scanner integrating ML models to scan logistics containers, improving throughput and reducing error rates.",
+        "Developed a train crossing incident detection system with Huawei using object detection to improve intersection safety."
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "Incident Detection on Junction Using Image Processing",
+      "venue": "arXiv preprint",
+      "year": 2021,
+      "url": "https://arxiv.org/abs/2104.13437"
+    },
+    {
+      "title": "Application of the Neural Network Dependability Kit in Real-World Environments",
+      "venue": "arXiv preprint",
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2012.09602"
+    },
+    {
+      "title": "Aiming for Smart Wind Energy",
+      "venue": "Transactions on Emerging Telecommunications Technologies",
+      "year": 2019
+    }
+  ],
+  "education": [
+    {
+      "degree": "BSc, Mechatronics & Automation Systems Engineering",
+      "org": "Eastern Mediterranean University",
+      "years": "2014–2017"
+    }
+  ],
+  "languages": [
+    { "name": "English", "level": "Fluent" },
+    { "name": "Turkish", "level": "Native" },
+    { "name": "Arabic", "level": "Native" },
+    { "name": "German", "level": "Beginner" }
   ]
 }
