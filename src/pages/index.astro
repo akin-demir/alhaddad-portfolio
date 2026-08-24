@@ -5,6 +5,7 @@ import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import site from '../../content/site.json';
 import portrait from '../assets/portrait.png';
+import { url } from '../lib/url';
 
 const all = await getCollection('projects');
 const featured = all
@@ -34,7 +35,7 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
             {link.label}
           </a>
         ))}
-        <a href={site.resume} class="pill">Download CV</a>
+        <a href={url(site.resume)} class="pill">Download CV</a>
       </div>
     </div>
 
@@ -62,7 +63,7 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
   <section>
     <div class="section-head" data-reveal>
       <h2>Selected work</h2>
-      <a href="/projects/">All projects &rarr;</a>
+      <a href={url("/projects/")}>All projects &rarr;</a>
     </div>
     <ul class="project-grid">
       {shown.map((project, i) => (

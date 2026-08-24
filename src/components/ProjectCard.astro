@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
+import { url } from '../lib/url';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -9,7 +10,7 @@ interface Props {
 
 const { project, delay = 0 } = Astro.props;
 const { title, summary, year, tags, cover, coverAlt } = project.data;
-const href = `/projects/${project.id}/`;
+const href = url(`/projects/${project.id}/`);
 ---
 
 <li class="card" data-reveal style={`--delay: ${delay}ms`}>

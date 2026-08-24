@@ -1,12 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// For a <user>.github.io repo the site lives at the domain root, so no `base`
-// is needed. If you ever rename the repo to something else, add:
-//   base: '/repo-name',
-// and Astro will prefix every generated link for you.
+// Deployed as a GitHub Pages *project* site, so it is served from a subpath.
+// `base` must match the repo name exactly. Internal links go through
+// src/lib/url.ts, which prefixes this for us.
+//
+// When a custom domain is added later, the site moves to the domain root:
+// change `site` to the domain and delete `base` entirely.
 export default defineConfig({
-  site: 'https://USERNAME.github.io',
+  site: 'https://akin-demir.github.io',
+  base: '/alhaddad-portfolio',
   trailingSlash: 'always',
   build: { format: 'directory' },
 });

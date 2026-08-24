@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import { url } from '../lib/url';
 import site from '../../content/site.json';
 
 interface Props {
@@ -19,7 +20,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -61,13 +62,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
     <header class="site-header">
       <div class="header-inner">
-        <a href="/" class="wordmark">
+        <a href={url("/")} class="wordmark">
           {site.firstName ?? site.name.split(' ')[0]}<span class="dot">.</span>
         </a>
         <nav>
-          <a href="/">Home</a>
-          <a href="/projects/">Projects</a>
-          {site.resume && <a href={site.resume}>CV</a>}
+          <a href={url("/")}>Home</a>
+          <a href={url("/projects/")}>Projects</a>
+          {site.resume && <a href={url(site.resume)}>CV</a>}
           <ThemeToggle />
         </nav>
       </div>

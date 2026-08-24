@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -13,11 +14,14 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, summary, year, tags, url, repo, cover, coverAlt } = project.data;
+// `url` is the imported base-path helper, so the frontmatter field is
+// renamed to avoid shadowing it.
+const { title, summary, year, tags, url: liveUrl, repo, cover, coverAlt } =
+  project.data;
 ---
 
 <Base title={title} description={summary}>
-  <a href="/projects/" class="back-link">&larr; All projects</a>
+  <a href={url("/projects/")} class="back-link">&larr; All projects</a>
 
   <header class="detail-header">
     <h1>{title}</h1>
@@ -26,10 +30,10 @@ const { title, summary, year, tags, url, repo, cover, coverAlt } = project.data;
       <span>{year}</span>
       {tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
-    {(url || repo) && (
+    {(liveUrl || repo) && (
       <div class="detail-links">
-        {url && <a href={url}>Live site &rarr;</a>}
-        {repo && <a href={repo}>Source &rarr;</a>}
+        {liveUrl && <a href={liveUrl} class="pill">Live site &rarr;</a>}
+        {repo && <a href={repo} class="pill">Source &rarr;</a>}
       </div>
     )}
   </header>
