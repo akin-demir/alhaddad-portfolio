@@ -1,7 +1,7 @@
 ---
 title: Enterprise Knowledge Graph
 summary: Agentic pipelines that turn scattered public data on European enterprises into a graph you can actually query.
-year: 2025
+year: 2026
 tags: [Agentic AI, Knowledge Graphs, NLP, JanusGraph, Python]
 featured: true
 order: 1
@@ -23,7 +23,7 @@ The interesting engineering was in the failure modes. Agents that decide
 things also decide things wrongly, so most of the work went into constraining
 what an agent could conclude and making its output checkable.
 
-**Innoscripta AG** · 2021–2026
+**Innoscripta AG** · 2021–present
 
 <!-- Worth adding when you have the numbers: entity/company scale, what the
      graph feeds downstream, and where agentic beat a fixed pipeline. -->

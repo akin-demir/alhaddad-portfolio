@@ -1,7 +1,7 @@
 ---
 title: Document Intelligence Suite
 summary: Three parsers reading invoices, emails, and timesheets past 90% field accuracy — including the ones that arrive as photographs of paper.
-year: 2025
+year: 2026
 tags: [LLMs, RAG, Document AI, FastAPI, Python]
 featured: true
 order: 2

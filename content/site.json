@@ -2,7 +2,7 @@
   "name": "Mohamad Alhaddad",
   "firstName": "Mohamad",
   "role": "AI Solutions Engineer",
-  "available": true,
+  "available": false,
   "availableLabel": "Open to new roles",
   "headline": {
     "lead": "I build AI systems that",
@@ -18,16 +18,29 @@
     "I like problems where the interesting constraint isn't model accuracy but everything around it — latency budgets, messy inputs, and the gap between a benchmark and a Tuesday afternoon."
   ],
   "links": [
-    { "label": "Email", "url": "mailto:mohd1haddad@gmail.com", "primary": true },
+    {
+      "label": "Email",
+      "url": "mailto:mohd1haddad@gmail.com",
+      "primary": true
+    },
     {
       "label": "LinkedIn",
       "url": "https://www.linkedin.com/in/alhaddad-mohamad-375532117/"
     }
   ],
   "stats": [
-    { "value": "7+", "label": "Years shipping AI" },
-    { "value": "90%+", "label": "Extraction accuracy" },
-    { "value": "3", "label": "Publications" }
+    {
+      "value": "7+",
+      "label": "Years shipping AI"
+    },
+    {
+      "value": "90%+",
+      "label": "Extraction accuracy"
+    },
+    {
+      "value": "3",
+      "label": "Publications"
+    }
   ],
   "skills": [
     {
@@ -53,11 +66,23 @@
     },
     {
       "group": "Backend",
-      "items": ["Python (asyncio)", "FastAPI", "C++", "Qt", "Microservices"]
+      "items": [
+        "Python (asyncio)",
+        "FastAPI",
+        "C++",
+        "Qt",
+        "Microservices"
+      ]
     },
     {
       "group": "Infrastructure",
-      "items": ["AWS", "Docker", "Kubernetes", "OpenVINO", "CI/CD"]
+      "items": [
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "OpenVINO",
+        "CI/CD"
+      ]
     },
     {
       "group": "Data Stores",
@@ -78,7 +103,7 @@
       "org": "Innoscripta AG",
       "location": "Germany · Hybrid",
       "start": "Oct 2021",
-      "end": "Jan 2026",
+      "end": "Present",
       "summary": "Agentic extraction and document intelligence at enterprise scale.",
       "points": [
         "Built the agentic extraction pipeline behind a knowledge graph of European enterprise data — LLM agents deciding what to pull, NLP models resolving entities, everything landing somewhere queryable.",
@@ -127,9 +152,21 @@
     }
   ],
   "languages": [
-    { "name": "Turkish", "level": "Native" },
-    { "name": "Arabic", "level": "Native" },
-    { "name": "English", "level": "Fluent" },
-    { "name": "German", "level": "Beginner" }
+    {
+      "name": "Turkish",
+      "level": "Native"
+    },
+    {
+      "name": "Arabic",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "German",
+      "level": "Beginner"
+    }
   ]
 }
