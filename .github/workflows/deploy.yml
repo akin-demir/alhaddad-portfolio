@@ -21,18 +21,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      # `npm install`, not `npm ci`: sharp and rolldown ship per-platform
+      # binaries as optional deps, and a lockfile generated on macOS omits the
+      # Linux ones. `npm ci` treats that as fatal; `npm install` resolves what
+      # this platform actually needs.
+      - run: npm install
 
       - run: npm run build
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
