@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import { url } from '../../lib/url';
 
@@ -21,6 +21,26 @@ const {
   deployment, partners, program, status, role,
 } = project.data;
 
+// Share the project's own cover instead of the generic site card. getImage()
+// gives an absolute-able path to the optimized asset rather than the source.
+const ogImage = cover
+  ? (await getImage({ src: cover, width: 1200, height: 630, format: 'png' })).src
+  : undefined;
+
+const projectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: title,
+  abstract: summary,
+  dateCreated: String(year),
+  keywords: tags.join(', '),
+  author: { '@type': 'Person', name: 'Mohamad Alhaddad' },
+  ...(partners.length && {
+    contributor: partners.map((p) => ({ '@type': 'Organization', name: p })),
+  }),
+  ...(deployment.length && { locationCreated: deployment.join('; ') }),
+};
+
 const facts = [
   status && { label: 'Status', value: status },
   role && { label: 'Role', value: role },
@@ -29,7 +49,7 @@ const facts = [
 ].filter(Boolean) as { label: string; value: string }[];
 ---
 
-<Base title={title} description={summary}>
+<Base title={title} description={summary} image={ogImage} schema={projectSchema}>
   <a href={url("/projects/")} class="back-link">&larr; All projects</a>
 
   <header class="detail-header">

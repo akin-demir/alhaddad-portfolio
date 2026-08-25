@@ -8,11 +8,42 @@ import site from '../../content/site.json';
 interface Props {
   title?: string;
   description?: string;
+  /** Absolute or root-relative image for social cards. Defaults to /og.png */
+  image?: string;
+  /** Extra JSON-LD to emit alongside the site-wide Person schema. */
+  schema?: Record<string, unknown>;
 }
 
-const { title, description = site.tagline } = Astro.props;
+const { title, description = site.tagline, image, schema } = Astro.props;
+
 const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.role}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image ?? '/og.png', Astro.site);
+
+// Person schema powers entity recognition in search — it tells Google this is
+// a specific human with these profiles, rather than an unattributed page.
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: site.role,
+  email: `mailto:${site.email}`,
+  url: Astro.site?.toString(),
+  image: ogImage.toString(),
+  description: site.tagline,
+  address: { '@type': 'PostalAddress', addressCountry: site.location },
+  sameAs: site.links.filter((l) => l.url.startsWith('http')).map((l) => l.url),
+  worksFor: site.experience.slice(0, 1).map((job) => ({
+    '@type': 'Organization',
+    name: job.org,
+  }))[0],
+  alumniOf: site.education.map((ed) => ({
+    '@type': 'EducationalOrganization',
+    name: ed.org,
+  })),
+  knowsAbout: site.skills.flatMap((group) => group.items),
+  knowsLanguage: site.languages.map((l) => l.name),
+};
 ---
 
 <!doctype html>
@@ -20,15 +51,28 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0d0d11" />
+
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={title ? 'article' : 'website'} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name} — ${site.role}`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,6 +80,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(personSchema)}
+    />
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
 
     <ClientRouter />
 
@@ -62,12 +114,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
     <header class="site-header">
       <div class="header-inner">
-        <a href={url("/")} class="wordmark">
+        <a href={url('/')} class="wordmark">
           {site.firstName ?? site.name.split(' ')[0]}<span class="dot">.</span>
         </a>
         <nav>
-          <a href={url("/")}>Home</a>
-          <a href={url("/projects/")}>Projects</a>
+          <a href={url('/')}>Home</a>
+          <a href={url('/projects/')}>Projects</a>
           {site.resume && <a href={url(site.resume)}>CV</a>}
           <ThemeToggle />
         </nav>
