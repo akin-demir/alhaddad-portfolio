@@ -1,0 +1,73 @@
+---
+// Fixed WebGL layer. Three.js is dynamically imported and only after the page
+// has settled, so it never blocks first paint or delays the content.
+---
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<script>
+  let teardown: (() => void) | null = null;
+
+  async function boot() {
+    if (teardown) return;
+
+    const canvas = document.getElementById('scene') as HTMLCanvasElement | null;
+    if (!canvas) return;
+
+    // Bail before loading ~150KB of Three for visitors who won't see it.
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!document.querySelector('[data-scene]')) return;
+
+    // Cheap WebGL probe — avoids the dynamic import on devices that can't run it
+    try {
+      const probe = document.createElement('canvas');
+      if (!probe.getContext('webgl2') && !probe.getContext('webgl')) return;
+    } catch {
+      return;
+    }
+
+    const { initScene } = await import('../lib/scene/core');
+    teardown = initScene(canvas);
+    canvas.classList.add('is-ready');
+  }
+
+  function start() {
+    // Defer to idle so images and fonts win the bandwidth race
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => boot(), { timeout: 2500 });
+    } else {
+      setTimeout(boot, 900);
+    }
+  }
+
+  document.addEventListener('astro:page-load', start);
+
+  // View transitions swap the DOM; drop the old scene before the next page boots
+  document.addEventListener('astro:before-swap', () => {
+    teardown?.();
+    teardown = null;
+  });
+</script>
+
+<style>
+  #scene {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+
+  #scene.is-ready {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #scene {
+      display: none;
+    }
+  }
+</style>

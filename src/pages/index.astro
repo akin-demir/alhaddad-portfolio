@@ -15,7 +15,7 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
 ---
 
 <Base>
-  <section class="hero">
+  <section class="hero" data-scene="graph">
     <div class="hero-text">
       {site.available && (
         <p class="eyebrow" data-reveal>
@@ -72,14 +72,14 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
     </ul>
   </section>
 
-  <section>
+  <section data-scene="stack">
     <div class="section-head" data-reveal><h2>About</h2></div>
     {site.about.map((para, i) => (
       <p data-reveal style={`--delay: ${i * 80}ms`}>{para}</p>
     ))}
   </section>
 
-  <section>
+  <section data-scene="vision">
     <div class="section-head" data-reveal><h2>Experience</h2></div>
     <ol class="timeline">
       {site.experience.map((job, i) => (
@@ -97,7 +97,7 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
     </ol>
   </section>
 
-  <section>
+  <section data-scene="semantic">
     <div class="section-head" data-reveal><h2>Toolkit</h2></div>
     <ul class="skills">
       {site.skills.map((group, i) => (
@@ -111,7 +111,7 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
     </ul>
   </section>
 
-  <section>
+  <section data-scene="documents">
     <div class="section-head" data-reveal><h2>Publications</h2></div>
     <ol class="pubs">
       {site.publications.map((pub, i) => (
@@ -125,7 +125,7 @@ const shown = featured.length > 0 ? featured : all.slice(0, 3);
     </ol>
   </section>
 
-  <section class="closing">
+  <section class="closing" data-scene="converge">
     <div>
       <div class="section-head" data-reveal><h2>Education</h2></div>
       {site.education.map((ed) => (

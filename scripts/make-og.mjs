@@ -12,17 +12,17 @@ const bg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%"  stop-color="#111117"/>
-      <stop offset="55%" stop-color="#0d0d11"/>
-      <stop offset="100%" stop-color="#16121a"/>
+      <stop offset="0%"  stop-color="#0b0d12"/>
+      <stop offset="55%" stop-color="#07080b"/>
+      <stop offset="100%" stop-color="#10141c"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.15" cy="0.1" r="0.8">
-      <stop offset="0%"  stop-color="#c2410c" stop-opacity="0.30"/>
-      <stop offset="100%" stop-color="#c2410c" stop-opacity="0"/>
+      <stop offset="0%"  stop-color="#0e7490" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#0e7490" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="0.95" cy="0.9" r="0.7">
-      <stop offset="0%"  stop-color="#7c3aed" stop-opacity="0.26"/>
-      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+      <stop offset="0%"  stop-color="#6d28d9" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#6d28d9" stop-opacity="0"/>
     </radialGradient>
     <clipPath id="round"><rect x="792" y="150" width="300" height="330" rx="18"/></clipPath>
   </defs>
@@ -32,13 +32,13 @@ const bg = `
   <rect width="${W}" height="${H}" fill="url(#glow2)"/>
 
   <!-- accent rule top -->
-  <rect x="0" y="0" width="${W}" height="5" fill="#c2410c"/>
+  <rect x="0" y="0" width="${W}" height="5" fill="#58cbe0"/>
 
   <text x="88" y="243" font-family="Georgia, 'Times New Roman', serif"
         font-size="72" fill="#f2f0f4">${esc(NAME)}</text>
 
   <text x="90" y="292" font-family="Menlo, Consolas, monospace"
-        font-size="25" letter-spacing="1.5" fill="#fb923c">${esc(ROLE)}</text>
+        font-size="25" letter-spacing="1.5" fill="#58cbe0">${esc(ROLE)}</text>
 
   <rect x="90" y="330" width="72" height="2" fill="#3a3a47"/>
 

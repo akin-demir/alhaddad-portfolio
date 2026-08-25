@@ -37,36 +37,42 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #0d0d11;
-    --surface: #16161c;
-    --surface-2: #1d1d25;
-    --border: #292933;
-    --border-strong: #3a3a47;
-    --text: #edecf1;
-    --muted: #9b98a5;
-    --accent: #fb923c;
-    --accent-2: #a78bfa;
-    --accent-soft: #241a18;
+    --bg: #07080b;
+    --surface: #0e1116;
+    --surface-2: #151a21;
+    --border: #1f252e;
+    --border-strong: #313a46;
+    --text: #e9edf1;
+    --muted: #8d97a4;
+    --accent: #58cbe0;
+    --accent-2: #9b83e0;
+    --accent-soft: #0f1c22;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.6);
     --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -12px rgb(0 0 0 / 0.7);
-    --aurora-opacity: 0.2;
+    --aurora-1: #0e7490;
+    --aurora-2: #6d28d9;
+    --aurora-3: #155e75;
+    --aurora-opacity: 0.13;
   }
 }
 
 :root[data-theme='dark'] {
-  --bg: #0d0d11;
-  --surface: #16161c;
-  --surface-2: #1d1d25;
-  --border: #292933;
-  --border-strong: #3a3a47;
-  --text: #edecf1;
-  --muted: #9b98a5;
-  --accent: #fb923c;
-  --accent-2: #a78bfa;
-  --accent-soft: #241a18;
+  --bg: #07080b;
+  --surface: #0e1116;
+  --surface-2: #151a21;
+  --border: #1f252e;
+  --border-strong: #313a46;
+  --text: #e9edf1;
+  --muted: #8d97a4;
+  --accent: #58cbe0;
+  --accent-2: #9b83e0;
+  --accent-soft: #0f1c22;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.6);
   --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.5), 0 24px 48px -12px rgb(0 0 0 / 0.7);
-  --aurora-opacity: 0.2;
+  --aurora-1: #0e7490;
+  --aurora-2: #6d28d9;
+  --aurora-3: #155e75;
+  --aurora-opacity: 0.13;
 }
 
 /* ===========================================================================
@@ -234,6 +240,18 @@ code {
   transform: scaleX(0);
   transform-origin: 0 50%;
   transition: transform 0.1s linear;
+}
+
+/* ===========================================================================
+   Layering
+   The WebGL canvas is fixed at z-index 0; every content region sits above it.
+   Without this the scene would paint over the text.
+   ========================================================================= */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* ===========================================================================
