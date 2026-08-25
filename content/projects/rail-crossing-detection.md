@@ -1,13 +1,13 @@
 ---
 title: Rail Crossing Incident Detection
 summary: Object detection at Serbian level crossings, flagging hazards in the danger zone while there's still time to act on them.
-year: 2020
+year: 2021
 tags: [Computer Vision, Object Detection, Safety Systems]
 deployment:
   - Serbia — national rail crossings
 partners: [Huawei]
 status: Deployed
-order: 5
+order: 8
 cover: ../../src/assets/projects/rail-crossing-detection.png
 coverAlt: A level crossing at dusk in rain, barriers down and red warning lights lit, with a camera on a pole
 ---

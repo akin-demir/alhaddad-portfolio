@@ -9,8 +9,8 @@ deployment:
 partners: [Intel, fortiss GmbH]
 program: EU Horizon 2020 · FED4SAE
 status: Deployed
-featured: true
-order: 4
+featured: false
+order: 7
 cover: ../../src/assets/projects/tunnel-incident-detection.png
 coverAlt: A monitoring camera mounted on a tunnel wall above wet carriageways at night
 ---

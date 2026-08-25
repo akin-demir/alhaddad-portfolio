@@ -6,7 +6,7 @@ tags: [LLMs, RAG, Document AI, FastAPI, Python]
 status: In production
 role: Led development
 featured: true
-order: 2
+order: 1
 cover: ../../src/assets/projects/document-intelligence-suite.png
 coverAlt: A stack of creased paper invoices on a dark surface, crossed by a bright scanning light
 ---

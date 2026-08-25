@@ -6,7 +6,7 @@ tags: [LLMs, Embeddings, Semantic Similarity, Purchase Intent, Python]
 status: In production
 role: Implementation
 featured: true
-order: 3
+order: 5
 ---
 
 Ask an LLM to rate a sales lead from 1 to 5 and it will happily give you a
