@@ -147,6 +147,11 @@
   ],
   "education": [
     {
+      "degree": "MSc, Sustainable Environment and Energy Systems",
+      "org": "Middle East Technical University, Northern Cyprus Campus (ODTÜ)",
+      "years": "2017"
+    },
+    {
       "degree": "BSc, Mechatronics & Automation Systems Engineering",
       "org": "Eastern Mediterranean University",
       "years": "2014–2017"
@@ -154,16 +159,16 @@
   ],
   "languages": [
     {
+      "name": "English",
+      "level": "Native"
+    },
+    {
       "name": "Turkish",
       "level": "Native"
     },
     {
       "name": "Arabic",
       "level": "Native"
-    },
-    {
-      "name": "English",
-      "level": "Fluent"
     },
     {
       "name": "German",
