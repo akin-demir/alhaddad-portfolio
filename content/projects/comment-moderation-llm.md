@@ -7,6 +7,8 @@ status: In production
 role: Development and deployment
 featured: true
 order: 2
+cover: ../../src/assets/projects/comment-moderation-llm.png
+coverAlt: A dark field of blank message bubbles, a scattered few glowing warm and in focus
 ---
 
 Moderation is a classification problem with a bad failure mode on both sides.

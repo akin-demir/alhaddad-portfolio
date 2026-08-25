@@ -7,6 +7,8 @@ status: In production
 role: Implementation
 featured: true
 order: 5
+cover: ../../src/assets/projects/sales-lead-proposal-system.png
+coverAlt: Blank cards scattered on a dark surface, a shaft of warm light picking out a diagonal of them
 ---
 
 Ask an LLM to rate a sales lead from 1 to 5 and it will happily give you a

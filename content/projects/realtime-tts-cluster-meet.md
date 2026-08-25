@@ -6,6 +6,8 @@ tags: [Speech Synthesis, TTS, Real-time Audio, R&D, Python]
 status: R&D
 role: Research and development
 order: 3
+cover: ../../src/assets/projects/realtime-tts-cluster-meet.png
+coverAlt: A studio microphone in a dark treated room, a band of warm waveform light streaking away from it
 ---
 
 **cluster-meet** is an in-house meeting platform. This was the research effort

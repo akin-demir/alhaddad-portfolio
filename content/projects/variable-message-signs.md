@@ -12,6 +12,8 @@ status: Deployed
 role: Design, development and deployment
 featured: false
 order: 10
+cover: ../../src/assets/projects/variable-message-signs.png
+coverAlt: A variable message sign gantry over a wet night highway, amber arrows lit on its matrix
 ---
 
 Variable message signs are the gantries and roadside boards that tell drivers

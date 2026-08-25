@@ -6,6 +6,8 @@ tags: [Audio Processing, Speech Enhancement, Noise Suppression, R&D, Python]
 status: R&D
 role: Research and development
 order: 4
+cover: ../../src/assets/projects/noise-suppression-cluster-meet.png
+coverAlt: A dark acoustic foam wall, cluttered and cold on one side, clean and warm on the other
 ---
 
 The second strand of audio research for **cluster-meet**, the in-house meeting
