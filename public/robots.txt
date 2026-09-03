@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://alhaddad.dev/sitemap-index.xml
+
+# Plain-text summary of this site for LLM assistants and agents.
+# https://llmstxt.org
+LLM-Content: https://alhaddad.dev/llms.txt

@@ -90,6 +90,10 @@ const personSchema = {
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
 
+    {/* Plain-text summary of the site for LLM assistants — see
+        src/pages/llms.txt.ts and https://llmstxt.org */}
+    <link rel="alternate" type="text/plain" href={url('/llms.txt')} title="llms.txt" />
+
     <ClientRouter />
 
     {/* Set theme and mark JS available before first paint — no flash, and the
