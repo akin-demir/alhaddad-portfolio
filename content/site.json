@@ -1,6 +1,6 @@
 {
-  "name": "Mohamad Alhaddad",
-  "firstName": "Mohamad",
+  "name": "Elhaddad",
+  "firstName": "Elhaddad",
   "role": "AI Solutions Engineer",
   "available": false,
   "availableLabel": "Open to new roles",
@@ -9,7 +9,6 @@
     "emphasis": "survive production"
   },
   "location": "Germany",
-  "email": "mohd1haddad@gmail.com",
   "resume": "/files/cv.pdf",
   "tagline": "Seven years building AI systems that run in production: LLM agents, retrieval pipelines, and computer vision on real hardware under real load.",
   "about": [
@@ -19,13 +18,9 @@
   ],
   "links": [
     {
-      "label": "Email",
-      "url": "mailto:mohd1haddad@gmail.com",
+      "label": "Connect on LinkedIn",
+      "url": "https://www.linkedin.com/in/alhaddad-mohamad-375532117/",
       "primary": true
-    },
-    {
-      "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/alhaddad-mohamad-375532117/"
     }
   ],
   "stats": [

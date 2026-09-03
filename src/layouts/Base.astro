@@ -28,7 +28,6 @@ const personSchema = {
   '@type': 'Person',
   name: site.name,
   jobTitle: site.role,
-  email: `mailto:${site.email}`,
   url: Astro.site?.toString(),
   image: ogImage.toString(),
   description: site.tagline,

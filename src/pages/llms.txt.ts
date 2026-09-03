@@ -46,7 +46,7 @@ export const GET: APIRoute = async () => {
     '',
     '## Contact',
     '',
-    ...site.links.map((l) => `- ${l.label}: ${l.url.replace(/^mailto:/, '')}`),
+    ...site.links.map((l) => `- ${l.label}: ${l.url}`),
     '',
   ].join('\n');
 

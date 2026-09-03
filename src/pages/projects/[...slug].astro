@@ -34,7 +34,7 @@ const projectSchema = {
   abstract: summary,
   dateCreated: String(year),
   keywords: tags.join(', '),
-  author: { '@type': 'Person', name: 'Mohamad Alhaddad' },
+  author: { '@type': 'Person', name: 'Elhaddad' },
   ...(partners.length && {
     contributor: partners.map((p) => ({ '@type': 'Organization', name: p })),
   }),

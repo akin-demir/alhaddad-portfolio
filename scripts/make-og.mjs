@@ -1,7 +1,7 @@
 import sharp from 'sharp';
 
 const W = 1200, H = 630;
-const NAME = 'Mohamad Alhaddad';
+const NAME = 'Elhaddad';
 const ROLE = 'AI Solutions Engineer';
 const LINE1 = 'LLM agent systems, retrieval pipelines,';
 const LINE2 = 'and computer vision that runs in production.';
