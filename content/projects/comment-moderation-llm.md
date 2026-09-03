@@ -1,6 +1,6 @@
 ---
 title: Sales Comment Moderation
-summary: A locally trained LLM that moderates comments on sales listings in-house, so nothing that needs judgement leaves the building.
+summary: A locally trained LLM that moderates comments on sales listings in-house, so customer text never leaves the building to get a label.
 year: 2026
 tags: [LLMs, Fine-tuning, Content Moderation, Self-hosted, Python]
 status: In production
@@ -11,24 +11,24 @@ cover: ../../src/assets/projects/comment-moderation-llm.png
 coverAlt: A dark field of blank message bubbles, a scattered few glowing warm and in focus
 ---
 
-Moderation is a classification problem with a bad failure mode on both sides.
-Miss something and it stays published; over-flag and you bury legitimate
-comments from real customers under a review queue nobody works through.
+Moderation is a classification problem that fails badly in both directions.
+Miss something and it stays published. Over-flag and you've buried real
+customers' comments in a review queue nobody has time to work through.
 
-This system moderates comments on sales content using an **LLM trained and
-served locally** — no third-party moderation API in the path. That was the
-constraint the design started from: comment text is customer data, and running
-it through an external endpoint to get back a label is a data flow that has to
-be justified rather than assumed. Keeping the model in-house removes the
-question.
+This system moderates comments on sales content with an **LLM trained and
+served locally**, with no third-party moderation API anywhere in the path.
+That was the starting constraint rather than an optimisation. Comment text is
+customer data, and sending it to an external endpoint just to get a label back
+is a data flow you have to justify. Keeping the model in-house means you don't
+have to.
 
-Running your own model also means the policy is yours. A hosted moderation
-endpoint enforces its vendor's categories, which rarely line up with what a
-specific sales context actually cares about. Training locally meant the
-boundaries could be drawn where the business needed them and moved when they
-turned out to be wrong.
+The other benefit showed up later: running your own model means the policy is
+yours. Hosted moderation endpoints enforce their vendor's categories, and
+those categories almost never match what a particular sales context cares
+about. Training locally let us draw the boundaries where the business wanted
+them, then move them when the first version turned out to be wrong in places.
 
-I handled both the training side and getting it into production.
+I did the training work and the production deployment.
 
 **innoscripta SE** · 2026
 

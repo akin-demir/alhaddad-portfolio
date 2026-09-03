@@ -12,16 +12,16 @@ cover: ../../src/assets/projects/rail-crossing-detection.png
 coverAlt: A level crossing at dusk in rain, barriers down and red warning lights lit, with a camera on a pole
 ---
 
-Level crossings fail in a narrow, predictable window: something is on the
-track and a train is close. This system watched for exactly that — object
-detection identifying vehicles or people in the danger zone, feeding alerts to
-rail operators.
+Level crossings fail in a narrow and fairly predictable window: something is on
+the track and a train is close. This system watched for that specific
+situation. Object detection picked out vehicles or people inside the danger
+zone and pushed alerts to rail operators.
 
-Deployed across level crossings in **Serbia**, in collaboration with
-**Huawei**.
+Deployed across level crossings in **Serbia**, together with **Huawei**.
 
-Timing defined the whole problem. A detection that arrives after the train
-does is worthless, so the useful metric was how early a hazard could be called
-with acceptable confidence — not raw accuracy.
+Timing shaped everything. A correct detection that arrives after the train does
+is worth nothing, so the metric we cared about was how early a hazard could be
+called at acceptable confidence, not how accurate the detector was in
+isolation.
 
 **ISSD Bilişim Elektronik A.Ş.**

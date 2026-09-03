@@ -1,6 +1,6 @@
 ---
 title: Noise Suppression for cluster-meet
-summary: R&D on cancelling background noise in live meeting audio without eating the speech underneath it.
+summary: R&D on removing background noise from live meeting audio without eating the speech underneath it.
 year: 2026
 tags: [Audio Processing, Speech Enhancement, Noise Suppression, R&D, Python]
 status: R&D
@@ -10,19 +10,20 @@ cover: ../../src/assets/projects/noise-suppression-cluster-meet.png
 coverAlt: A dark acoustic foam wall, cluttered and cold on one side, clean and warm on the other
 ---
 
-The second strand of audio research for **cluster-meet**, the in-house meeting
-platform: suppressing the noise people actually call from inside — keyboards,
-fans, traffic, a room with too much echo.
+The second strand of audio research for **cluster-meet**, our in-house meeting
+platform. This one deals with the noise people actually call from inside:
+keyboards, fans, traffic through an open window, a meeting room with too much
+echo in it.
 
-Aggressive suppression is easy to demo and unpleasant to sit in. Push it and
-speech starts arriving clipped at the edges, consonants go soft, and anyone
-with an accent the model handles less well gets the worst of it. The interesting
-question is never how much noise you can remove; it is how much you can remove
-before the voice degrades, and how that trade-off holds across real conditions
-rather than a clean test set.
+Aggressive suppression demos well and is unpleasant to sit in for an hour. Push
+it and speech starts arriving clipped at the edges, consonants go soft, and
+whoever has the accent the model handles least well gets the worst of it. So
+the question isn't how much noise you can remove. It's how much you can remove
+before the voice starts to degrade, and whether that trade-off holds up outside
+a clean test set.
 
-Like the TTS work, this had to run in the live path, which rules out anything
-that needs to see the whole utterance before deciding what to do with it.
+Same constraint as the TTS work: it has to run in the live path. That rules out
+anything that wants to see a whole utterance before deciding what to do with it.
 
 **innoscripta SE** · 2026
 

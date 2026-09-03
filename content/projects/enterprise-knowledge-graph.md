@@ -1,6 +1,6 @@
 ---
 title: Enterprise Knowledge Graph
-summary: Agentic pipelines that turn scattered public data on European enterprises into a graph you can actually query.
+summary: Agentic pipelines that turn scattered public data on European enterprises into a graph you can query.
 year: 2024
 tags: [Agentic AI, Knowledge Graphs, NLP, JanusGraph, Python]
 status: In production
@@ -11,21 +11,22 @@ cover: ../../src/assets/projects/enterprise-knowledge-graph.png
 coverAlt: Dark data-centre corridor with an open server rack, overlaid with a glowing network-graph motif
 ---
 
-The problem wasn't finding data about European companies. It was that the data
-arrived in a dozen shapes from a dozen places, and none of it agreed on what
-counted as the same entity.
+Finding data about European companies was never the hard part. The hard part
+was that it arrived in a dozen shapes from a dozen sources, and no two of them
+agreed on what counted as the same company.
 
-The extraction layer is agentic rather than a fixed pipeline: LLM agents with
-tool access decide what to pull and how to normalize it, which matters because
-every source has its own idea of structure. NLP models handle entity
-resolution, and deep text analysis takes the classification passes too
-ambiguous for rules. Output lands in a graph store — JanusGraph, later AWS
-Neptune — alongside vector indexes so the same data is reachable by traversal
-or by semantic search.
+So the extraction layer is agentic instead of a fixed pipeline. LLM agents with
+tool access decide what to pull from a source and how to normalise it, which is
+worth the complexity because every source has its own idea of structure. NLP
+models handle entity resolution. Deeper text analysis takes the classification
+passes that are too ambiguous to write rules for. Everything lands in a graph
+store (JanusGraph first, later AWS Neptune) with vector indexes alongside it,
+so the same data can be reached by traversal or by semantic search.
 
-The interesting engineering was in the failure modes. Agents that decide
-things also decide things wrongly, so most of the work went into constraining
-what an agent could conclude and making its output checkable.
+Most of the engineering effort went into failure modes rather than capability.
+An agent that can decide things can also decide them wrong, and a wrong entity
+merge is expensive to unpick later. So the work was in narrowing what an agent
+was allowed to conclude and making every conclusion checkable after the fact.
 
 **innoscripta SE** · 2022–2024
 

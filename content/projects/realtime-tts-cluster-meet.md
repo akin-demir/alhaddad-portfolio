@@ -10,18 +10,19 @@ cover: ../../src/assets/projects/realtime-tts-cluster-meet.png
 coverAlt: A studio microphone in a dark treated room, a band of warm waveform light streaking away from it
 ---
 
-**cluster-meet** is an in-house meeting platform. This was the research effort
-behind giving it a voice: text-to-speech that runs in the live call rather than
-rendering audio after the fact.
+**cluster-meet** is our in-house meeting platform. This was the research effort
+behind giving it a voice: text-to-speech that speaks inside the live call
+instead of rendering audio afterwards.
 
-Real-time changes what "good" means. Offline TTS is judged on how natural the
-result sounds, and you can spend as long as you like getting there. In a
-meeting, the audio has to start before the moment it belongs to has passed —
-so the constraint is time-to-first-audio and steady streaming under it, and
-naturalness is what you optimise inside that budget, not instead of it.
+Doing it in real time changes what counts as good. Offline TTS is judged on how
+natural the result sounds, and you can take as long as you like getting there.
+In a meeting, the audio has to start before the moment it belongs to has gone
+past. That makes time-to-first-audio the number you're really designing
+against, plus holding a steady stream once you've started. Naturalness is what
+you optimise inside that budget.
 
-The work was exploratory: evaluating what could hold up at conversational
-latency, and where the quality cost of getting there actually lands.
+The work was exploratory. Which approaches hold up at conversational latency,
+and what the quality actually costs you when you get there.
 
 **innoscripta SE** · 2026
 

@@ -13,20 +13,21 @@ coverAlt: A shipping container passing through an industrial scanning gantry at 
 ---
 
 A scanning rig for containers moving through a working port terminal in
-**Istanbul**, with ML models interpreting the 3D capture to classify and
-verify contents.
+**Istanbul**. ML models read the 3D capture to classify and verify what was
+inside.
 
-Built in collaboration with **Intel**, around a depth sensor they were bringing
-to market at the time. Working against new hardware cuts both ways: you get the
-capability before anyone else has built on it, and you also inherit its
-unknowns — the noise characteristics, the range where the depth data stops
-being trustworthy, the behaviour outdoors at a port rather than on a bench. A
-lot of the work was establishing what the sensor could actually be relied on to
-report before anything downstream could assume it.
+We built it with **Intel**, around a depth sensor they were bringing to market
+at the time. Working against new hardware cuts both ways. You get the
+capability before anyone else has built anything on it, and you also inherit
+everything nobody has characterised yet: the noise behaviour, the range where
+the depth data stops being trustworthy, how it holds up outdoors at a port
+rather than on a bench indoors. A good chunk of the project was just
+establishing what the sensor could be relied on to report, because nothing
+downstream could assume it until then.
 
-The wins were operational rather than academic: more containers processed per
-hour, and fewer misreads than the manual process it replaced. In a port,
-throughput is the metric — a model that's slightly more accurate but slower
-makes things worse.
+The results were operational rather than academic. More containers processed
+per hour, and fewer misreads than the manual process it replaced. Throughput is
+the number a port terminal cares about, and a model that's slightly more
+accurate but slower is a step backwards there.
 
 **ISSD Bilişim Elektronik A.Ş.** · 2021

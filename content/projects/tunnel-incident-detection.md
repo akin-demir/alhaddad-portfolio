@@ -1,6 +1,6 @@
 ---
 title: Tunnel & Highway Incident Detection
-summary: Real-time vision for road incidents across Turkish highways and tunnels, running on edge hardware because a datacenter round-trip was too slow.
+summary: Real-time vision for road incidents across Turkish highways and tunnels, running on roadside hardware because a datacenter round-trip was too slow.
 year: 2021
 tags: [Computer Vision, OpenVINO, Edge Compute, C++, Real-time]
 deployment:
@@ -15,32 +15,36 @@ cover: ../../src/assets/projects/tunnel-incident-detection.png
 coverAlt: A monitoring camera mounted on a tunnel wall above wet carriageways at night
 ---
 
-A vision system watching highway and tunnel camera feeds for the events that
-matter — stopped vehicles, wrong-way driving, debris, pedestrians where there
-should be none — and alerting operators fast enough to act.
+A vision system watching highway and tunnel camera feeds for the handful of
+events that matter: stopped vehicles, wrong-way driving, debris on the
+carriageway, pedestrians where there shouldn't be any. Alerts go to operators
+fast enough that they can still do something about it.
 
-Deployed on the highway network around **İzmir** and in the road tunnels of
-**Trabzon**, two very different environments: open highway with weather and
-changing daylight, versus tunnels with constant sodium lighting and no GPS.
+It ran on the highway network around **İzmir** and in the road tunnels of
+**Trabzon**. Those are two quite different problems. Open highway means weather
+and daylight that changes all day; tunnels mean constant sodium lighting, no
+GPS, and no natural reference for anything.
 
-The binding constraint was never model accuracy. It was latency on hardware
-already installed at the roadside. Models were optimized through **OpenVINO**
-to run inference on-site rather than streaming video to a datacenter, and that
-choice is what made real-time alerting possible at all.
+Accuracy was never the binding constraint. Latency on hardware that was already
+bolted to the roadside was. We optimised the models through **OpenVINO** so
+inference ran on site instead of streaming video to a datacenter and waiting
+for an answer, and that's the decision that made real-time alerting possible in
+the first place.
 
-The other constraint was false positives. An operator alerted twenty times an
-hour stops looking, so precision mattered more than recall in a way benchmark
-leaderboards don't capture.
+False positives were the other one. An operator who gets alerted twenty times
+an hour stops reading the alerts, and after that the system may as well be off.
+So precision mattered more than recall here, which is not how these models are
+usually benchmarked.
 
 ## Dependability
 
-The work ran under **FED4SAE**, an EU Horizon 2020 programme for accelerating
-cyber-physical systems to market, in collaboration with **Intel** and
-**fortiss GmbH**. That partnership is where the dependability side came from —
-how you argue a neural network is fit for a safety-relevant deployment, not
-just accurate on a test set.
+The work ran under **FED4SAE**, an EU Horizon 2020 programme for getting
+cyber-physical systems to market, alongside **Intel** and **fortiss GmbH**.
+The dependability side came out of that partnership: how you make the case
+that a neural network is fit for a safety-relevant deployment, which is a
+different question from whether it scores well on a test set.
 
-Both published outputs came from this work:
+Two papers came out of this work:
 
 - [Incident Detection on Junction Using Image Processing](https://arxiv.org/abs/2104.13437)
 - [Application of the Neural Network Dependability Kit in Real-World Environments](https://arxiv.org/abs/2012.09602)

@@ -11,11 +11,11 @@
   "location": "Germany",
   "email": "mohd1haddad@gmail.com",
   "resume": "/files/cv.pdf",
-  "tagline": "Seven years turning models into systems people actually depend on — LLM agents, retrieval pipelines, and computer vision running on real hardware under real load.",
+  "tagline": "Seven years building AI systems that run in production: LLM agents, retrieval pipelines, and computer vision on real hardware under real load.",
   "about": [
-    "Most machine learning work dies in a notebook. My job has been the other part: the async services, the retries, the evaluation harness, and the deployment that keeps a model useful on the thousandth request instead of the first.",
-    "Lately that means LLM agents — multi-step tool use, retrieval over knowledge graphs, and the unglamorous plumbing that makes non-deterministic systems dependable enough to put in front of a business process. Before that it was computer vision on edge hardware, where being wrong at 60 frames per second has consequences you can measure in ambulances.",
-    "I like problems where the interesting constraint isn't model accuracy but everything around it — latency budgets, messy inputs, and the gap between a benchmark and a Tuesday afternoon."
+    "I've spent most of my career on the part that comes after the model works. The async services, the retries, the evaluation harness, the deployment. A model that's right once is a demo. Keeping it right on the thousandth request is the actual job, and it's usually where the time goes.",
+    "Right now I work mostly on LLM agents: multi-step tool use, retrieval over knowledge graphs, and a lot of unglamorous plumbing to make non-deterministic systems reliable enough to sit inside a business process. Before that I did computer vision on edge hardware for road and rail safety, where a wrong answer at 60 frames per second isn't an abstract cost.",
+    "The problems I enjoy tend to have the same shape. Model accuracy is fine; the hard constraint is somewhere else. Latency budgets, inputs nobody cleaned, or the distance between a benchmark score and how the thing behaves on an ordinary Tuesday."
   ],
   "links": [
     {
@@ -106,9 +106,9 @@
       "end": "Present",
       "summary": "Agentic extraction and document intelligence at enterprise scale.",
       "points": [
-        "Built the agentic extraction pipeline behind a knowledge graph of European enterprise data — LLM agents deciding what to pull, NLP models resolving entities, everything landing somewhere queryable.",
-        "Led three document-intelligence tools to production — invoice, email, and timesheet parsers — past 90% field-level accuracy on documents that often arrive as photographs of paper.",
-        "Exposed the agents as async FastAPI services so other teams could integrate without touching a model, deployed via Docker and CI/CD on AWS."
+        "Built the agentic extraction pipeline behind a knowledge graph of European enterprise data: LLM agents deciding what to pull, NLP models resolving entities, and the results landing somewhere you can actually query.",
+        "Led three document-intelligence tools to production (invoice, email and timesheet parsers), all past 90% field-level accuracy on documents that are often just a photo of a piece of paper.",
+        "Wrapped the agents in async FastAPI services so other teams could integrate over HTTP without touching a model. Docker deployments, CI/CD on AWS."
       ]
     },
     {
@@ -119,9 +119,9 @@
       "end": "Sep 2021",
       "summary": "Real-time computer vision for transport and industrial safety.",
       "points": [
-        "Shipped real-time incident detection for tunnels and highways with Intel, running optimized models on edge hardware because shipping video to a datacenter was never going to be fast enough.",
-        "Built a 3D container scanner for port logistics, raising throughput while cutting misreads.",
-        "Developed train-crossing detection with Huawei, catching hazards at intersections before they became collisions."
+        "Shipped real-time incident detection for tunnels and highways with Intel. Models ran optimized on roadside hardware, since streaming the video to a datacenter and back was never going to be fast enough.",
+        "Built a 3D container scanner for a port terminal, which raised throughput and cut misreads at the same time.",
+        "Developed rail-crossing detection with Huawei, flagging vehicles and people in the danger zone while there was still time to act."
       ]
     }
   ],
