@@ -1,106 +1,36 @@
 ---
-import { getCollection, render } from 'astro:content';
-import { Image, getImage } from 'astro:assets';
-import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-  return projects.map((project) => ({
-    params: { slug: project.id },
-    props: { project },
-  }));
+  return projects.map((project) => ({ params: { slug: project.id }, props: { slug: project.id } }));
 }
 
-const { project } = Astro.props;
-const { Content } = await render(project);
-// `url` is the imported base-path helper, so the frontmatter field is
-// renamed to avoid shadowing it.
-const {
-  title, summary, year, tags, url: liveUrl, repo, cover, coverAlt,
-  deployment, partners, program, status, role,
-} = project.data;
-
-// Share the project's own cover instead of the generic site card. getImage()
-// gives an absolute-able path to the optimized asset rather than the source.
-const ogImage = cover
-  ? (await getImage({ src: cover, width: 1200, height: 630, format: 'png' })).src
-  : undefined;
-
-const projectSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'CreativeWork',
-  name: title,
-  abstract: summary,
-  dateCreated: String(year),
-  keywords: tags.join(', '),
-  author: { '@type': 'Person', name: 'Elhaddad' },
-  ...(partners.length && {
-    contributor: partners.map((p) => ({ '@type': 'Organization', name: p })),
-  }),
-  ...(deployment.length && { locationCreated: deployment.join('; ') }),
-};
-
-const facts = [
-  status && { label: 'Status', value: status },
-  role && { label: 'Role', value: role },
-  partners.length && { label: 'Partners', value: partners.join(' · ') },
-  program && { label: 'Programme', value: program },
-].filter(Boolean) as { label: string; value: string }[];
+const { slug } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
-<Base title={title} description={summary} image={ogImage} schema={projectSchema}>
-  <a href={url("/projects/")} class="back-link">&larr; All projects</a>
-
-  <header class="detail-header">
-    <h1>{title}</h1>
-    <p>{summary}</p>
-    <div class="card-meta">
-      <span>{year}</span>
-      {tags.map((tag) => <span class="tag">{tag}</span>)}
-    </div>
-    {(liveUrl || repo) && (
-      <div class="detail-links">
-        {liveUrl && <a href={liveUrl} class="pill">Live site &rarr;</a>}
-        {repo && <a href={repo} class="pill">Source &rarr;</a>}
-      </div>
-    )}
-  </header>
-
-  {(facts.length > 0 || deployment.length > 0) && (
-    <section class="facts">
-      {facts.map((fact) => (
-        <div class="fact">
-          <dt>{fact.label}</dt>
-          <dd>{fact.value}</dd>
-        </div>
-      ))}
-      {deployment.length > 0 && (
-        <div class="fact fact-wide">
-          <dt>Deployed</dt>
-          <dd>
-            <ul class="deploy-list">
-              {deployment.map((site) => <li>{site}</li>)}
-            </ul>
-          </dd>
-        </div>
-      )}
-    </section>
-  )}
-
-  {cover && (
-    <figure class="detail-media">
-      <Image
-        src={cover}
-        alt={coverAlt || `${title} screenshot`}
-        widths={[640, 900, 1280]}
-        sizes="(max-width: 56rem) 100vw, 52rem"
-        loading="eager"
-      />
-    </figure>
-  )}
-
-  <div class="prose">
-    <Content />
-  </div>
-</Base>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Project — Elhaddad</title>
+    <script is:inline define:vars={{ base, slug }}>
+      (() => {
+        const supported = ['en', 'de', 'ar', 'tr'];
+        let preferred = '';
+        try { preferred = localStorage.getItem('locale') || ''; } catch {}
+        const detected = (navigator.languages || [navigator.language])
+          .map((item) => String(item || '').toLowerCase().split('-')[0])
+          .find((item) => supported.includes(item));
+        const locale = supported.includes(preferred) ? preferred : (detected || 'en');
+        location.replace(`${base.replace(/\/$/, '')}/${locale}/projects/${slug}/`);
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript><a href={url(`/en/projects/${slug}/`)}>Continue in English</a></noscript>
+  </body>
+</html>

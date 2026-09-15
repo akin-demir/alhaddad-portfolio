@@ -3,8 +3,16 @@ import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import SceneLayer from '../components/SceneLayer.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import { url } from '../lib/url';
-import site from '../../content/site.json';
+import {
+  getSiteCopy,
+  localeMeta,
+  localizedPath,
+  normalizeLocale,
+  supportedLocales,
+  ui,
+} from '../lib/i18n.js';
 
 interface Props {
   title?: string;
@@ -13,9 +21,21 @@ interface Props {
   image?: string;
   /** Extra JSON-LD to emit alongside the site-wide Person schema. */
   schema?: Record<string, unknown>;
+  locale?: string;
+  /** Locale-relative route, used to preserve the page when switching language. */
+  currentPath?: string;
 }
 
-const { title, description = site.tagline, image, schema } = Astro.props;
+const locale = normalizeLocale(Astro.props.locale);
+const site = getSiteCopy(locale);
+const t = ui[locale];
+const {
+  title,
+  description = site.tagline,
+  image,
+  schema,
+  currentPath = `/${locale}/`,
+} = Astro.props;
 
 const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.role}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -47,7 +67,7 @@ const personSchema = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale} dir={localeMeta[locale].dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,10 +76,22 @@ const personSchema = {
     <meta name="description" content={description} />
     <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
+    {supportedLocales.map((code) => (
+      <link
+        rel="alternate"
+        hreflang={code}
+        href={new URL(url(localizedPath(currentPath, code)), Astro.site)}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(url(localizedPath(currentPath, 'en')), Astro.site)}
+    />
     <meta name="theme-color" content="#0d0d11" />
 
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={localeMeta[locale].og} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={title ? 'article' : 'website'} />
@@ -77,7 +109,7 @@ const personSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Noto+Sans+Arabic:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -120,13 +152,14 @@ const personSchema = {
 
     <header class="site-header">
       <div class="header-inner">
-        <a href={url('/')} class="wordmark">
+        <a href={url(`/${locale}/`)} class="wordmark">
           {site.firstName ?? site.name.split(' ')[0]}<span class="dot">.</span>
         </a>
         <nav>
-          <a href={url('/')}>Home</a>
-          <a href={url('/projects/')}>Projects</a>
+          <a href={url(`/${locale}/`)}>{t.home}</a>
+          <a href={url(`/${locale}/projects/`)}>{t.projects}</a>
           {site.resume && <a href={url(site.resume)}>CV</a>}
+          <LanguageSwitcher locale={locale} currentPath={currentPath} label={t.language} />
           <ThemeToggle />
         </nav>
       </div>

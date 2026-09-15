@@ -1,0 +1,37 @@
+---
+import { localeNames, localizedPath, supportedLocales } from '../lib/i18n.js';
+import { url } from '../lib/url';
+
+interface Props {
+  locale: string;
+  currentPath: string;
+  label: string;
+}
+
+const { locale, currentPath, label } = Astro.props;
+---
+
+<div class="language-switcher" aria-label={label}>
+  {supportedLocales.map((code) => (
+    <a
+      href={url(localizedPath(currentPath, code))}
+      lang={code}
+      hreflang={code}
+      aria-current={code === locale ? 'page' : undefined}
+      data-locale={code}
+      title={localeNames[code]}
+    >
+      {code.toUpperCase()}
+    </a>
+  ))}
+</div>
+
+<script>
+  document.addEventListener('click', (event) => {
+    const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('[data-locale]');
+    if (!link) return;
+    try {
+      localStorage.setItem('locale', link.dataset.locale || 'en');
+    } catch {}
+  });
+</script>

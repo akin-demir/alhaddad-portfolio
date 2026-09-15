@@ -1195,3 +1195,95 @@ section + section {
   border-radius: 50%;
   background: var(--accent);
 }
+
+/* ===========================================================================
+   Locales and language navigation
+   ========================================================================= */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.18rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+}
+
+.site-header nav .language-switcher a {
+  min-width: 1.85rem;
+  padding: 0.22rem 0.38rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.site-header nav .language-switcher a[aria-current='page'] {
+  color: var(--bg);
+  background: var(--accent);
+}
+
+.translation-note {
+  max-width: var(--measure);
+  margin: 0 0 1.5rem;
+  padding: 0.7rem 0.9rem;
+  border-inline-start: 2px solid var(--accent);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+html[dir='rtl'] body {
+  font-family: 'Noto Sans Arabic', var(--font-sans);
+}
+
+html[dir='rtl'] .hero-text,
+html[dir='rtl'] .detail-header,
+html[dir='rtl'] .prose,
+html[dir='rtl'] .fact,
+html[dir='rtl'] .card {
+  text-align: right;
+}
+
+html[dir='rtl'] .bullets {
+  padding-right: 1.1rem;
+  padding-left: 0;
+}
+
+html[dir='rtl'] .pubs li {
+  padding-right: 1rem;
+  padding-left: 0;
+  border-right: 2px solid var(--border);
+  border-left: 0;
+}
+
+html[dir='rtl'] .deploy-list li {
+  padding-right: 1rem;
+  padding-left: 0;
+}
+
+html[dir='rtl'] .deploy-list li::before {
+  right: 0;
+  left: auto;
+}
+
+html[dir='rtl'] .prose[lang='en'] {
+  font-family: var(--font-sans);
+  text-align: left;
+}
+
+@media (max-width: 46rem) {
+  .site-header nav {
+    gap: 0.65rem;
+  }
+
+  .site-header nav > a:not(.wordmark) {
+    font-size: 0.78rem;
+  }
+
+  .site-header nav .language-switcher a {
+    min-width: 1.7rem;
+    padding-inline: 0.3rem;
+  }
+}

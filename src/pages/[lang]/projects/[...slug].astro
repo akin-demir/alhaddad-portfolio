@@ -1,0 +1,118 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import { getProjectCopy, supportedLocales, ui } from '../../../lib/i18n.js';
+import { url } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return supportedLocales.flatMap((lang) =>
+    projects.map((project) => ({
+      params: { lang, slug: project.id },
+      props: { locale: lang, project },
+    })),
+  );
+}
+
+const { locale, project } = Astro.props;
+const t = ui[locale];
+const localized = getProjectCopy(locale, project.id, project.data);
+const { Content } = await render(project);
+const {
+  year, tags, url: liveUrl, repo, cover, coverAlt,
+  deployment, partners, program, status, role,
+} = project.data;
+const { title, summary } = localized;
+const currentPath = `/${locale}/projects/${project.id}/`;
+
+const ogImage = cover
+  ? (await getImage({ src: cover, width: 1200, height: 630, format: 'png' })).src
+  : undefined;
+
+const projectSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: title,
+  abstract: summary,
+  inLanguage: locale,
+  dateCreated: String(year),
+  keywords: tags.join(', '),
+  author: { '@type': 'Person', name: 'Elhaddad' },
+  ...(partners.length && {
+    contributor: partners.map((partner) => ({ '@type': 'Organization', name: partner })),
+  }),
+  ...(deployment.length && { locationCreated: deployment.join('; ') }),
+};
+
+const facts = [
+  status && { label: t.status, value: status },
+  role && { label: t.role, value: role },
+  partners.length && { label: t.partners, value: partners.join(' · ') },
+  program && { label: t.programme, value: program },
+].filter(Boolean);
+---
+
+<Base
+  locale={locale}
+  currentPath={currentPath}
+  title={title}
+  description={summary}
+  image={ogImage}
+  schema={projectSchema}
+>
+  <a href={url(`/${locale}/projects/`)} class="back-link">&larr; {t.back}</a>
+
+  <header class="detail-header">
+    <h1>{title}</h1>
+    <p>{summary}</p>
+    <div class="card-meta">
+      <span>{year}</span>
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+    {(liveUrl || repo) && (
+      <div class="detail-links">
+        {liveUrl && <a href={liveUrl} class="pill">{t.live} &rarr;</a>}
+        {repo && <a href={repo} class="pill">{t.source} &rarr;</a>}
+      </div>
+    )}
+  </header>
+
+  {(facts.length > 0 || deployment.length > 0) && (
+    <section class="facts">
+      {facts.map((fact) => (
+        <div class="fact">
+          <dt>{fact.label}</dt>
+          <dd>{fact.value}</dd>
+        </div>
+      ))}
+      {deployment.length > 0 && (
+        <div class="fact fact-wide">
+          <dt>{t.deployed}</dt>
+          <dd>
+            <ul class="deploy-list">
+              {deployment.map((place) => <li>{place}</li>)}
+            </ul>
+          </dd>
+        </div>
+      )}
+    </section>
+  )}
+
+  {cover && (
+    <figure class="detail-media">
+      <Image
+        src={cover}
+        alt={coverAlt || `${title} preview`}
+        widths={[640, 900, 1280]}
+        sizes="(max-width: 56rem) 100vw, 52rem"
+        loading="eager"
+      />
+    </figure>
+  )}
+
+  {locale !== 'en' && <p class="translation-note">{t.englishDetail}</p>}
+  <div class="prose" dir="ltr" lang="en">
+    <Content />
+  </div>
+</Base>

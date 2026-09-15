@@ -2,15 +2,20 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { url } from '../lib/url';
+import { getProjectCopy, normalizeLocale } from '../lib/i18n.js';
 
 interface Props {
   project: CollectionEntry<'projects'>;
   delay?: number;
+  locale?: string;
 }
 
 const { project, delay = 0 } = Astro.props;
-const { title, summary, year, tags, cover, coverAlt } = project.data;
-const href = url(`/projects/${project.id}/`);
+const locale = normalizeLocale(Astro.props.locale);
+const localized = getProjectCopy(locale, project.id, project.data);
+const { title, summary } = localized;
+const { year, tags, cover, coverAlt } = project.data;
+const href = url(`/${locale}/projects/${project.id}/`);
 ---
 
 <li class="card" data-reveal style={`--delay: ${delay}ms`}>

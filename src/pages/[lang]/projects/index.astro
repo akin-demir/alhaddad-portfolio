@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import { supportedLocales, ui } from '../../../lib/i18n.js';
+
+export function getStaticPaths() {
+  return supportedLocales.map((lang) => ({ params: { lang }, props: { locale: lang } }));
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.year - a.data.year || a.data.order - b.data.order,
+);
+const currentPath = `/${locale}/projects/`;
+---
+
+<Base
+  locale={locale}
+  currentPath={currentPath}
+  title={t.projects}
+  description={t.selectedWork}
+>
+  <div class="section-head">
+    <h1>{t.projects}</h1>
+    <span>{projects.length} {t.total}</span>
+  </div>
+
+  {projects.length > 0 ? (
+    <ul class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} locale={locale} />)}
+    </ul>
+  ) : (
+    <p>{t.nothing}</p>
+  )}
+</Base>

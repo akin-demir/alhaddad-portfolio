@@ -1,24 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
-
-const projects = (await getCollection('projects')).sort(
-  (a, b) => b.data.year - a.data.year || a.data.order - b.data.order,
-);
+import { url } from '../../lib/url';
+const base = import.meta.env.BASE_URL;
 ---
 
-<Base title="Projects" description="Things I've built.">
-  <div class="section-head">
-    <h1>Projects</h1>
-    <span>{projects.length} total</span>
-  </div>
-
-  {projects.length > 0 ? (
-    <ul class="project-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </ul>
-  ) : (
-    <p>Nothing here yet.</p>
-  )}
-</Base>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Projects — Elhaddad</title>
+    <script is:inline define:vars={{ base }}>
+      (() => {
+        const supported = ['en', 'de', 'ar', 'tr'];
+        let preferred = '';
+        try { preferred = localStorage.getItem('locale') || ''; } catch {}
+        const detected = (navigator.languages || [navigator.language])
+          .map((item) => String(item || '').toLowerCase().split('-')[0])
+          .find((item) => supported.includes(item));
+        const locale = supported.includes(preferred) ? preferred : (detected || 'en');
+        location.replace(`${base.replace(/\/$/, '')}/${locale}/projects/`);
+      })();
+    </script>
+  </head>
+  <body><noscript><a href={url('/en/projects/')}>Continue in English</a></noscript></body>
+</html>
