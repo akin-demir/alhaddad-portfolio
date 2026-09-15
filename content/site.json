@@ -9,7 +9,7 @@
     "emphasis": "survive production"
   },
   "location": "Germany",
-  "resume": "/files/cv.pdf",
+  "resume": "/files/cv-consultant.pdf",
   "tagline": "Seven years building AI systems that run in production: LLM agents, retrieval pipelines, and computer vision on real hardware under real load.",
   "about": [
     "I've spent most of my career on the part that comes after the model works. The async services, the retries, the evaluation harness, the deployment. A model that's right once is a demo. Keeping it right on the thousandth request is the actual job, and it's usually where the time goes.",
