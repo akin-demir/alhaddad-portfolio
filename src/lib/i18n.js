@@ -32,18 +32,18 @@ export function localizedPath(pathname, locale) {
 
 const english = {
   ...baseSite,
-  role: 'AI & Digital Solutions Consultant',
+  role: 'AI & Digital Transformation Consultant',
   headline: { lead: 'I turn complex operations into', emphasis: 'working AI systems' },
-  tagline: 'I advise teams on AI strategy, solution architecture and delivery, then help move the right systems into production.',
+  tagline: 'I help organizations use AI and automation to reduce operating costs, save time and improve service delivery.',
   about: [
     'I work between business requirements and technical delivery. That means clarifying the problem, defining what should be automated, choosing an architecture and guiding the work until it is useful in production.',
-    'My recent work focuses on document intelligence, LLM agents and enterprise knowledge systems. One document service has saved more than €60,000 in manual processing costs since launch, while three production parsers exceed 90% field-level accuracy.',
+    'My recent work focuses on document intelligence, LLM agents and enterprise knowledge systems. Three production parsers exceed 90% field-level accuracy across invoices, emails and timesheets.',
     'Earlier, I delivered computer-vision systems for roads, tunnels, rail crossings and port operations. Those projects taught me to judge technology by operational outcomes: response time, reliability, adoption and risk, not only benchmark accuracy.',
   ],
   links: [{ ...baseSite.links[0], label: 'Connect on LinkedIn' }],
   stats: [
-    { value: '€60K+', label: 'Savings since service launch' },
     { value: '7+', label: 'Years delivering applied AI' },
+    { value: '3', label: 'Document tools in production' },
     { value: '90%+', label: 'Production extraction accuracy' },
   ],
   experience: [
@@ -54,7 +54,7 @@ const english = {
       summary: 'Advisory, architecture and delivery for enterprise document intelligence and agentic AI.',
       points: [
         'Led discovery and delivery for invoice, email and timesheet automation, translating operational workflows into scoped services and measurable acceptance criteria.',
-        'Delivered three document-intelligence tools at 90%+ field-level accuracy; since launch, the service has saved more than €60,000 in manual processing costs.',
+        'Delivered three document-intelligence tools at 90%+ field-level accuracy and integrated them into existing operational workflows.',
         'Designed agentic extraction and knowledge-graph pipelines, with reviewable decisions and stable APIs that other product teams could adopt.',
       ],
     },
@@ -73,20 +73,20 @@ const english = {
 
 const german = {
   ...english,
-  role: 'Berater für KI- und digitale Lösungen',
+  role: 'Berater für KI und digitale Transformation',
   availableLabel: 'Offen für neue Projekte',
   headline: { lead: 'Ich verwandle komplexe Abläufe in', emphasis: 'produktive KI-Systeme' },
   location: 'Deutschland',
-  tagline: 'Ich berate Teams zu KI-Strategie, Lösungsarchitektur und Umsetzung und begleite geeignete Systeme bis in den produktiven Betrieb.',
+  tagline: 'Ich unterstütze Organisationen dabei, mit KI und Automatisierung Betriebskosten zu senken, Zeit zu sparen und Services besser umzusetzen.',
   about: [
     'Ich arbeite an der Schnittstelle zwischen Geschäftsanforderungen und technischer Umsetzung. Dazu gehören die Klärung des Problems, die Auswahl sinnvoller Automatisierung, die Definition der Architektur und die Begleitung bis zum produktiven Nutzen.',
-    'Mein aktueller Schwerpunkt liegt auf Dokumentenintelligenz, LLM-Agenten und Wissenssystemen für Unternehmen. Ein Dokumentendienst hat seit seiner Einführung mehr als 60.000 € an manuellen Bearbeitungskosten eingespart; drei produktive Parser erreichen über 90 % Genauigkeit auf Feldebene.',
+    'Mein aktueller Schwerpunkt liegt auf Dokumentenintelligenz, LLM-Agenten und Wissenssystemen für Unternehmen. Drei produktive Parser für Rechnungen, E-Mails und Stundenzettel erreichen über 90 % Genauigkeit auf Feldebene.',
     'Zuvor habe ich Computer-Vision-Systeme für Straßen, Tunnel, Bahnübergänge und Hafenprozesse umgesetzt. Entscheidend sind für mich operative Ergebnisse wie Reaktionszeit, Zuverlässigkeit, Akzeptanz und Risiko – nicht nur Modellgenauigkeit.',
   ],
   links: [{ ...english.links[0], label: 'Auf LinkedIn vernetzen' }],
   stats: [
-    { value: '60.000 €+', label: 'Einsparungen seit Einführung' },
     { value: '7+', label: 'Jahre in der KI-Umsetzung' },
+    { value: '3', label: 'Dokumentenwerkzeuge in Produktion' },
     { value: '90 %+', label: 'Extraktionsgenauigkeit im Betrieb' },
   ],
   skills: english.skills.map((group, index) => ({
@@ -101,7 +101,7 @@ const german = {
       summary: 'Beratung, Architektur und Umsetzung für Dokumentenintelligenz und agentische KI im Unternehmen.',
       points: [
         'Leitete Analyse und Umsetzung der Automatisierung von Rechnungen, E-Mails und Stundenzetteln und überführte operative Abläufe in klar abgegrenzte Services mit messbaren Abnahmekriterien.',
-        'Brachte drei Werkzeuge für Dokumentenintelligenz mit über 90 % Genauigkeit auf Feldebene in Produktion; seit Einführung spart der Dienst mehr als 60.000 € an manuellen Bearbeitungskosten.',
+        'Brachte drei Werkzeuge für Dokumentenintelligenz mit über 90 % Genauigkeit auf Feldebene in Produktion und integrierte sie in bestehende Betriebsabläufe.',
         'Konzipierte agentische Extraktions- und Knowledge-Graph-Pipelines mit nachvollziehbaren Entscheidungen und stabilen Schnittstellen für andere Produktteams.',
       ],
     },
@@ -131,20 +131,20 @@ const german = {
 
 const arabic = {
   ...english,
-  role: 'مستشار حلول الذكاء الاصطناعي والتحول الرقمي',
+  role: 'مستشار الذكاء الاصطناعي والتحول الرقمي',
   availableLabel: 'متاح لمشاريع جديدة',
   headline: { lead: 'أحوّل العمليات المعقدة إلى', emphasis: 'أنظمة ذكاء اصطناعي عملية' },
   location: 'ألمانيا',
-  tagline: 'أساعد الفرق في استراتيجية الذكاء الاصطناعي وهندسة الحلول والتنفيذ، وأرافق الأنظمة المناسبة حتى التشغيل الفعلي.',
+  tagline: 'أساعد المؤسسات على استخدام الذكاء الاصطناعي والأتمتة لخفض تكاليف التشغيل وتوفير الوقت وتحسين تقديم الخدمات.',
   about: [
     'أعمل عند نقطة الالتقاء بين احتياجات الأعمال والتنفيذ التقني: أوضح المشكلة، أحدد ما يستحق الأتمتة، أصمم بنية الحل، وأوجّه التنفيذ حتى يحقق قيمة حقيقية في بيئة الإنتاج.',
-    'يركز عملي الحديث على فهم المستندات ووكلاء النماذج اللغوية وأنظمة المعرفة المؤسسية. منذ إطلاق إحدى خدمات معالجة المستندات وفّرت أكثر من 60 ألف يورو من تكاليف العمل اليدوي، مع تجاوز دقة ثلاثة محللات قيد الإنتاج نسبة 90٪ على مستوى الحقول.',
+    'يركز عملي الحديث على فهم المستندات ووكلاء النماذج اللغوية وأنظمة المعرفة المؤسسية. تتجاوز دقة ثلاثة محللات قيد الإنتاج للفواتير والبريد وسجلات الوقت نسبة 90٪ على مستوى الحقول.',
     'سبق أن نفذت أنظمة رؤية حاسوبية للطرق والأنفاق ومعابر السكك الحديدية وعمليات الموانئ. لذلك أقيس نجاح التقنية بزمن الاستجابة والموثوقية والتبني والمخاطر، لا بدقة النموذج وحدها.',
   ],
   links: [{ ...english.links[0], label: 'تواصل عبر لينكدإن' }],
   stats: [
-    { value: '+60 ألف €', label: 'وفورات منذ إطلاق الخدمة' },
     { value: '+7', label: 'سنوات في تنفيذ حلول الذكاء الاصطناعي' },
+    { value: '3', label: 'أدوات مستندات قيد الإنتاج' },
     { value: '+90٪', label: 'دقة الاستخراج في الإنتاج' },
   ],
   skills: english.skills.map((group, index) => ({
@@ -159,7 +159,7 @@ const arabic = {
       summary: 'استشارات وهندسة وتنفيذ حلول فهم المستندات والذكاء الاصطناعي الوكيلي للمؤسسات.',
       points: [
         'قدت تحليل وتنفيذ أتمتة الفواتير والبريد الإلكتروني وسجلات الوقت، وحولت سير العمل التشغيلي إلى خدمات محددة ومعايير قبول قابلة للقياس.',
-        'أطلقت ثلاثة أدوات لفهم المستندات بدقة تتجاوز 90٪ على مستوى الحقول؛ ومنذ الإطلاق وفرت الخدمة أكثر من 60 ألف يورو من تكاليف المعالجة اليدوية.',
+        'أطلقت ثلاثة أدوات لفهم المستندات بدقة تتجاوز 90٪ على مستوى الحقول ودمجتها في سير العمل التشغيلي القائم.',
         'صممت مسارات استخراج وكُثُف معرفة تعتمد على الوكلاء، مع قرارات قابلة للمراجعة وواجهات مستقرة يمكن لفرق المنتجات الأخرى استخدامها.',
       ],
     },
@@ -189,20 +189,20 @@ const arabic = {
 
 const turkish = {
   ...english,
-  role: 'Yapay Zekâ ve Dijital Çözümler Danışmanı',
+  role: 'Yapay Zekâ ve Dijital Dönüşüm Danışmanı',
   availableLabel: 'Yeni projelere açık',
   headline: { lead: 'Karmaşık operasyonları', emphasis: 'çalışan yapay zekâ sistemlerine dönüştürüyorum' },
   location: 'Almanya',
-  tagline: 'Ekiplere yapay zekâ stratejisi, çözüm mimarisi ve teslimat konularında danışmanlık veriyor; doğru sistemleri üretime kadar taşıyorum.',
+  tagline: 'Kurumların yapay zekâ ve otomasyonla işletme maliyetlerini azaltmasına, zaman kazanmasına ve hizmet sunumunu iyileştirmesine yardımcı oluyorum.',
   about: [
     'İş ihtiyaçları ile teknik teslimat arasında çalışıyorum. Problemi netleştiriyor, neyin otomatikleştirilmesi gerektiğini belirliyor, çözüm mimarisini kuruyor ve üretimde değer sağlayana kadar uygulamayı yönlendiriyorum.',
-    'Son dönemde belge zekâsı, LLM ajanları ve kurumsal bilgi sistemlerine odaklandım. Bir belge hizmeti devreye alındığından beri manuel işlem maliyetlerinde 60.000 avronun üzerinde tasarruf sağladı; üretimdeki üç ayrıştırıcı alan bazında %90’ın üzerinde doğruluğa ulaştı.',
+    'Son dönemde belge zekâsı, LLM ajanları ve kurumsal bilgi sistemlerine odaklandım. Fatura, e-posta ve puantajları işleyen üç üretim ayrıştırıcısı alan bazında %90’ın üzerinde doğruluğa ulaştı.',
     'Daha önce yol, tünel, demiryolu geçidi ve liman operasyonları için bilgisayarlı görü sistemleri teslim ettim. Teknolojiyi yalnızca model doğruluğuyla değil; tepki süresi, güvenilirlik, benimsenme ve risk sonuçlarıyla değerlendiriyorum.',
   ],
   links: [{ ...english.links[0], label: 'LinkedIn’de bağlantı kur' }],
   stats: [
-    { value: '€60K+', label: 'Hizmet devreye alındığından beri tasarruf' },
     { value: '7+', label: 'Uygulamalı yapay zekâ teslimatı' },
+    { value: '3', label: 'Üretimde belge zekâsı aracı' },
     { value: '%90+', label: 'Üretimde veri çıkarma doğruluğu' },
   ],
   skills: english.skills.map((group, index) => ({
@@ -217,7 +217,7 @@ const turkish = {
       summary: 'Kurumsal belge zekâsı ve ajan tabanlı yapay zekâ için danışmanlık, mimari ve teslimat.',
       points: [
         'Fatura, e-posta ve puantaj otomasyonunda keşif ve teslimata liderlik ederek operasyonel süreçleri kapsamı net servislere ve ölçülebilir kabul kriterlerine dönüştürdüm.',
-        'Alan bazında %90’ın üzerinde doğruluğa sahip üç belge zekâsı aracını üretime aldım; hizmet, devreye girdiğinden beri manuel işlem maliyetlerinde 60.000 avronun üzerinde tasarruf sağladı.',
+        'Alan bazında %90’ın üzerinde doğruluğa sahip üç belge zekâsı aracını üretime aldım ve mevcut operasyonel iş akışlarına entegre ettim.',
         'İncelenebilir kararlar ve diğer ürün ekiplerinin kullanabileceği kararlı API’lerle ajan tabanlı veri çıkarma ve bilgi grafiği hatları tasarladım.',
       ],
     },
@@ -288,7 +288,7 @@ export const ui = {
 
 const projectTranslations = {
   de: {
-    'document-intelligence-suite': ['Dokumentenintelligenz-Suite', 'Drei Parser für Rechnungen, E-Mails und Stundenzettel mit über 90 % Feldgenauigkeit – auch bei abfotografierten Papierdokumenten.'],
+    'document-intelligence-suite': ['Dokumentenintelligenz-Suite', 'Drei produktive Parser mit über 90 % Feldgenauigkeit; der Dienst spart seit Einführung mehr als 60.000 € an manuellen Bearbeitungskosten.'],
     'comment-moderation-llm': ['Moderation von Verkaufskommentaren', 'Ein intern trainiertes LLM moderiert Kommentare zu Verkaufsangeboten, ohne Kundentexte an externe Dienste zu senden.'],
     'realtime-tts-cluster-meet': ['Echtzeit-Sprachausgabe für cluster-meet', 'Forschung an einer Text-to-Speech-Lösung mit ausreichend niedriger Latenz für Live-Besprechungen.'],
     'noise-suppression-cluster-meet': ['Rauschunterdrückung für cluster-meet', 'Forschung zur Entfernung von Hintergrundgeräuschen aus Live-Audio, ohne die Sprache zu beschädigen.'],
@@ -300,7 +300,7 @@ const projectTranslations = {
     'variable-message-signs': ['Dynamische Verkehrsschilder', 'Entwicklung und Einführung von Systemen zur Verkehrsführung in mehreren türkischen Städten.'],
   },
   ar: {
-    'document-intelligence-suite': ['منظومة فهم المستندات', 'ثلاثة محللات للفواتير والبريد وسجلات الوقت بدقة حقول تتجاوز 90٪، حتى عند استخدام صور ورقية.'],
+    'document-intelligence-suite': ['منظومة فهم المستندات', 'ثلاثة محللات قيد الإنتاج بدقة تتجاوز 90٪؛ وفرت الخدمة منذ إطلاقها أكثر من 60 ألف يورو من تكاليف المعالجة اليدوية.'],
     'comment-moderation-llm': ['مراجعة تعليقات المبيعات', 'نموذج لغوي مدرّب محلياً يراجع تعليقات الإعلانات مع بقاء نصوص العملاء داخل المؤسسة.'],
     'realtime-tts-cluster-meet': ['تحويل النص إلى كلام لحظياً في cluster-meet', 'بحث وتطوير لمنظومة نطق منخفضة التأخير تعمل داخل الاجتماعات المباشرة.'],
     'noise-suppression-cluster-meet': ['إزالة الضوضاء في cluster-meet', 'بحث وتطوير لإزالة ضوضاء الخلفية من صوت الاجتماعات دون الإضرار بالكلام.'],
@@ -312,7 +312,7 @@ const projectTranslations = {
     'variable-message-signs': ['أنظمة لوحات الرسائل المرورية', 'تصميم وتطوير وتشغيل لوحات توجيه مروري في عدة مدن تركية.'],
   },
   tr: {
-    'document-intelligence-suite': ['Belge Zekâsı Paketi', 'Fatura, e-posta ve puantajları, kâğıt fotoğrafları dâhil, alan bazında %90’ın üzerinde doğrulukla işleyen üç ayrıştırıcı.'],
+    'document-intelligence-suite': ['Belge Zekâsı Paketi', 'Alan bazında %90’ın üzerinde doğruluğa sahip üç üretim aracı; hizmet devreye alındığından beri manuel işlem maliyetlerinde €60K+ tasarruf sağladı.'],
     'comment-moderation-llm': ['Satış Yorumu Moderasyonu', 'Müşteri metinlerini kurum dışına çıkarmadan satış ilanı yorumlarını denetleyen yerel eğitimli LLM.'],
     'realtime-tts-cluster-meet': ['cluster-meet için Gerçek Zamanlı TTS', 'Canlı toplantı içinde konuşabilecek kadar düşük gecikmeli metinden sese sistemi üzerine Ar-Ge.'],
     'noise-suppression-cluster-meet': ['cluster-meet için Gürültü Bastırma', 'Konuşmayı bozmadan canlı toplantı sesindeki arka plan gürültüsünü giderme üzerine Ar-Ge.'],

@@ -1,7 +1,7 @@
 {
   "name": "Elhaddad",
   "firstName": "Elhaddad",
-  "role": "AI Solutions Engineer",
+  "role": "AI & Digital Transformation Consultant",
   "available": false,
   "availableLabel": "Open to new roles",
   "headline": {
@@ -10,7 +10,7 @@
   },
   "location": "Germany",
   "resume": "/files/cv-consultant.pdf",
-  "tagline": "Seven years building AI systems that run in production: LLM agents, retrieval pipelines, and computer vision on real hardware under real load.",
+  "tagline": "I help organizations use AI and automation to reduce operating costs, save time, and improve service delivery.",
   "about": [
     "I've spent most of my career on the part that comes after the model works. The async services, the retries, the evaluation harness, the deployment. A model that's right once is a demo. Keeping it right on the thousandth request is the actual job, and it's usually where the time goes.",
     "Right now I work mostly on LLM agents: multi-step tool use, retrieval over knowledge graphs, and a lot of unglamorous plumbing to make non-deterministic systems reliable enough to sit inside a business process. Before that I did computer vision on edge hardware for road and rail safety, where a wrong answer at 60 frames per second isn't an abstract cost.",

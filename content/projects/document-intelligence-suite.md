@@ -1,6 +1,6 @@
 ---
 title: Document Intelligence Suite
-summary: Three parsers reading invoices, emails and timesheets past 90% field accuracy, including the ones that arrive as photos of paper.
+summary: Three production parsers exceeding 90% field accuracy; since launch, the service has saved more than €60,000 in manual processing costs.
 year: 2026
 tags: [LLMs, RAG, Document AI, FastAPI, Python]
 status: In production
@@ -23,6 +23,12 @@ Three production tools sharing one extraction backbone:
 All three clear 90% field-level accuracy. They run as async FastAPI endpoints,
 which was deliberate: other teams integrate against a stable HTTP contract and
 never have to know which model is behind it. Docker deployments, CI/CD on AWS.
+
+## Business outcome
+
+Since the service was put into use, it has saved more than **€60,000** in manual
+document-processing costs while reducing the time teams spend moving data from
+unstructured documents into operational systems.
 
 The accuracy number is what gets quoted, but the thing that actually moved it
 was cutting scope. Each parser got much better once we stopped trying to pull
