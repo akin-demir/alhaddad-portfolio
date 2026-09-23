@@ -50,12 +50,13 @@ const english = {
     {
       ...baseSite.experience[0],
       role: 'AI Solutions Engineer · Consulting & Delivery Focus',
-      end: 'Jan 2026',
+      end: 'Sep 2026',
       summary: 'Advisory, architecture and delivery for enterprise document intelligence and agentic AI.',
       points: [
         'Led discovery and delivery for invoice, email and timesheet automation, translating operational workflows into scoped services and measurable acceptance criteria.',
         'Delivered three document-intelligence tools at 90%+ field-level accuracy and integrated them into existing operational workflows.',
         'Designed agentic extraction and knowledge-graph pipelines, with reviewable decisions and stable APIs that other product teams could adopt.',
+        'Contributed to enterprise software delivery within innoscripta’s ISO/IEC 27001:2022-certified information security management system, with attention to access control, traceability, data integrity, and secure delivery.',
       ],
     },
     {
@@ -76,7 +77,7 @@ const german = {
   role: 'Berater für KI und digitale Transformation',
   availableLabel: 'Offen für neue Projekte',
   headline: { lead: 'Ich verwandle komplexe Abläufe in', emphasis: 'produktive KI-Systeme' },
-  location: 'Deutschland',
+  location: 'Türkei · Dubai · Damaskus · Weltweit remote',
   tagline: 'Ich unterstütze Organisationen dabei, mit KI und Automatisierung Betriebskosten zu senken, Zeit zu sparen und Services besser umzusetzen.',
   about: [
     'Ich arbeite an der Schnittstelle zwischen Geschäftsanforderungen und technischer Umsetzung. Dazu gehören die Klärung des Problems, die Auswahl sinnvoller Automatisierung, die Definition der Architektur und die Begleitung bis zum produktiven Nutzen.',
@@ -103,6 +104,7 @@ const german = {
         'Leitete Analyse und Umsetzung der Automatisierung von Rechnungen, E-Mails und Stundenzetteln und überführte operative Abläufe in klar abgegrenzte Services mit messbaren Abnahmekriterien.',
         'Brachte drei Werkzeuge für Dokumentenintelligenz mit über 90 % Genauigkeit auf Feldebene in Produktion und integrierte sie in bestehende Betriebsabläufe.',
         'Konzipierte agentische Extraktions- und Knowledge-Graph-Pipelines mit nachvollziehbaren Entscheidungen und stabilen Schnittstellen für andere Produktteams.',
+        'Wirkte an der Bereitstellung von Unternehmenssoftware im Rahmen des nach ISO/IEC 27001:2022 zertifizierten Informationssicherheitsmanagementsystems von innoscripta mit, mit besonderem Augenmerk auf Zugriffskontrolle, Nachvollziehbarkeit, Datenintegrität und sichere Bereitstellung.',
       ],
     },
     {
@@ -134,7 +136,7 @@ const arabic = {
   role: 'مستشار الذكاء الاصطناعي والتحول الرقمي',
   availableLabel: 'متاح لمشاريع جديدة',
   headline: { lead: 'أحوّل العمليات المعقدة إلى', emphasis: 'أنظمة ذكاء اصطناعي عملية' },
-  location: 'ألمانيا',
+  location: 'تركيا · دبي · دمشق · عن بُعد حول العالم',
   tagline: 'أساعد المؤسسات على استخدام الذكاء الاصطناعي والأتمتة لخفض تكاليف التشغيل وتوفير الوقت وتحسين تقديم الخدمات.',
   about: [
     'أعمل عند نقطة الالتقاء بين احتياجات الأعمال والتنفيذ التقني: أوضح المشكلة، أحدد ما يستحق الأتمتة، أصمم بنية الحل، وأوجّه التنفيذ حتى يحقق قيمة حقيقية في بيئة الإنتاج.',
@@ -161,6 +163,7 @@ const arabic = {
         'قدت تحليل وتنفيذ أتمتة الفواتير والبريد الإلكتروني وسجلات الوقت، وحولت سير العمل التشغيلي إلى خدمات محددة ومعايير قبول قابلة للقياس.',
         'أطلقت ثلاثة أدوات لفهم المستندات بدقة تتجاوز 90٪ على مستوى الحقول ودمجتها في سير العمل التشغيلي القائم.',
         'صممت مسارات استخراج وكُثُف معرفة تعتمد على الوكلاء، مع قرارات قابلة للمراجعة وواجهات مستقرة يمكن لفرق المنتجات الأخرى استخدامها.',
+        'ساهمت في تقديم برمجيات مؤسسية ضمن نظام إدارة أمن المعلومات لدى innoscripta الحاصل على شهادة ISO/IEC 27001:2022، مع الاهتمام بالتحكم في الوصول وإمكانية التتبع وسلامة البيانات والتسليم الآمن.',
       ],
     },
     {
@@ -192,7 +195,7 @@ const turkish = {
   role: 'Yapay Zekâ ve Dijital Dönüşüm Danışmanı',
   availableLabel: 'Yeni projelere açık',
   headline: { lead: 'Karmaşık operasyonları', emphasis: 'çalışan yapay zekâ sistemlerine dönüştürüyorum' },
-  location: 'Almanya',
+  location: 'Türkiye · Dubai · Şam · Dünya çapında uzaktan',
   tagline: 'Kurumların yapay zekâ ve otomasyonla işletme maliyetlerini azaltmasına, zaman kazanmasına ve hizmet sunumunu iyileştirmesine yardımcı oluyorum.',
   about: [
     'İş ihtiyaçları ile teknik teslimat arasında çalışıyorum. Problemi netleştiriyor, neyin otomatikleştirilmesi gerektiğini belirliyor, çözüm mimarisini kuruyor ve üretimde değer sağlayana kadar uygulamayı yönlendiriyorum.',
@@ -219,6 +222,7 @@ const turkish = {
         'Fatura, e-posta ve puantaj otomasyonunda keşif ve teslimata liderlik ederek operasyonel süreçleri kapsamı net servislere ve ölçülebilir kabul kriterlerine dönüştürdüm.',
         'Alan bazında %90’ın üzerinde doğruluğa sahip üç belge zekâsı aracını üretime aldım ve mevcut operasyonel iş akışlarına entegre ettim.',
         'İncelenebilir kararlar ve diğer ürün ekiplerinin kullanabileceği kararlı API’lerle ajan tabanlı veri çıkarma ve bilgi grafiği hatları tasarladım.',
+        'Erişim kontrolü, izlenebilirlik, veri bütünlüğü ve güvenli teslimata odaklanarak innoscripta’nın ISO/IEC 27001:2022 sertifikalı bilgi güvenliği yönetim sistemi kapsamında kurumsal yazılım teslimatına katkıda bulundum.',
       ],
     },
     {

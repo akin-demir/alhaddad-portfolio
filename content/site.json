@@ -8,7 +8,7 @@
     "lead": "I build AI systems that",
     "emphasis": "survive production"
   },
-  "location": "Germany",
+  "location": "Türkiye · Dubai · Damascus · Remote worldwide",
   "resume": "/files/cv-consultant.pdf",
   "tagline": "I help organizations use AI and automation to reduce operating costs, save time, and improve service delivery.",
   "about": [
@@ -98,12 +98,13 @@
       "org": "innoscripta SE",
       "location": "Germany · Hybrid",
       "start": "Oct 2021",
-      "end": "Present",
+      "end": "Sep 2026",
       "summary": "Agentic extraction and document intelligence at enterprise scale.",
       "points": [
         "Built the agentic extraction pipeline behind a knowledge graph of European enterprise data: LLM agents deciding what to pull, NLP models resolving entities, and the results landing somewhere you can actually query.",
         "Led three document-intelligence tools to production (invoice, email and timesheet parsers), all past 90% field-level accuracy on documents that are often just a photo of a piece of paper.",
-        "Wrapped the agents in async FastAPI services so other teams could integrate over HTTP without touching a model. Docker deployments, CI/CD on AWS."
+        "Wrapped the agents in async FastAPI services so other teams could integrate over HTTP without touching a model. Docker deployments, CI/CD on AWS.",
+        "Contributed to enterprise software delivery within innoscripta’s ISO/IEC 27001:2022-certified information security management system, with attention to access control, traceability, data integrity, and secure delivery."
       ]
     },
     {

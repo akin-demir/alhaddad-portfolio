@@ -42,3 +42,34 @@ test('localizes project titles and summaries with English fallback', () => {
   assert.notEqual(german.summary, original.summary);
   assert.deepEqual(getProjectCopy('en', 'unknown', original), original);
 });
+
+test('describes innoscripta work within its ISO/IEC 27001:2022-certified ISMS in every locale', () => {
+  const expectedTerms = {
+    en: ['ISO/IEC 27001:2022-certified information security management system', 'access control', 'traceability', 'data integrity', 'secure delivery'],
+    de: ['nach ISO/IEC 27001:2022 zertifizierten Informationssicherheitsmanagementsystems', 'Zugriffskontrolle', 'Nachvollziehbarkeit', 'Datenintegrität', 'sichere Bereitstellung'],
+    ar: ['نظام إدارة أمن المعلومات', 'ISO/IEC 27001:2022', 'التحكم في الوصول', 'إمكانية التتبع', 'سلامة البيانات', 'التسليم الآمن'],
+    tr: ['ISO/IEC 27001:2022 sertifikalı bilgi güvenliği yönetim sistemi', 'Erişim kontrolü', 'izlenebilirlik', 'veri bütünlüğü', 'güvenli teslimat'],
+  };
+
+  for (const locale of supportedLocales) {
+    const points = getSiteCopy(locale).experience[0].points;
+    const statement = points.find((point) => point.includes('ISO/IEC 27001:2022'));
+    assert.ok(statement, `${locale} is missing the ISO/IEC 27001:2022 experience statement`);
+    for (const term of expectedTerms[locale]) assert.ok(statement.includes(term), `${locale} is missing ${term}`);
+  }
+});
+
+test('shows the corrected innoscripta end date and professional availability in every locale', () => {
+  const expectedLocations = {
+    en: 'Türkiye · Dubai · Damascus · Remote worldwide',
+    de: 'Türkei · Dubai · Damaskus · Weltweit remote',
+    ar: 'تركيا · دبي · دمشق · عن بُعد حول العالم',
+    tr: 'Türkiye · Dubai · Şam · Dünya çapında uzaktan',
+  };
+
+  for (const locale of supportedLocales) {
+    const site = getSiteCopy(locale);
+    assert.equal(site.experience[0].end, 'Sep 2026');
+    assert.equal(site.location, expectedLocations[locale]);
+  }
+});
