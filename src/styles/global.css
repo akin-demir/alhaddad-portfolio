@@ -1313,6 +1313,7 @@ html[dir='rtl'] .prose[lang='en'] {
 .vertical-copy p { color: var(--scene-muted); font-size: 1rem; line-height: 1.55; max-width: 30ch; }
 .vertical-proof { margin-top: 0.5rem; padding-inline-start: 0.7rem; border-inline-start: 2px solid var(--scene-amber); color: var(--scene-ink); font-size: 0.78rem; }
 .scene-caption { position: absolute; bottom: 0.85rem; right: 1rem; z-index: 3; color: var(--scene-muted); font: 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; background: rgb(9 18 28 / 0.65); padding: 0.25rem 0.45rem; border-radius: 3px; }
+.vertical-transport .scene-caption { top: 0.85rem; bottom: auto; }
 .vertical-body { display: grid; grid-template-columns: 1fr 1.1fr; gap: 0 2rem; padding: 1.7rem 2rem; }
 .vertical-body > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
 .vertical-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; list-style: none; align-self: start; grid-column: 1; }
@@ -1325,10 +1326,17 @@ html[dir='rtl'] .prose[lang='en'] {
 .vertical-projects a > span:last-child { color: var(--accent); }
 .vertical-projects small { display: inline-block; margin-inline-start: 0.4rem; color: var(--muted); font: 0.58rem var(--font-mono); border: 1px solid var(--border); border-radius: 3px; padding: 0.1rem 0.25rem; }
 .vertical-art { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.vehicle-box { position: absolute; border: 1px solid var(--scene-cyan); opacity: 0; box-shadow: 0 0 8px rgb(118 222 239 / 0.12); animation: vehicle-acquire 5s ease both paused; }
-.vehicle-box-one { left: 63%; top: 58%; width: 14%; height: 18%; }
-.vehicle-box-two { left: 79%; top: 57%; width: 6%; height: 9%; animation-delay: 0.6s; }
-@keyframes vehicle-acquire { 0%, 15% { opacity: 0; } 30%, 75%, 100% { opacity: 0.65; } }
+.transport-overlay { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; fill: none; stroke: var(--scene-cyan); stroke-width: 2; direction: ltr; }
+.transport-overlay text { fill: var(--scene-cyan); stroke: none; font: 20px var(--font-mono); }
+.transport-overlay .detection-label { fill: var(--scene-dark); stroke: none; }
+.vehicle-box { opacity: 0; animation: vehicle-acquire 2s ease both paused; }
+.vehicle-box-two { animation-delay: 0.3s; }
+.anpr-output { stroke: var(--scene-amber); opacity: 0; animation: vehicle-acquire 2s ease 1.2s both paused; }
+.transport-overlay .anpr-panel { fill: var(--scene-dark); fill-opacity: 0.94; }
+.transport-overlay .anpr-output text { fill: var(--scene-ink); font-size: 19px; }
+.transport-overlay .anpr-plate { fill: var(--scene-amber); }
+.transport-overlay .anpr-output .anpr-note { fill: var(--scene-muted); font-size: 14px; }
+@keyframes vehicle-acquire { 0%, 15% { opacity: 0; } 30%, 75%, 100% { opacity: 1; } }
 .data-flow { position: absolute; right: 7%; bottom: 16%; display: flex; align-items: center; color: var(--scene-cyan); opacity: 0.85; }
 .data-flow span { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; background: rgb(9 18 28 / 0.8); border: 1px solid var(--scene-cyan); border-radius: 8px; font-size: 1.5rem; }
 .data-flow i { width: 2.2rem; height: 1px; background: var(--scene-cyan); position: relative; }
@@ -1338,7 +1346,7 @@ html[dir='rtl'] .prose[lang='en'] {
 .container-scan { position: absolute; left: 58%; top: 38%; width: 35%; height: 41%; border: 1px solid rgb(118 222 239 / 0.35); border-radius: 3px; overflow: hidden; }
 .container-scan span { position: absolute; inset: 0; width: 2px; background: var(--scene-cyan); box-shadow: -12px 0 25px 4px rgb(118 222 239 / 0.2); animation: container-sweep 5s ease both paused; }
 @keyframes container-sweep { from { left: 0; opacity: 0; } 20%, 80% { opacity: 0.75; } to { left: 100%; opacity: 0; } }
-.vertical-active .vehicle-box, .vertical-active .data-flow i::after, .vertical-active .container-scan span { animation-play-state: running; }
+.vertical-active .vehicle-box, .vertical-active .anpr-output, .vertical-active .data-flow i::after, .vertical-active .container-scan span { animation-play-state: running; }
 .field-gallery { padding: 1.5rem 2rem 2rem; border-top: 1px solid var(--border); background: var(--surface-2); }
 .field-gallery h4 { margin: 0 0 0.4rem; font-size: 1rem; font-weight: 600; }
 .field-gallery > p { color: var(--muted); font-size: 0.82rem; margin-bottom: 1.2rem; }
@@ -1359,6 +1367,7 @@ html[dir='rtl'] .prose[lang='en'] {
 .media-dialog video { min-width: min(70vw, 30rem); }
 html[dir='rtl'] .vertical-shade { background: linear-gradient(270deg, rgb(9 18 28 / 0.95), rgb(9 18 28 / 0.78) 38%, rgb(9 18 28 / 0.15) 80%); }
 html[dir='rtl'] .vertical-art { opacity: 0.35; }
+html[dir='rtl'] .vertical-transport .vertical-art { opacity: 1; }
 @media (max-width: 600px) {
   .vertical-nav { grid-template-columns: 1fr; gap: 0.4rem; }
   .vertical-nav a { padding: 0.7rem 0.9rem; }
@@ -1370,10 +1379,13 @@ html[dir='rtl'] .vertical-art { opacity: 0.35; }
   .vertical-body { display: block; padding: 1.5rem; }
   .vertical-projects { margin-top: 1.5rem; }
   .vertical-art { display: none; }
+  .vertical-transport .vertical-scene > img { object-position: center; }
+  .vertical-transport .vertical-art { display: block; }
+  .transport-overlay .anpr-panel, .transport-overlay .anpr-output text, .transport-overlay .plate-leader { display: none; }
   .field-gallery { padding: 1.5rem; }
   .field-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem 0.8rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .vertical-art { display: none; }
+  .vertical-art, .vertical-transport .vertical-art { display: none; }
   .vertical-nav a:hover { transform: none; }
 }

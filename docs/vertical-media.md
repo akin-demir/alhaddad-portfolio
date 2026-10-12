@@ -30,7 +30,12 @@ ANPR output.
 ## Motion and accessibility
 
 Scene annotations have finite animations, paused outside the viewport, and are
-hidden for reduced-motion preferences and on small screens. Gallery previews
+hidden for reduced-motion preferences. Small screens retain aligned vehicle and plate boxes, while omitting the larger ANPR panel and other scene animations. Gallery previews
 use native dialogs with labeled controls, Escape dismissal, focus restoration,
 and video pause on close or page navigation. Videos have native playback
 controls and do not download until opened.
+
+The transport annotation uses the source image coordinate system and the same
+cover crop as the photograph, so vehicle and plate boxes stay aligned when the
+scene resizes. ANPR recognition is explicitly labeled as illustrative sample
+output. The home page uses verticals in place of the former Selected Work grid.

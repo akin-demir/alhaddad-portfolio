@@ -44,11 +44,31 @@ const posters = await Promise.all(media.map(item => getImage({ src: item.image, 
           <Image src={group.image} alt="" widths={[640, 960, 1440]} sizes="(max-width: 960px) 100vw, 928px" loading="lazy" />
           <div class="vertical-shade"></div>
           <div class="vertical-art" aria-hidden="true">
-            {group.id === 'transport' && <><span class="vehicle-box vehicle-box-one"></span><span class="vehicle-box vehicle-box-two"></span></>}
+            {group.id === 'transport' && (
+              <svg class="transport-overlay" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                {/* Image coordinates and the same cover crop keep boxes on the vehicles at every desktop width. */}
+                <g class="vehicle-box vehicle-box-one">
+                  <rect x="1054" y="550" width="238" height="169" />
+                  <rect class="detection-label" x="1054" y="520" width="156" height="30" />
+                  <text x="1065" y="542">VEHICLE 01</text>
+                </g>
+                <g class="vehicle-box vehicle-box-two">
+                  <rect x="1323" y="546" width="87" height="74" />
+                </g>
+                <g class="anpr-output">
+                  <rect class="plate-box" x="1127" y="667" width="49" height="19" />
+                  <path class="plate-leader" d="M 1176 677 L 1295 768" />
+                  <rect class="anpr-panel" x="1280" y="744" width="352" height="107" rx="8" />
+                  <text x="1297" y="775">ANPR · SAMPLE OUTPUT</text>
+                  <text class="anpr-plate" x="1297" y="808">PLATE: DEMO 042</text>
+                  <text class="anpr-note" x="1297" y="835">ILLUSTRATIVE RECOGNITION</text>
+                </g>
+              </svg>
+            )}
             {group.id === 'enterprise' && <div class="data-flow"><span>▤</span><i></i><span>⋮</span><i></i><span>◎</span></div>}
             {group.id === 'logistics' && <div class="container-scan"><span></span></div>}
           </div>
-          <span class="scene-caption">{t.sceneLabel}</span>
+          <span class="scene-caption">{group.id === 'transport' && 'ANPR · '}{t.sceneLabel}</span>
           <div class="vertical-copy">
             <span class="vertical-number" aria-hidden="true">0{i + 1} /</span>
             <h3 id={`${group.id}-title`}>{t.verticals[i].title}</h3>

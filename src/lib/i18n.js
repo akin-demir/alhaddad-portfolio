@@ -42,7 +42,7 @@ const english = {
   ],
   links: [{ ...baseSite.links[0], label: 'Connect on LinkedIn' }],
   stats: [
-    { value: '7+', label: 'Years delivering applied AI' },
+    { value: '9+', label: 'Years delivering applied AI' },
     { value: '3', label: 'Document tools in production' },
     { value: '90%+', label: 'Production extraction accuracy' },
   ],
@@ -86,7 +86,7 @@ const german = {
   ],
   links: [{ ...english.links[0], label: 'Auf LinkedIn vernetzen' }],
   stats: [
-    { value: '7+', label: 'Jahre in der KI-Umsetzung' },
+    { value: '9+', label: 'Jahre in der KI-Umsetzung' },
     { value: '3', label: 'Dokumentenwerkzeuge in Produktion' },
     { value: '90 %+', label: 'Extraktionsgenauigkeit im Betrieb' },
   ],
@@ -145,7 +145,7 @@ const arabic = {
   ],
   links: [{ ...english.links[0], label: 'تواصل عبر لينكدإن' }],
   stats: [
-    { value: '+7', label: 'سنوات في تنفيذ حلول الذكاء الاصطناعي' },
+    { value: '+9', label: 'سنوات في تنفيذ حلول الذكاء الاصطناعي' },
     { value: '3', label: 'أدوات مستندات قيد الإنتاج' },
     { value: '+90٪', label: 'دقة الاستخراج في الإنتاج' },
   ],
@@ -204,7 +204,7 @@ const turkish = {
   ],
   links: [{ ...english.links[0], label: 'LinkedIn’de bağlantı kur' }],
   stats: [
-    { value: '7+', label: 'Uygulamalı yapay zekâ teslimatı' },
+    { value: '9+', label: 'Uygulamalı yapay zekâ teslimatı' },
     { value: '3', label: 'Üretimde belge zekâsı aracı' },
     { value: '%90+', label: 'Üretimde veri çıkarma doğruluğu' },
   ],
