@@ -1,0 +1,148 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import copy from '../../content/verticals.json';
+import transport from '../assets/verticals/transport.png';
+import enterprise from '../assets/verticals/enterprise.png';
+import logistics from '../assets/verticals/logistics.png';
+import junction from '../assets/verticals/junction-detection.png';
+import rail from '../assets/verticals/rail-poster.jpg';
+import tracking from '../assets/verticals/tracking-poster.jpg';
+import detection from '../assets/verticals/detection-poster.jpg';
+import { getProjectCopy, normalizeLocale } from '../lib/i18n.js';
+import { url } from '../lib/url';
+
+interface Props { locale: string; projects: CollectionEntry<'projects'>[] }
+const { projects } = Astro.props;
+const locale = normalizeLocale(Astro.props.locale) as keyof typeof copy;
+const t = copy[locale];
+const groups = [
+  { id: 'transport', image: transport, slugs: ['tunnel-incident-detection', 'rail-crossing-detection', 'variable-message-signs'] },
+  { id: 'enterprise', image: enterprise, slugs: ['document-intelligence-suite', 'enterprise-knowledge-graph', 'sales-lead-proposal-system', 'comment-moderation-llm', 'realtime-tts-cluster-meet', 'noise-suppression-cluster-meet'] },
+  { id: 'logistics', image: logistics, slugs: ['port-container-scanner'] },
+];
+const media = [
+  { image: rail, video: '/files/demos/rail-crossing.mp4', duration: '0:14', project: 'rail-crossing-detection' },
+  { image: tracking, video: '/files/demos/highway-tracking.mp4', duration: '0:05', project: 'tunnel-incident-detection' },
+  { image: detection, video: '/files/demos/highway-detection.mp4', duration: '0:05', project: 'tunnel-incident-detection' },
+  { image: junction, video: null, duration: null, project: 'tunnel-incident-detection' },
+];
+const posters = await Promise.all(media.map(item => getImage({ src: item.image, width: 800, format: 'webp' })));
+---
+
+<section class="experience-verticals" aria-labelledby="verticals-title">
+  <div class="section-head" data-reveal><h2 id="verticals-title">{t.heading}</h2></div>
+  <p class="verticals-intro" data-reveal>{t.intro}</p>
+  <nav class="vertical-nav" aria-label={t.heading} data-reveal>
+    {groups.map((group, i) => <a href={`#${group.id}`}><span aria-hidden="true">0{i + 1}</span>{t.verticals[i].title}<span aria-hidden="true">↗</span></a>)}
+  </nav>
+
+  <div class="vertical-stack">
+    {groups.map((group, i) => (
+      <article class={`vertical vertical-${group.id}`} id={group.id} aria-labelledby={`${group.id}-title`}>
+        <div class="vertical-scene">
+          <Image src={group.image} alt="" widths={[640, 960, 1440]} sizes="(max-width: 960px) 100vw, 928px" loading="lazy" />
+          <div class="vertical-shade"></div>
+          <div class="vertical-art" aria-hidden="true">
+            {group.id === 'transport' && <><span class="vehicle-box vehicle-box-one"></span><span class="vehicle-box vehicle-box-two"></span></>}
+            {group.id === 'enterprise' && <div class="data-flow"><span>▤</span><i></i><span>⋮</span><i></i><span>◎</span></div>}
+            {group.id === 'logistics' && <div class="container-scan"><span></span></div>}
+          </div>
+          <span class="scene-caption">{t.sceneLabel}</span>
+          <div class="vertical-copy">
+            <span class="vertical-number" aria-hidden="true">0{i + 1} /</span>
+            <h3 id={`${group.id}-title`}>{t.verticals[i].title}</h3>
+            <p>{t.verticals[i].summary}</p>
+            <span class="vertical-proof">{t.verticals[i].proof}</span>
+          </div>
+        </div>
+        <div class="vertical-body">
+          <p>{t.verticals[i].detail}</p>
+          <ul class="vertical-skills" aria-label={t.workLabel}>{t.verticals[i].skills.map(skill => <li class="tag">{skill}</li>)}</ul>
+          <div class="vertical-projects">
+            <span class="vertical-project-label">{t.workLabel}</span>
+            <ul>{group.slugs.map(slug => {
+              const project = projects.find(item => item.id === slug);
+              if (!project) throw new Error(`Missing vertical project: ${slug}`);
+              const localized = getProjectCopy(locale, slug, project.data);
+              const research = ['realtime-tts-cluster-meet', 'noise-suppression-cluster-meet'].includes(slug);
+              return <li><a href={url(`/${locale}/projects/${slug}/`)}><span>{localized.title}{research && <small dir="ltr">R&D</small>}</span><span aria-hidden="true">↗</span></a></li>;
+            })}</ul>
+          </div>
+        </div>
+        {group.id === 'transport' && (
+          <div class="field-gallery">
+            <h4>{t.footageHeading}</h4>
+            <p>{t.footageIntro}</p>
+            <div class="field-grid">
+              {media.map((item, index) => (
+                <div class="field-item">
+                  <button type="button" class="field-preview" data-media-open={`field-media-${index}`} aria-haspopup="dialog" aria-label={`${item.video ? t.watch : t.image}: ${t.media[index]}`}>
+                    <Image src={item.image} alt={t.media[index]} widths={[320, 640]} sizes="(max-width: 600px) 45vw, 220px" loading="lazy" />
+                    <span class="field-action" aria-hidden="true">{item.video ? '▶' : '↗'}</span>
+                    {item.duration && <span class="field-duration" dir="ltr">{item.duration}</span>}
+                  </button>
+                  <a class="field-caption" href={url(`/${locale}/projects/${item.project}/`)}>{t.media[index]} <span aria-hidden="true">↗</span></a>
+                  <dialog id={`field-media-${index}`} class="media-dialog" aria-labelledby={`field-title-${index}`}>
+                    <div class="media-dialog-bar"><h4 id={`field-title-${index}`}>{t.media[index]}</h4><button type="button" data-media-close aria-label={t.close}>×</button></div>
+                    {item.video ? <video controls playsinline preload="none" poster={posters[index].src} data-src={url(item.video)} aria-label={t.media[index]}></video> : <Image src={item.image} alt={t.media[index]} widths={[640, 1080]} sizes="90vw" loading="lazy" />}
+                  </dialog>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+<script>
+  let cleanup: (() => void) | undefined;
+  function initVerticals() {
+    cleanup?.();
+    const root = document.querySelector('.experience-verticals');
+    if (!root) return;
+    const controller = new AbortController();
+    const { signal } = controller;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        // Pause the finite scene animation when the section leaves the viewport.
+        entry.target.classList.toggle('vertical-active', entry.isIntersecting && !reduced.matches);
+      }
+    }, { threshold: 0.15 });
+    root.querySelectorAll('.vertical-scene').forEach(scene => observer.observe(scene));
+    const triggers = new Map<HTMLDialogElement, HTMLButtonElement>();
+    root.querySelectorAll<HTMLButtonElement>('[data-media-open]').forEach(button => {
+      button.addEventListener('click', () => {
+        const dialog = document.getElementById(button.dataset.mediaOpen!) as HTMLDialogElement;
+        triggers.set(dialog, button);
+        const video = dialog.querySelector('video');
+        if (video && !video.getAttribute('src')) video.src = video.dataset.src!;
+        dialog.showModal();
+        video?.play().catch(() => {});
+      }, { signal });
+    });
+    root.querySelectorAll<HTMLDialogElement>('dialog').forEach(dialog => {
+      dialog.querySelector('[data-media-close]')?.addEventListener('click', () => dialog.close(), { signal });
+      dialog.addEventListener('click', event => {
+        if (event.target === dialog) {
+          const bounds = dialog.getBoundingClientRect();
+          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+        }
+      }, { signal });
+      dialog.addEventListener('close', () => {
+        dialog.querySelector('video')?.pause();
+        triggers.get(dialog)?.focus();
+      }, { signal });
+    });
+    cleanup = () => {
+      root.querySelectorAll('video').forEach(video => video.pause());
+      observer.disconnect();
+      controller.abort();
+    };
+  }
+  document.addEventListener('astro:page-load', initVerticals);
+  document.addEventListener('astro:before-swap', () => cleanup?.());
+</script>

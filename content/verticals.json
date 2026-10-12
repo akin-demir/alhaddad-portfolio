@@ -1,0 +1,50 @@
+{
+  "en": {
+    "heading": "Experience, in the real world",
+    "intro": "From roadside hardware to enterprise workflows. Explore the environments where I have delivered AI systems.",
+    "sceneLabel": "Illustrative scene",
+    "workLabel": "Explore the work",
+    "footageHeading": "See the systems in action",
+    "footageIntro": "Original project footage and detection output from road and rail systems.",
+    "watch": "Watch demo",
+    "close": "Close preview",
+    "image": "View image",
+    "verticals": [
+      {"title": "Public Safety & Intelligent Transport", "summary": "Vision that watches the road. Systems that help operators respond.", "detail": "Edge inference, incident detection and roadside information systems deployed across highways, tunnels and rail crossings.", "proof": "Türkiye · Serbia", "skills": ["Computer vision", "Edge inference", "Embedded systems"]},
+      {"title": "Enterprise AI & Automation", "summary": "Messy inputs. Structured knowledge. Useful decisions.", "detail": "Document intelligence, agentic knowledge pipelines and business automation, built to integrate into everyday operations.", "proof": "€60,000+ saved · 90%+ field accuracy", "skills": ["Document AI", "Knowledge graphs", "LLM agents"]},
+      {"title": "Industrial Vision & Logistics", "summary": "From depth data to decisions on the terminal floor.", "detail": "ML over 3D container captures, working with new sensing hardware to improve throughput and reduce misreads.", "proof": "Istanbul port · Intel", "skills": ["3D scanning", "Depth sensing", "Industrial ML"]}
+    ],
+    "media": ["Rail crossing · vehicle detection & foreground mask", "Highway · vehicle tracking", "Highway · vehicle detection", "Junction · nighttime detection"],
+    "audio": "Meeting audio research · TTS & noise suppression"
+  },
+  "de": {
+    "heading": "Erfahrung in der Praxis", "intro": "Von Straßenhardware bis zu Unternehmensprozessen: KI-Systeme in ihrem Einsatzumfeld.",
+    "sceneLabel": "Illustrative Szene", "workLabel": "Projekte entdecken", "footageHeading": "Die Systeme im Einsatz", "footageIntro": "Originalaufnahmen und Erkennungsergebnisse aus Straßen- und Bahnsystemen.", "watch": "Demo ansehen", "close": "Vorschau schließen", "image": "Bild ansehen",
+    "verticals": [
+      {"title": "Öffentliche Sicherheit & intelligenter Verkehr", "summary": "Die Straße im Blick. Unterstützung für schnelle Reaktionen.", "detail": "Edge-Inferenz, Ereigniserkennung und Informationssysteme für Autobahnen, Tunnel und Bahnübergänge.", "proof": "Türkei · Serbien", "skills": ["Computer Vision", "Edge-Inferenz", "Embedded-Systeme"]},
+      {"title": "Unternehmens-KI & Automatisierung", "summary": "Unstrukturierte Eingaben. Vernetztes Wissen. Nutzbare Entscheidungen.", "detail": "Dokumentenintelligenz, agentische Wissenspipelines und Automatisierung für den operativen Alltag.", "proof": "60.000 €+ eingespart · 90 %+ Feldgenauigkeit", "skills": ["Dokumenten-KI", "Wissensgraphen", "LLM-Agenten"]},
+      {"title": "Industrielle Bildverarbeitung & Logistik", "summary": "Von Tiefendaten zu Entscheidungen im Hafenterminal.", "detail": "ML auf 3D-Containerdaten mit neuer Sensorhardware, für höheren Durchsatz und weniger Fehlinterpretationen.", "proof": "Hafen Istanbul · Intel", "skills": ["3D-Scanning", "Tiefensensorik", "Industrielles ML"]}
+    ],
+    "media": ["Bahnübergang · Fahrzeugerkennung & Vordergrundmaske", "Autobahn · Fahrzeugtracking", "Autobahn · Fahrzeugerkennung", "Kreuzung · Erkennung bei Nacht"], "audio": "Meeting-Audio-Forschung · TTS & Rauschunterdrückung"
+  },
+  "tr": {
+    "heading": "Gerçek dünyada deneyim", "intro": "Yol kenarı donanımından kurumsal iş akışlarına: yapay zekâ sistemlerini uygulama alanlarıyla keşfedin.",
+    "sceneLabel": "Temsili görsel", "workLabel": "Projeleri keşfet", "footageHeading": "Sistemleri çalışırken görün", "footageIntro": "Karayolu ve demiryolu sistemlerinden özgün proje görüntüleri ve tespit çıktıları.", "watch": "Demoyu izle", "close": "Önizlemeyi kapat", "image": "Görseli aç",
+    "verticals": [
+      {"title": "Kamu Güvenliği & Akıllı Ulaşım", "summary": "Yolu izleyen görüntü sistemleri. Hızlı müdahale için bilgi.", "detail": "Otoyol, tünel ve hemzemin geçitlerde uç cihaz çıkarımı, olay tespiti ve yol bilgilendirme sistemleri.", "proof": "Türkiye · Sırbistan", "skills": ["Bilgisayarlı görü", "Uç cihaz çıkarımı", "Gömülü sistemler"]},
+      {"title": "Kurumsal Yapay Zekâ & Otomasyon", "summary": "Dağınık girdiler. Yapılandırılmış bilgi. Kullanılabilir kararlar.", "detail": "Günlük operasyonlara entegre belge zekâsı, ajan tabanlı bilgi akışları ve iş otomasyonu.", "proof": "60.000 €+ tasarruf · %90+ alan doğruluğu", "skills": ["Belge zekâsı", "Bilgi grafikleri", "LLM ajanları"]},
+      {"title": "Endüstriyel Görü & Lojistik", "summary": "Derinlik verisinden terminaldeki kararlara.", "detail": "Yeni sensör donanımıyla 3B konteyner verisi üzerinde ML: daha yüksek işlem hacmi, daha az hatalı okuma.", "proof": "İstanbul limanı · Intel", "skills": ["3B tarama", "Derinlik algılama", "Endüstriyel ML"]}
+    ],
+    "media": ["Hemzemin geçit · araç tespiti ve ön plan maskesi", "Otoyol · araç takibi", "Otoyol · araç tespiti", "Kavşak · gece tespiti"], "audio": "Toplantı sesi araştırmaları · TTS ve gürültü bastırma"
+  },
+  "ar": {
+    "heading": "خبرة في العالم الحقيقي", "intro": "من أجهزة الطرق إلى سير العمل المؤسسي: استكشف البيئات التي قدمت فيها أنظمة الذكاء الاصطناعي.",
+    "sceneLabel": "مشهد توضيحي", "workLabel": "استكشف المشاريع", "footageHeading": "شاهد الأنظمة أثناء العمل", "footageIntro": "لقطات أصلية ونتائج كشف من مشاريع الطرق والسكك الحديدية.", "watch": "شاهد العرض", "close": "إغلاق المعاينة", "image": "عرض الصورة",
+    "verticals": [
+      {"title": "السلامة العامة والنقل الذكي", "summary": "رؤية تراقب الطريق. أنظمة تساعد المشغلين على الاستجابة.", "detail": "استدلال على الأجهزة الطرفية وكشف الحوادث وأنظمة معلومات للطرق السريعة والأنفاق ومعابر السكك الحديدية.", "proof": "تركيا · صربيا", "skills": ["الرؤية الحاسوبية", "الاستدلال الطرفي", "الأنظمة المدمجة"]},
+      {"title": "الذكاء الاصطناعي المؤسسي والأتمتة", "summary": "مدخلات غير منظمة. معرفة مترابطة. قرارات عملية.", "detail": "ذكاء المستندات ومسارات المعرفة القائمة على الوكلاء وأتمتة الأعمال ضمن العمليات اليومية.", "proof": "توفير أكثر من 60,000 يورو · دقة حقول تتجاوز 90٪", "skills": ["ذكاء المستندات", "الرسوم البيانية المعرفية", "وكلاء النماذج اللغوية"]},
+      {"title": "الرؤية الصناعية والخدمات اللوجستية", "summary": "من بيانات العمق إلى قرارات في محطة الميناء.", "detail": "تعلم آلي على بيانات الحاويات ثلاثية الأبعاد، باستخدام أجهزة استشعار جديدة لتحسين الإنتاجية وتقليل القراءات الخاطئة.", "proof": "ميناء إسطنبول · Intel", "skills": ["المسح ثلاثي الأبعاد", "استشعار العمق", "التعلم الآلي الصناعي"]}
+    ],
+    "media": ["معبر سكك حديدية · كشف المركبات وقناع المقدمة", "طريق سريع · تتبع المركبات", "طريق سريع · كشف المركبات", "تقاطع · كشف ليلي"], "audio": "أبحاث صوت الاجتماعات · تحويل النص إلى كلام وتقليل الضوضاء"
+  }
+}

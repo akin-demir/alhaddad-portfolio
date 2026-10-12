@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
+import ExperienceVerticals from '../../components/ExperienceVerticals.astro';
 import portrait from '../../assets/portrait.png';
 import { getSiteCopy, supportedLocales, ui } from '../../lib/i18n.js';
 import { url } from '../../lib/url';
@@ -67,6 +68,8 @@ const currentPath = `/${locale}/`;
       </div>
     ))}
   </section>
+
+  <ExperienceVerticals locale={locale} projects={all} />
 
   <section>
     <div class="section-head" data-reveal>
