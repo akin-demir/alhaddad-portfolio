@@ -257,6 +257,7 @@ export function getSiteCopy(locale) {
 
 export const ui = {
   en: {
+    contact: "Contact", sayHi: "Say hi", contactTitle: "Say hi.", contactIntro: "Have an AI project, a role, or an idea in mind? I'd love to hear about it.",
     home: 'Home', projects: 'Projects', downloadCv: 'Download CV', selectedWork: 'Selected work',
     allProjects: 'All projects', about: 'About', experience: 'Experience', toolkit: 'Toolkit',
     publications: 'Publications', education: 'Education', languages: 'Languages', total: 'total',
@@ -265,6 +266,7 @@ export const ui = {
     language: 'Language', englishDetail: 'The full case study is currently available in English.',
   },
   de: {
+    contact: "Kontakt", sayHi: "Hallo sagen", contactTitle: "Sag hallo.", contactIntro: "Ein KI-Projekt, eine berufliche Möglichkeit oder eine Idee? Ich freue mich auf deine Nachricht.",
     home: 'Start', projects: 'Projekte', downloadCv: 'Lebenslauf', selectedWork: 'Ausgewählte Projekte',
     allProjects: 'Alle Projekte', about: 'Profil', experience: 'Erfahrung', toolkit: 'Kompetenzen',
     publications: 'Publikationen', education: 'Ausbildung', languages: 'Sprachen', total: 'gesamt',
@@ -273,6 +275,7 @@ export const ui = {
     language: 'Sprache', englishDetail: 'Die vollständige Fallstudie ist derzeit auf Englisch verfügbar.',
   },
   ar: {
+    contact: "تواصل", sayHi: "قل مرحباً", contactTitle: "قل مرحباً.", contactIntro: "لديك مشروع في الذكاء الاصطناعي، أو فرصة عمل، أو فكرة؟ يسعدني أن أسمع منك.",
     home: 'الرئيسية', projects: 'المشاريع', downloadCv: 'السيرة الذاتية', selectedWork: 'أعمال مختارة',
     allProjects: 'كل المشاريع', about: 'نبذة', experience: 'الخبرة', toolkit: 'الخبرات التقنية',
     publications: 'الأبحاث', education: 'التعليم', languages: 'اللغات', total: 'المجموع',
@@ -281,6 +284,7 @@ export const ui = {
     language: 'اللغة', englishDetail: 'دراسة الحالة الكاملة متاحة حالياً باللغة الإنجليزية.',
   },
   tr: {
+    contact: "İletişim", sayHi: "Merhaba de", contactTitle: "Merhaba de.", contactIntro: "Aklında bir yapay zekâ projesi, iş fırsatı veya fikir mi var? Senden haber almak isterim.",
     home: 'Ana sayfa', projects: 'Projeler', downloadCv: 'Özgeçmiş', selectedWork: 'Seçili çalışmalar',
     allProjects: 'Tüm projeler', about: 'Hakkımda', experience: 'Deneyim', toolkit: 'Yetkinlikler',
     publications: 'Yayınlar', education: 'Eğitim', languages: 'Diller', total: 'toplam',

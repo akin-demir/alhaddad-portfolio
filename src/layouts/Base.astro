@@ -158,6 +158,7 @@ const personSchema = {
         <nav>
           <a href={url(`/${locale}/`)}>{t.home}</a>
           <a href={url(`/${locale}/projects/`)}>{t.projects}</a>
+          <a href={`${url(`/${locale}/`)}#contact`}>{t.contact}</a>
           {site.resume && <a href={url(site.resume)}>CV</a>}
           <LanguageSwitcher locale={locale} currentPath={currentPath} label={t.language} />
           <ThemeToggle />
@@ -172,6 +173,7 @@ const personSchema = {
     <footer class="site-footer">
       <p>&copy; {new Date().getFullYear()} {site.name}</p>
       <ul class="footer-links">
+        <li><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
         {site.links.map((link) => (
           <li><a href={link.url}>{link.label}</a></li>
         ))}

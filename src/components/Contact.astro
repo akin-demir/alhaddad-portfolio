@@ -1,0 +1,25 @@
+---
+interface Props {
+  email: string;
+  title?: string;
+  intro?: string;
+  linkedin: { label: string; url: string };
+}
+const {
+  email,
+  title = 'Say hi.',
+  intro = "Have an AI project, a role, or an idea in mind? I'd love to hear about it.",
+  linkedin,
+} = Astro.props;
+---
+
+<section id="contact" class="contact" aria-labelledby="contact-title" data-scene="converge">
+  <div class="contact-card" data-reveal>
+    <h2 id="contact-title">{title}</h2>
+    <p>{intro}</p>
+    <a class="contact-email" href={`mailto:${email}`} dir="ltr">{email}</a>
+    <div class="contact-links">
+      <a class="pill" href={linkedin.url}>{linkedin.label}</a>
+    </div>
+  </div>
+</section>

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
+import Contact from '../../components/Contact.astro';
 import ExperienceVerticals from '../../components/ExperienceVerticals.astro';
 import portrait from '../../assets/portrait.png';
 import { getSiteCopy, supportedLocales, ui } from '../../lib/i18n.js';
@@ -34,8 +35,9 @@ const currentPath = `/${locale}/`;
       </p>
       <p class="tagline" data-reveal style="--delay: 220ms">{site.tagline}</p>
       <div class="hero-links" data-reveal style="--delay: 300ms">
+        <a href={`mailto:${site.email}`} class="pill pill-primary">{t.sayHi}</a>
         {site.links.map((link) => (
-          <a href={link.url} class={link.primary ? 'pill pill-primary' : 'pill'}>
+          <a href={link.url} class="pill">
             {link.label}
           </a>
         ))}
@@ -138,4 +140,5 @@ const currentPath = `/${locale}/`;
       </ul>
     </div>
   </section>
+  <Contact email={site.email} linkedin={site.links[0]} title={t.contactTitle} intro={t.contactIntro} />
 </Base>

@@ -46,6 +46,7 @@ export const GET: APIRoute = async () => {
     '',
     '## Contact',
     '',
+    `- Email: ${site.email}`,
     ...site.links.map((l) => `- ${l.label}: ${l.url}`),
     '',
   ].join('\n');
