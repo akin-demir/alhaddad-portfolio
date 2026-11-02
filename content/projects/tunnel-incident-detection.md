@@ -1,7 +1,8 @@
 ---
-title: Tunnel & Highway Incident Detection
-summary: Real-time vision for road incidents across Turkish highways and tunnels, running on roadside hardware because a datacenter round-trip was too slow.
+title: Smart-Tunnel & Highway Incident Detection
+summary: Deep-learning incident detection for tunnels and highways, including the FED4SAE Smart-Tunnel project with Intel and fortiss.
 year: 2021
+url: https://fed4sae.eu/innovative-projects/smart-tunnel/
 tags: [Computer Vision, OpenVINO, Edge Compute, C++, Real-time]
 deployment:
   - İzmir, Turkey — highway incident detection
@@ -35,6 +36,25 @@ False positives were the other one. An operator who gets alerted twenty times
 an hour stops reading the alerts, and after that the system may as well be off.
 So precision mattered more than recall here, which is not how these models are
 usually benchmarked.
+
+## Smart-Tunnel · FED4SAE
+
+[Smart-Tunnel](https://fed4sae.eu/innovative-projects/smart-tunnel/) is the
+FED4SAE-supported deep-learning enhancement of ISSD's automatic incident
+detection system. It detects pedestrians and stopped vehicles in tunnel camera
+feeds, using Intel Movidius Myriad X VPUs in a high-density deep-learning
+(HDDL) configuration.
+
+**FED4SAE reports that a live customer evaluation in Turkey roughly halved
+false alarms** compared with the legacy engine, while detecting every event
+that the earlier engine detected and raising alerts faster. Hardware cost per
+camera stream also fell. These results describe that evaluation, rather than
+a guarantee for every deployment.
+
+Intel supported hardware benchmarking and inference tuning; fortiss supported
+robustness assessment with the Neural Network Dependability Kit. Blumorpho
+provided business coaching. The engine was designed for both new installations
+and retrofits to existing tunnel monitoring systems.
 
 ## Dependability
 
