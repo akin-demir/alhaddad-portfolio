@@ -304,7 +304,7 @@ const projectTranslations = {
     'enterprise-knowledge-graph': ['Unternehmensweiter Knowledge Graph', 'Agentische Pipelines überführen verteilte Daten europäischer Unternehmen in einen abfragbaren Wissensgraphen.'],
     'tunnel-incident-detection': ['Smart-Tunnel & Störfallerkennung für Autobahnen', 'Deep-Learning-Störfallerkennung für Tunnel und Autobahnen, einschließlich des FED4SAE-Projekts Smart-Tunnel mit Intel und fortiss.'],
     'rail-crossing-detection': ['Gefahrenerkennung an Bahnübergängen', 'Objekterkennung an serbischen Bahnübergängen meldet Risiken, solange noch Zeit zum Eingreifen bleibt.'],
-    'port-container-scanner': ['3D-Containerscanner für Häfen', 'Maschinelles Lernen auf 3D-Scans von Containern erhöhte den Durchsatz und reduzierte Fehlablesungen.'],
+    'port-container-scanner': ['3D-Containerscanner für Häfen', 'Containerscanning in einem Istanbuler Hafen mit Arbeiten an Sensoren der SICK-LMS511-Serie im Jahr 2019 und Intel RealSense im Jahr 2021.'],
     'variable-message-signs': ['Dynamische Verkehrsschilder', 'Entwicklung und Einführung von Systemen zur Verkehrsführung in mehreren türkischen Städten.'],
   },
   ar: {
@@ -316,7 +316,7 @@ const projectTranslations = {
     'enterprise-knowledge-graph': ['رسم المعرفة المؤسسي', 'مسارات وكلاء تحوّل بيانات الشركات الأوروبية المتفرقة إلى رسم معرفة قابل للاستعلام.'],
     'tunnel-incident-detection': ['Smart-Tunnel وكشف حوادث الطرق السريعة', 'كشف حوادث الأنفاق والطرق السريعة بالتعلم العميق، بما يشمل مشروع Smart-Tunnel ضمن FED4SAE بالتعاون مع Intel وfortiss.'],
     'rail-crossing-detection': ['كشف مخاطر معابر السكك الحديدية', 'كشف الأجسام في معابر صربيا لتنبيه المشغلين قبل فوات وقت التدخل.'],
-    'port-container-scanner': ['ماسح حاويات ثلاثي الأبعاد للموانئ', 'تعلم آلي على مسوح ثلاثية الأبعاد رفع الإنتاجية وخفّض أخطاء القراءة.'],
+    'port-container-scanner': ['ماسح حاويات ثلاثي الأبعاد للموانئ', 'مسح الحاويات في ميناء بإسطنبول، مع العمل على حساسات سلسلة SICK LMS511 في 2019 وIntel RealSense في 2021.'],
     'variable-message-signs': ['أنظمة لوحات الرسائل المرورية', 'تصميم وتطوير وتشغيل لوحات توجيه مروري في عدة مدن تركية.'],
   },
   tr: {
@@ -328,7 +328,7 @@ const projectTranslations = {
     'enterprise-knowledge-graph': ['Kurumsal Bilgi Grafiği', 'Dağınık Avrupa şirket verilerini sorgulanabilir bilgi grafiğine dönüştüren ajan tabanlı hatlar.'],
     'tunnel-incident-detection': ['Smart-Tunnel ve Otoyol Olay Tespiti', 'Intel ve fortiss ile FED4SAE Smart-Tunnel projesini içeren, tünel ve otoyollar için derin öğrenme tabanlı olay tespiti.'],
     'rail-crossing-detection': ['Demiryolu Geçidi Olay Tespiti', 'Sırbistan’daki geçitlerde müdahale süresi varken tehlikeleri bildiren nesne tespiti.'],
-    'port-container-scanner': ['3B Liman Konteyner Tarayıcısı', 'Konteynerlerin 3B taramalarında işlem kapasitesini artırıp hatalı okumaları azaltan makine öğrenmesi.'],
+    'port-container-scanner': ['3B Liman Konteyner Tarayıcısı', 'İstanbul’daki bir limanda konteyner tarama; 2019’da SICK LMS511 serisi sensörler ve 2021’de Intel RealSense ile çalışma.'],
     'variable-message-signs': ['Değişken Mesaj İşaret Sistemleri', 'Birçok Türk şehrinde tasarlanan, geliştirilen ve devreye alınan trafik yönlendirme sistemleri.'],
   },
 };
