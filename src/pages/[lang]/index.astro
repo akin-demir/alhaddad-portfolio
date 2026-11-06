@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Contact from '../../components/Contact.astro';
+import WorkGuard from '../../components/WorkGuard.astro';
 import ExperienceVerticals from '../../components/ExperienceVerticals.astro';
 import portrait from '../../assets/portrait.png';
 import { getSiteCopy, supportedLocales, ui } from '../../lib/i18n.js';
@@ -67,6 +68,8 @@ const currentPath = `/${locale}/`;
   </section>
 
   <ExperienceVerticals locale={locale} projects={all} />
+
+  <WorkGuard locale={locale} projectPath={`/${locale}/projects/workguard/`} />
 
   <section data-scene="stack">
     <div class="section-head" data-reveal><h2>{t.about}</h2></div>

@@ -1,0 +1,30 @@
+---
+import { getImage } from 'astro:assets';
+import poster from '../assets/projects/workguard-ppe.jpg';
+import copy from '../../content/workguard.json';
+import { url } from '../lib/url';
+interface Props { locale?: string; projectPath: string }
+const { locale = 'en', projectPath } = Astro.props;
+const t = copy[locale as keyof typeof copy] || copy.en;
+const preview = await getImage({ src: poster, width: 1280, format: 'webp' });
+---
+<section id="workguard" aria-labelledby="workguard-title" class="workguard">
+  <p class="eyebrow">{t.badge}</p>
+  <div class="section-head"><h2 id="workguard-title">{t.title}</h2></div>
+  <p class="workguard-summary">{t.summary}</p>
+  <p>{t.detail}</p>
+  <figure>
+    <video controls playsinline preload="none" poster={preview.src} aria-label={t.watch} width="1280" height="720">
+      <source src={url('/files/demos/workguard-ppe.mp4')} type="video/mp4" />
+      <a href={url('/files/demos/workguard-ppe.mp4')}>{t.watch}</a>
+    </video>
+    <figcaption>{t.note} <a href={url(projectPath)}>{t.link} &rarr;</a></figcaption>
+  </figure>
+</section>
+<style>
+  .workguard { scroll-margin-top: 6rem; }
+  .workguard-summary { font-size: 1.35rem; font-weight: 600; }
+  figure { margin: 1.5rem 0 0; }
+  video { display: block; width: 100%; height: auto; border-radius: 12px; background: #111; }
+  figcaption { margin-top: .8rem; font-size: .9rem; line-height: 1.6; }
+</style>
