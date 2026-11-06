@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import copy from '../../content/project-groups.json';
+interface Props { projects: CollectionEntry<'projects'>[]; locale?: string }
+const { projects, locale = 'en' } = Astro.props;
+const t = copy[locale as keyof typeof copy] || copy.en;
+const products = projects.filter(p => p.data.category === 'product');
+const companies = ['innoscripta SE', 'ISSD Bilişim Elektronik A.Ş.'];
+---
+<section aria-labelledby="product-projects-title">
+  <div class="section-head"><h2 id="product-projects-title">{t.products}</h2></div>
+  <p>{t.productIntro}</p>
+  <ul class="project-grid">{products.map(project => <ProjectCard project={project} locale={locale} />)}</ul>
+</section>
+<section aria-labelledby="professional-projects-title">
+  <div class="section-head"><h2 id="professional-projects-title">{t.professional}</h2></div>
+  <p>{t.intro}</p>
+  {companies.map(company => (
+    <section class="company-projects" aria-label={company}>
+      <h3>{company}</h3>
+      <ul class="project-grid">{projects.filter(p => p.data.category === 'professional' && p.data.company === company).map(project => <ProjectCard project={project} locale={locale} />)}</ul>
+    </section>
+  ))}
+</section>
+<style>.company-projects { margin-top: 2rem; } .company-projects > h3 { margin-bottom: 1.25rem; }</style>

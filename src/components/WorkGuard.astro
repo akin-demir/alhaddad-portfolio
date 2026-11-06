@@ -8,9 +8,10 @@ const { locale = 'en', projectPath } = Astro.props;
 const t = copy[locale as keyof typeof copy] || copy.en;
 const preview = await getImage({ src: poster, width: 1280, format: 'webp' });
 ---
-<section id="workguard" aria-labelledby="workguard-title" class="workguard">
+<section id="workguard" aria-labelledby="products-title" class="workguard">
   <p class="eyebrow">{t.badge}</p>
-  <div class="section-head"><h2 id="workguard-title">{t.title}</h2></div>
+  <div class="section-head"><h2 id="products-title">{t.heading}</h2></div>
+  <h3 id="workguard-title">{t.title}</h3>
   <p class="workguard-summary">{t.summary}</p>
   <p>{t.detail}</p>
   <figure>

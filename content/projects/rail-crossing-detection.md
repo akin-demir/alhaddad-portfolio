@@ -1,4 +1,6 @@
 ---
+category: professional
+company: ISSD Bilişim Elektronik A.Ş.
 title: Rail Crossing Incident Detection
 summary: Object detection at Serbian level crossings, flagging hazards in the danger zone while there's still time to act on them.
 year: 2021

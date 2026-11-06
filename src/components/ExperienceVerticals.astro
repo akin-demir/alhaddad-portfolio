@@ -4,7 +4,6 @@ import type { CollectionEntry } from 'astro:content';
 import copy from '../../content/verticals.json';
 import transport from '../assets/verticals/transport.png';
 import enterprise from '../assets/verticals/enterprise.png';
-import logistics from '../assets/verticals/logistics.png';
 import junction from '../assets/verticals/junction-detection.png';
 import rail from '../assets/verticals/rail-poster.jpg';
 import tracking from '../assets/verticals/tracking-poster.jpg';
@@ -17,9 +16,8 @@ const { projects } = Astro.props;
 const locale = normalizeLocale(Astro.props.locale) as keyof typeof copy;
 const t = copy[locale];
 const groups = [
-  { id: 'transport', image: transport, slugs: ['tunnel-incident-detection', 'rail-crossing-detection', 'variable-message-signs'] },
-  { id: 'enterprise', image: enterprise, slugs: ['document-intelligence-suite', 'enterprise-knowledge-graph', 'sales-lead-proposal-system', 'comment-moderation-llm', 'realtime-tts-cluster-meet', 'noise-suppression-cluster-meet'] },
-  { id: 'logistics', image: logistics, slugs: ['port-container-scanner'] },
+  { id: 'enterprise', image: enterprise, slugs: ["document-intelligence-suite", "enterprise-knowledge-graph", "sales-lead-proposal-system", "comment-moderation-llm", "realtime-tts-cluster-meet", "noise-suppression-cluster-meet"] },
+  { id: 'transport', image: transport, slugs: ["tunnel-incident-detection", "rail-crossing-detection", "port-container-scanner", "variable-message-signs"] },
 ];
 const media = [
   { image: rail, video: '/files/demos/rail-crossing.mp4', duration: '0:14', project: 'rail-crossing-detection' },

@@ -8,6 +8,8 @@ const projects = defineCollection({
   // build error, not a broken <img> in production.
   schema: ({ image }) =>
     z.object({
+      category: z.enum(['product', 'professional']),
+      company: z.enum(['innoscripta SE', 'ISSD Bilişim Elektronik A.Ş.']).optional(),
       title: z.string(),
       summary: z.string(),
       year: z.number(),

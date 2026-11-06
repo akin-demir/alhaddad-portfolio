@@ -1,4 +1,6 @@
 ---
+category: professional
+company: ISSD Bilişim Elektronik A.Ş.
 title: 3D Port Container Scanner
 summary: Container scanning at an Istanbul port, with work on SICK LMS511-series sensors in 2019 and Intel RealSense in 2021.
 year: 2021

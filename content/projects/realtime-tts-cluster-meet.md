@@ -1,4 +1,6 @@
 ---
+category: professional
+company: innoscripta SE
 title: Real-time TTS for cluster-meet
 summary: R&D on a text-to-speech stack fast enough to speak inside a live meeting, where latency is the whole product.
 year: 2026

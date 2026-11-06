@@ -1,4 +1,6 @@
 ---
+category: professional
+company: ISSD Bilişim Elektronik A.Ş.
 title: Variable Message Sign Systems
 summary: Roadside signage for traffic guidance, designed, built and deployed across several Turkish cities. The failure mode is a sign nobody can read.
 year: 2020

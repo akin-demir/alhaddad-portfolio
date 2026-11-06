@@ -1,4 +1,5 @@
 ---
+category: product
 title: WorkGuard — Worker Safety Monitoring
 summary: An independent product in development for camera-based worker-safety monitoring, starting with helmet and high-visibility PPE detection.
 year: 2026

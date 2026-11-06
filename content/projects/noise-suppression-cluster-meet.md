@@ -1,4 +1,6 @@
 ---
+category: professional
+company: innoscripta SE
 title: Noise Suppression for cluster-meet
 summary: R&D on removing background noise from live meeting audio without eating the speech underneath it.
 year: 2026

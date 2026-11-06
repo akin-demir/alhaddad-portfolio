@@ -1,0 +1,42 @@
+{
+  "en": {
+    "products": "Products I’m Building",
+    "professional": "Professional Projects",
+    "intro": "Selected projects grouped by the company where I developed them.",
+    "productIntro": "Independent products, with their current development status.",
+    "companies": [
+      "innoscripta SE",
+      "ISSD Bilişim Elektronik A.Ş."
+    ]
+  },
+  "de": {
+    "products": "Produkte in Entwicklung",
+    "professional": "Berufliche Projekte",
+    "intro": "Ausgewählte Projekte, gruppiert nach dem jeweiligen Unternehmen.",
+    "productIntro": "Eigenständige Produkte mit ihrem aktuellen Entwicklungsstand.",
+    "companies": [
+      "innoscripta SE",
+      "ISSD Bilişim Elektronik A.Ş."
+    ]
+  },
+  "ar": {
+    "products": "منتجات أعمل على تطويرها",
+    "professional": "المشاريع المهنية",
+    "intro": "مشاريع مختارة مرتبة حسب الشركة التي طورتها فيها.",
+    "productIntro": "منتجات مستقلة مع توضيح مرحلة تطويرها الحالية.",
+    "companies": [
+      "innoscripta SE",
+      "ISSD Bilişim Elektronik A.Ş."
+    ]
+  },
+  "tr": {
+    "products": "Geliştirdiğim Ürünler",
+    "professional": "Profesyonel Projeler",
+    "intro": "Geliştirdiğim şirkete göre gruplandırılmış seçili projeler.",
+    "productIntro": "Bağımsız ürünler ve güncel geliştirme durumları.",
+    "companies": [
+      "innoscripta SE",
+      "ISSD Bilişim Elektronik A.Ş."
+    ]
+  }
+}

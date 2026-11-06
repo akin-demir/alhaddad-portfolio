@@ -1,4 +1,6 @@
 ---
+category: professional
+company: innoscripta SE
 title: Sales Lead Proposal System
 summary: A lead qualification and proposal engine that predicts purchase intent with semantic similarity rating, instead of asking an LLM to score leads directly.
 year: 2025

@@ -1,4 +1,6 @@
 ---
+category: professional
+company: innoscripta SE
 title: Sales Comment Moderation
 summary: A locally trained LLM that moderates comments on sales listings in-house, so customer text never leaves the building to get a label.
 year: 2026

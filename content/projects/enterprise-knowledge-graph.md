@@ -1,4 +1,6 @@
 ---
+category: professional
+company: innoscripta SE
 title: Enterprise Knowledge Graph
 summary: Agentic pipelines that turn scattered public data on European enterprises into a graph you can query.
 year: 2024

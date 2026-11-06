@@ -1,4 +1,6 @@
 ---
+category: professional
+company: ISSD Bilişim Elektronik A.Ş.
 title: Smart-Tunnel & Highway Incident Detection
 summary: Deep-learning incident detection for tunnels and highways, including the FED4SAE Smart-Tunnel project with Intel and fortiss.
 year: 2021

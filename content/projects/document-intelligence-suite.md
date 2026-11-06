@@ -1,4 +1,6 @@
 ---
+category: professional
+company: innoscripta SE
 title: Document Intelligence Suite
 summary: Three production parsers exceeding 90% field accuracy; since launch, the service has saved more than €60,000 in manual processing costs.
 year: 2026

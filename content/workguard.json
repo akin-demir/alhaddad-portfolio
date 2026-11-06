@@ -6,7 +6,8 @@
     "detail": "A product I am developing to help safety teams review potential PPE issues, starting with helmet and high-visibility clothing detection.",
     "watch": "WorkGuard PPE detection demonstration",
     "note": "Prototype on selected public construction footage. Human review required.",
-    "link": "Explore WorkGuard"
+    "link": "Explore WorkGuard",
+    "heading": "Products I’m Building"
   },
   "de": {
     "badge": "Eigenständiges Produkt · In Entwicklung",
@@ -15,7 +16,8 @@
     "detail": "Ein Produkt, das ich entwickle, um Sicherheitsteams bei der Prüfung möglicher PSA-Probleme zu unterstützen – zunächst durch die Erkennung von Schutzhelmen und Warnkleidung.",
     "watch": "WorkGuard-Demonstration zur PSA-Erkennung",
     "note": "Prototyp auf ausgewählten öffentlichen Baustellenaufnahmen. Menschliche Prüfung erforderlich.",
-    "link": "WorkGuard entdecken"
+    "link": "WorkGuard entdecken",
+    "heading": "Produkte in Entwicklung"
   },
   "ar": {
     "badge": "منتج مستقل · قيد التطوير",
@@ -24,7 +26,8 @@
     "detail": "منتج أعمل على تطويره لمساعدة فرق السلامة في مراجعة المشكلات المحتملة في معدات الوقاية، بدءاً بكشف خوذات الأمان والملابس عالية الوضوح.",
     "watch": "عرض WorkGuard لكشف معدات الوقاية الشخصية",
     "note": "نموذج أولي على لقطات بناء عامة مختارة. يتطلب مراجعة بشرية.",
-    "link": "استكشف WorkGuard"
+    "link": "استكشف WorkGuard",
+    "heading": "منتجات أعمل على تطويرها"
   },
   "tr": {
     "badge": "Bağımsız ürün · Geliştirme aşamasında",
@@ -33,6 +36,7 @@
     "detail": "Güvenlik ekiplerinin olası KKD sorunlarını incelemesine yardımcı olmak için geliştirdiğim bir ürün. İlk aşamada baret ve yüksek görünürlüklü giysi tespitine odaklanıyor.",
     "watch": "WorkGuard KKD tespit demosu",
     "note": "Seçilmiş kamuya açık şantiye görüntülerinde prototip. İnsan incelemesi gereklidir.",
-    "link": "WorkGuard’ı keşfet"
+    "link": "WorkGuard’ı keşfet",
+    "heading": "Geliştirdiğim Ürünler"
   }
 }

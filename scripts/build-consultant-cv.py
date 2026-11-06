@@ -42,8 +42,14 @@ PALE = colors.HexColor("#EAF6F5")
 LINE = colors.HexColor("#D9E2EC")
 WHITE = colors.white
 
-pdfmetrics.registerFont(TTFont("DejaVu", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"))
-pdfmetrics.registerFont(TTFont("DejaVu-Bold", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"))
+# Set CV_FONT_DIR when the DejaVu fonts are not installed in a standard directory.
+import os
+font_candidates = [Path(os.environ.get("CV_FONT_DIR", "/usr/share/fonts/truetype/dejavu")), Path("/Library/Fonts"), Path.home() / "Library/Fonts", Path.home() / ".cache/codex-runtimes/codex-primary-runtime/dependencies/native/libreoffice-headless/libreoffice/LibreOfficeDev.app/Contents/Resources/fonts/truetype"]
+font_dir = next((d for d in font_candidates if (d / "DejaVuSans.ttf").exists() and (d / "DejaVuSans-Bold.ttf").exists()), None)
+if font_dir is None:
+    raise RuntimeError("Set CV_FONT_DIR to a directory containing DejaVuSans.ttf and DejaVuSans-Bold.ttf")
+pdfmetrics.registerFont(TTFont("DejaVu", str(font_dir / "DejaVuSans.ttf")))
+pdfmetrics.registerFont(TTFont("DejaVu-Bold", str(font_dir / "DejaVuSans-Bold.ttf")))
 
 PAGE_W, PAGE_H = A4
 LEFT = 18 * mm
@@ -66,7 +72,7 @@ styles.add(ParagraphStyle(
 ))
 styles.add(ParagraphStyle(
     name="SectionCV", fontName="DejaVu-Bold", fontSize=10.5, leading=13,
-    textColor=NAVY, uppercase=True, spaceBefore=4 * mm, spaceAfter=2.2 * mm,
+    textColor=NAVY, uppercase=True, spaceBefore=3 * mm, spaceAfter=2.2 * mm,
 ))
 styles.add(ParagraphStyle(
     name="BodyCV", fontName="DejaVu", fontSize=8.8, leading=12.5,
@@ -74,7 +80,7 @@ styles.add(ParagraphStyle(
 ))
 styles.add(ParagraphStyle(
     name="BodyTightCV", fontName="DejaVu", fontSize=8.3, leading=11.4,
-    textColor=INK, spaceAfter=1.4 * mm,
+    textColor=INK, spaceAfter=1.1 * mm,
 ))
 styles.add(ParagraphStyle(
     name="RoleCV", fontName="DejaVu-Bold", fontSize=10, leading=13,
@@ -85,9 +91,9 @@ styles.add(ParagraphStyle(
     textColor=MUTED, spaceAfter=1.5 * mm,
 ))
 styles.add(ParagraphStyle(
-    name="BulletCV", fontName="DejaVu", fontSize=8.35, leading=11.5,
+    name="BulletCV", fontName="DejaVu", fontSize=8.35, leading=11,
     textColor=INK, leftIndent=4 * mm, firstLineIndent=-3.2 * mm,
-    bulletIndent=0, spaceAfter=1.4 * mm,
+    bulletIndent=0, spaceAfter=1.1 * mm,
 ))
 styles.add(ParagraphStyle(
     name="MetricValueCV", fontName="DejaVu-Bold", fontSize=15, leading=18,
@@ -167,66 +173,6 @@ story.append(p(
     "Technology consultant with 7+ years of experience helping organizations use AI and automation to reduce operating costs, save time and improve service delivery. Works across discovery, business-case definition, solution architecture, stakeholder alignment and implementation oversight. Combines technical depth with experience guiding projects from uncertain requirements through production deployment in enterprise, transport and industrial environments."
 ))
 
-metrics = Table(
-    [[metric("7+ years", "Delivering applied AI solutions"),
-      metric("3", "Document-intelligence tools in production"),
-      metric("90%+", "Field-level extraction accuracy in production"),
-      metric("3", "Selected academic publications")]],
-    colWidths=[(PAGE_W - LEFT - RIGHT) / 4] * 4,
-)
-metrics.setStyle(TableStyle([
-    ("BACKGROUND", (0, 0), (-1, -1), PALE),
-    ("BOX", (0, 0), (-1, -1), 0.7, colors.HexColor("#B9DFDC")),
-    ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#CBE7E4")),
-    ("VALIGN", (0, 0), (-1, -1), "TOP"),
-    ("LEFTPADDING", (0, 0), (-1, -1), 3.5 * mm),
-    ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
-    ("TOPPADDING", (0, 0), (-1, -1), 3 * mm),
-    ("BOTTOMPADDING", (0, 0), (-1, -1), 3 * mm),
-]))
-story += [Spacer(1, 2 * mm), metrics]
-
-story += section("Consulting and solution leadership")
-cap_rows = [
-    [p("AI strategy & opportunity assessment", "SmallCV"), p("Solution architecture & roadmaps", "SmallCV"), p("Requirements discovery & scoping", "SmallCV")],
-    [p("Technical project leadership", "SmallCV"), p("Delivery risk & governance", "SmallCV"), p("Stakeholder & vendor alignment", "SmallCV")],
-    [p("Business cases & process automation", "SmallCV"), p("Production readiness", "SmallCV"), p("Implementation oversight", "SmallCV")],
-]
-caps = Table(cap_rows, colWidths=[(PAGE_W - LEFT - RIGHT) / 3] * 3)
-caps.setStyle(TableStyle([
-    ("TEXTCOLOR", (0, 0), (-1, -1), INK),
-    ("LINEBELOW", (0, 0), (-1, -2), 0.4, LINE),
-    ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-    ("LEFTPADDING", (0, 0), (-1, -1), 2.5 * mm),
-    ("RIGHTPADDING", (0, 0), (-1, -1), 2.5 * mm),
-    ("TOPPADDING", (0, 0), (-1, -1), 2.2 * mm),
-    ("BOTTOMPADDING", (0, 0), (-1, -1), 2.2 * mm),
-]))
-story.append(caps)
-
-story += section("Selected consulting engagements")
-engagements = [
-    ("Document Intelligence & Process Automation", "innoscripta SE · Enterprise AI",
-     "Led the delivery of a shared extraction service for invoices, emails and timesheets. Scoped outputs around the fields downstream teams actually needed, established stable API contracts and moved three tools into production at 90%+ field-level accuracy. Since launch, the service has saved more than €60,000 in manual processing costs."),
-    ("Enterprise Knowledge Graph", "innoscripta SE · Data and AI architecture",
-     "Designed the extraction approach for fragmented European enterprise data, combining agentic workflows, entity resolution, graph storage and semantic search. Focused the architecture on traceability and controlled failure modes so automated conclusions could be reviewed and corrected."),
-    ("Safety-Critical Vision Systems", "ISSD · Intel, fortiss and Huawei partnerships",
-     "Supported solution design and field delivery for tunnel, highway and rail-crossing detection systems. Balanced latency, false-alert rates and edge-hardware constraints, helping move computer-vision systems from model evaluation into live transport environments."),
-]
-for title, meta, body in engagements:
-    story.append(KeepTogether([
-        p(title, "RoleCV"),
-        p(meta, "MetaCV"),
-        p(body, "BodyTightCV"),
-    ]))
-    story.append(Spacer(1, 1.2 * mm))
-
-story.append(PageBreak())
-story += [
-    p("PROFESSIONAL EXPERIENCE", "NameCV"),
-    p("SOLUTION LEADERSHIP ACROSS AI, AUTOMATION AND INDUSTRIAL SYSTEMS", "TitleCV"),
-]
-
 story += section("Experience")
 story.append(KeepTogether([
     p("AI Solutions Engineer · Consulting and Delivery Focus", "RoleCV"),
@@ -247,6 +193,35 @@ story.append(KeepTogether([
     bullet("Supported a Huawei rail-safety engagement in Serbia, defining detection around the time available for operators to act rather than model accuracy in isolation."),
     bullet("Designed, developed and deployed roadside variable-message-sign systems across multiple Turkish cities, covering the full path from engineering decisions to field commissioning."),
 ]))
+
+
+story.append(PageBreak())
+story += [p("PRODUCTS & SELECTED PROJECTS", "NameCV")]
+story += section("Independent products")
+story.append(KeepTogether([
+    p("WorkGuard - Worker Safety Monitoring", "RoleCV"),
+    p("Independent product in development | 2026", "MetaCV"),
+    p("Developing a camera-based worker-safety product, starting with person, safety-helmet and high-visibility clothing detection. Fine-tuned YOLO26s and ran training and inference locally on Apple Silicon. Built a reproducible video pipeline with annotated output and per-frame detection records. Selected public-footage demonstration; human review required. Equipment-to-person association and reliable compliance alerts remain development work.", "BodyTightCV"),
+    p('<link href="https://alhaddad.dev/en/projects/workguard/" color="#007C83">Watch the prototype demonstration</link>', "SmallCV"),
+]))
+
+story += section("Professional projects by company")
+engagements = [
+    ("Document Intelligence & Process Automation", "innoscripta SE · Enterprise AI",
+     "Led the delivery of a shared extraction service for invoices, emails and timesheets. Scoped outputs around the fields downstream teams actually needed, established stable API contracts and moved three tools into production at 90%+ field-level accuracy. Since launch, the service has saved more than €60,000 in manual processing costs."),
+    ("Enterprise Knowledge Graph", "innoscripta SE · Data and AI architecture",
+     "Designed the extraction approach for fragmented European enterprise data, combining agentic workflows, entity resolution, graph storage and semantic search. Focused the architecture on traceability and controlled failure modes so automated conclusions could be reviewed and corrected."),
+    ("Safety-Critical Vision Systems", "ISSD · Intel, fortiss and Huawei partnerships",
+     "Supported solution design and field delivery for tunnel, highway and rail-crossing detection systems. Balanced latency, false-alert rates and edge-hardware constraints, helping move computer-vision systems from model evaluation into live transport environments."),
+]
+for title, meta, body in engagements:
+    story.append(KeepTogether([
+        p(meta, "MetaCV"),
+        p(title, "RoleCV"),
+        p(body, "BodyTightCV"),
+    ]))
+    story.append(Spacer(1, 1.2 * mm))
+
 
 story += section("Technical foundation")
 tech = Table([
