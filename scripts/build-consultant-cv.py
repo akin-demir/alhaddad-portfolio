@@ -162,7 +162,8 @@ story += [
     p("MOHAMAD ALHADDAD", "NameCV"),
     p("AI & DIGITAL TRANSFORMATION CONSULTANT", "TitleCV"),
     p(
-        "Türkiye · Dubai · Damascus · Remote worldwide &nbsp;&nbsp;·&nbsp;&nbsp; "
+        "Türkiye · Dubai · Damascus · Remote worldwide <br/>"
+        '<link href="mailto:hello@alhaddad.dev" color="#007C83">hello@alhaddad.dev</link> &nbsp;&nbsp;·&nbsp;&nbsp; '
         '<link href="https://www.linkedin.com/in/demirci-m-375532117/" color="#007C83">LinkedIn: demirci-m-375532117</link>',
         "ContactCV",
     ),
