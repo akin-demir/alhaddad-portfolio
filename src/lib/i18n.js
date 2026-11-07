@@ -296,6 +296,7 @@ export const ui = {
 
 const projectTranslations = {
   de: {
+    'arabic-calligraphy-skill': ["Arabische Kalligrafie für KI-Agenten", "Ein von mir entwickeltes Open-Source-Toolkit für arabische Typografie, editierbare quadratische Kufi-Studien und lokale Grafikexporte mit KI-Coding-Agenten."],
     'workguard': ["WorkGuard — Kamerabasierte Überwachung zur Unterstützung der Arbeitssicherheit", "Ein Produkt, das ich entwickle, um Sicherheitsteams bei der Prüfung möglicher PSA-Probleme zu unterstützen – zunächst durch die Erkennung von Schutzhelmen und Warnkleidung."],
     'document-intelligence-suite': ['Dokumentenintelligenz-Suite', 'Drei produktive Parser mit über 90 % Feldgenauigkeit; der Dienst spart seit Einführung mehr als 60.000 € an manuellen Bearbeitungskosten.'],
     'comment-moderation-llm': ['Moderation von Verkaufskommentaren', 'Ein intern trainiertes LLM moderiert Kommentare zu Verkaufsangeboten, ohne Kundentexte an externe Dienste zu senden.'],
@@ -309,6 +310,7 @@ const projectTranslations = {
     'variable-message-signs': ['Dynamische Verkehrsschilder', 'Entwicklung und Einführung von Systemen zur Verkehrsführung in mehreren türkischen Städten.'],
   },
   ar: {
+    'arabic-calligraphy-skill': ["الخط العربي لوكلاء الذكاء الاصطناعي", "أداة مفتوحة المصدر طورتها للتنضيد العربي ودراسات الكوفي المربع القابلة للتعديل وتصدير الأعمال محلياً عبر وكلاء البرمجة بالذكاء الاصطناعي."],
     'workguard': ["WorkGuard — مراقبة بالكاميرات لدعم سلامة العاملين", "منتج أعمل على تطويره لمساعدة فرق السلامة في مراجعة المشكلات المحتملة في معدات الوقاية، بدءاً بكشف خوذات الأمان والملابس عالية الوضوح."],
     'document-intelligence-suite': ['منظومة فهم المستندات', 'ثلاثة محللات قيد الإنتاج بدقة تتجاوز 90٪؛ وفرت الخدمة منذ إطلاقها أكثر من 60 ألف يورو من تكاليف المعالجة اليدوية.'],
     'comment-moderation-llm': ['مراجعة تعليقات المبيعات', 'نموذج لغوي مدرّب محلياً يراجع تعليقات الإعلانات مع بقاء نصوص العملاء داخل المؤسسة.'],
@@ -322,6 +324,7 @@ const projectTranslations = {
     'variable-message-signs': ['أنظمة لوحات الرسائل المرورية', 'تصميم وتطوير وتشغيل لوحات توجيه مروري في عدة مدن تركية.'],
   },
   tr: {
+    'arabic-calligraphy-skill': ["Yapay Zekâ Ajanları için Arap Hat Sanatı", "Yapay zekâ kodlama ajanlarıyla Arapça tipografi, düzenlenebilir kare Kufi çalışmaları ve yerel görsel çıktılar için geliştirdiğim açık kaynak araç seti."],
     'workguard': ["WorkGuard — Çalışan güvenliğini destekleyen kamera tabanlı izleme", "Güvenlik ekiplerinin olası KKD sorunlarını incelemesine yardımcı olmak için geliştirdiğim bir ürün. İlk aşamada baret ve yüksek görünürlüklü giysi tespitine odaklanıyor."],
     'document-intelligence-suite': ['Belge Zekâsı Paketi', 'Alan bazında %90’ın üzerinde doğruluğa sahip üç üretim aracı; hizmet devreye alındığından beri manuel işlem maliyetlerinde €60K+ tasarruf sağladı.'],
     'comment-moderation-llm': ['Satış Yorumu Moderasyonu', 'Müşteri metinlerini kurum dışına çıkarmadan satış ilanı yorumlarını denetleyen yerel eğitimli LLM.'],
