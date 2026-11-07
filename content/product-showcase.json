@@ -1,0 +1,74 @@
+{
+  "en": {
+    "eyebrow": "Independent projects",
+    "intro": "Tools I’m building beyond my professional work, from worker safety to Arabic creative software.",
+    "explore": "Explore project",
+    "source": "View source",
+    "workguard": {
+      "title": "WorkGuard",
+      "kind": "COMPUTER VISION",
+      "summary": "Camera-based worker-safety monitoring, starting with helmet and high-visibility clothing detection.",
+      "status": "Prototype in development"
+    },
+    "arabic-calligraphy-skill": {
+      "title": "Arabic Calligraphy",
+      "kind": "OPEN-SOURCE TOOLKIT",
+      "summary": "Arabic artwork for AI coding agents, with local typography exports and editable Square Kufic grid studies.",
+      "status": "Experimental release · RC4"
+    }
+  },
+  "de": {
+    "eyebrow": "Eigenständige Projekte",
+    "intro": "Eigene Werkzeuge neben meiner beruflichen Arbeit – von Arbeitssicherheit bis zu arabischer Kreativsoftware.",
+    "explore": "Projekt entdecken",
+    "source": "Quellcode",
+    "workguard": {
+      "title": "WorkGuard",
+      "kind": "COMPUTER VISION",
+      "summary": "Kamerabasierte Unterstützung der Arbeitssicherheit, zunächst durch die Erkennung von Schutzhelmen und Warnkleidung.",
+      "status": "Prototyp in Entwicklung"
+    },
+    "arabic-calligraphy-skill": {
+      "title": "Arabische Kalligrafie",
+      "kind": "OPEN-SOURCE-TOOLKIT",
+      "summary": "Arabische Gestaltung für KI-Coding-Agenten mit lokalen Typografie-Exporten und editierbaren quadratischen Kufi-Studien.",
+      "status": "Experimentelle Version · RC4"
+    }
+  },
+  "ar": {
+    "eyebrow": "مشاريع مستقلة",
+    "intro": "أدوات أطورها إلى جانب عملي المهني، من دعم سلامة العاملين إلى برمجيات الإبداع العربي.",
+    "explore": "استكشف المشروع",
+    "source": "المصدر",
+    "workguard": {
+      "title": "WorkGuard",
+      "kind": "الرؤية الحاسوبية",
+      "summary": "مراقبة بالكاميرات لدعم سلامة العاملين، بدءاً بكشف خوذات الأمان والملابس عالية الوضوح.",
+      "status": "نموذج أولي قيد التطوير"
+    },
+    "arabic-calligraphy-skill": {
+      "title": "الخط العربي",
+      "kind": "أدوات مفتوحة المصدر",
+      "summary": "أعمال عربية لوكلاء البرمجة بالذكاء الاصطناعي، مع تصدير محلي للتنضيد ودراسات كوفي مربع قابلة للتعديل.",
+      "status": "إصدار تجريبي · RC4"
+    }
+  },
+  "tr": {
+    "eyebrow": "Bağımsız projeler",
+    "intro": "Profesyonel çalışmalarımın yanında geliştirdiğim araçlar; çalışan güvenliğinden Arapça yaratıcı yazılımlara.",
+    "explore": "Projeyi keşfet",
+    "source": "Kaynak kodu",
+    "workguard": {
+      "title": "WorkGuard",
+      "kind": "BİLGİSAYARLI GÖRÜ",
+      "summary": "Baret ve yüksek görünürlüklü giysi tespitiyle başlayan, çalışan güvenliğini destekleyen kamera tabanlı izleme.",
+      "status": "Geliştirme aşamasında prototip"
+    },
+    "arabic-calligraphy-skill": {
+      "title": "Arap Hat Sanatı",
+      "kind": "AÇIK KAYNAK ARAÇ SETİ",
+      "summary": "Yapay zekâ kodlama ajanları için yerel tipografi çıktıları ve düzenlenebilir kare Kufi çalışmalarıyla Arapça tasarım.",
+      "status": "Deneysel sürüm · RC4"
+    }
+  }
+}

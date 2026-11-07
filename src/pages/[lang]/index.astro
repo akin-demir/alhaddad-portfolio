@@ -1,11 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
+import ProductShowcase from '../../components/ProductShowcase.astro';
 import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Contact from '../../components/Contact.astro';
-import WorkGuard from '../../components/WorkGuard.astro';
-import ProjectCard from '../../components/ProjectCard.astro';
-import projectGroups from '../../../content/project-groups.json';
 import ExperienceVerticals from '../../components/ExperienceVerticals.astro';
 import portrait from '../../assets/portrait.png';
 import { getSiteCopy, supportedLocales, ui } from '../../lib/i18n.js';
@@ -19,7 +17,6 @@ const { locale } = Astro.props;
 const site = getSiteCopy(locale);
 const t = ui[locale];
 const all = await getCollection('projects');
-const featuredProducts = all.filter(p => p.data.category === 'product' && p.data.featured && p.id !== 'workguard').sort((a, b) => a.data.order - b.data.order);
 const currentPath = `/${locale}/`;
 ---
 
@@ -70,14 +67,7 @@ const currentPath = `/${locale}/`;
     ))}
   </section>
 
-  <WorkGuard locale={locale} projectPath={`/${locale}/projects/workguard/`} />
-
-  {featuredProducts.length > 0 && (
-    <section>
-      <div class="section-head"><h2>{projectGroups[locale].products}</h2></div>
-      <ul class="project-grid">{featuredProducts.map(project => <ProjectCard project={project} locale={locale} />)}</ul>
-    </section>
-  )}
+  <ProductShowcase projects={all} locale={locale} />
 
   <ExperienceVerticals locale={locale} projects={all} />
 

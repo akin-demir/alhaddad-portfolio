@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import copy from '../../content/product-showcase.json';
+import groups from '../../content/project-groups.json';
+import { url } from '../lib/url';
+
+interface Props { projects: CollectionEntry<'projects'>[]; locale?: string }
+const { projects, locale = 'en' } = Astro.props;
+const language = Object.hasOwn(copy, locale) ? locale as keyof typeof copy : 'en';
+const t = copy[language];
+const products = projects.filter(p => p.data.category === 'product' && p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const cards = await Promise.all(products.map(async project => ({
+  project,
+  text: t[project.id as 'workguard' | 'arabic-calligraphy-skill'] || {
+    title: project.data.title, summary: project.data.summary, kind: project.data.tags[0] || '', status: project.data.status || '',
+  },
+  poster: project.data.demoVideo && project.data.cover
+    ? (await getImage({ src: project.data.cover, width: 960, format: 'webp' })).src : undefined,
+})));
+const prefix = `/${language}`;
+---
+
+{cards.length > 0 && (
+  <section id="products" class="product-showcase" aria-labelledby="products-title">
+    <header class="product-showcase-heading">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h2 id="products-title">{groups[language].products}</h2>
+      <p class="product-showcase-intro">{t.intro}</p>
+    </header>
+    <ul class="product-showcase-grid">
+      {cards.map(({ project, text, poster }) => (
+        <li class="product-showcase-card">
+          <div class="product-showcase-media">
+            {project.data.demoVideo ? (
+              <video controls playsinline preload="none" poster={poster}
+                aria-label={`${text.title} demonstration`} width="1280" height="720">
+                <source src={url(project.data.demoVideo)} type="video/mp4" />
+                <a href={url(project.data.demoVideo)}>{text.title}</a>
+              </video>
+            ) : project.data.cover && (
+              <Image src={project.data.cover} alt={project.data.coverAlt || text.title}
+                widths={[480, 720, 960]} sizes="(max-width: 640px) calc(100vw - 2.5rem), 28rem" loading="lazy" />
+            )}
+          </div>
+          <div class="product-showcase-body">
+            <p class="product-showcase-kind">{text.kind}</p>
+            <h3><a href={url(`${prefix}/projects/${project.id}/`)}>{text.title}</a></h3>
+            <p class="product-showcase-summary">{text.summary}</p>
+            <p class="product-showcase-status"><span aria-hidden="true"></span>{text.status}</p>
+            <div class="product-showcase-links">
+              <a href={url(`${prefix}/projects/${project.id}/`)}>{t.explore}<span aria-hidden="true">↗</span></a>
+              {project.data.repo && <a href={project.data.repo}>{t.source}<span aria-hidden="true">↗</span></a>}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
