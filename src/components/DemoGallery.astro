@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
+import { url } from '../lib/url';
+interface Props { demos: CollectionEntry<'projects'>['data']['demos']; locale?: string }
+const { demos, locale = 'en' } = Astro.props;
+const headings = { en: 'WorkGuard in action', de: 'WorkGuard im Einsatz', ar: 'WorkGuard أثناء العمل', tr: 'WorkGuard iş başında' };
+const heading = headings[locale as keyof typeof headings] || headings.en;
+const previews = await Promise.all(demos.map(async demo => ({ ...demo,
+  preview: (await getImage({ src: demo.poster, width: 960, format: 'webp' })).src,
+})));
+---
+<section id="demos" aria-labelledby="demos-title">
+  <h2 id="demos-title">{heading}</h2>
+  <div class="demo-grid">
+    {previews.map(demo => (
+      <figure>
+        <video controls playsinline preload="none" poster={demo.preview}
+          aria-label={demo.title} width={demo.poster.width} height={demo.poster.height}>
+          <source src={url(demo.video)} type="video/mp4" />
+          <a href={url(demo.video)}>{demo.title}</a>
+        </video>
+        <figcaption><strong>{demo.title}</strong><p>{demo.caption}</p></figcaption>
+      </figure>
+    ))}
+  </div>
+</section>
+<style>
+  section { margin: 2rem 0; scroll-margin-top: 6rem; }
+  .demo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  figure { margin: 0; min-width: 0; }
+  video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #111; border-radius: 12px; }
+  figcaption { margin-top: .8rem; line-height: 1.6; }
+  figcaption p { margin: .35rem 0 0; color: var(--muted); font-size: .9rem; }
+  @media (max-width: 40rem) { .demo-grid { grid-template-columns: minmax(0, 1fr); } }
+</style>

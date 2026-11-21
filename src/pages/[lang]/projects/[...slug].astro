@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import { Image, getImage } from 'astro:assets';
+import DemoGallery from '../../../components/DemoGallery.astro';
 import Base from '../../../layouts/Base.astro';
 import { getProjectCopy, supportedLocales, ui } from '../../../lib/i18n.js';
 import { url } from '../../../lib/url';
@@ -21,7 +22,7 @@ const localized = getProjectCopy(locale, project.id, project.data);
 const { Content } = await render(project);
 const {
   year, tags, url: liveUrl, repo, cover, coverAlt,
-  deployment, partners, program, status, role, demoVideo,
+  deployment, partners, program, status, role, demoVideo, demos,
 } = project.data;
 const { title, summary } = localized;
 const currentPath = `/${locale}/projects/${project.id}/`;
@@ -99,7 +100,7 @@ const facts = [
     </section>
   )}
 
-  {cover && !demoVideo && (
+  {cover && !demoVideo && demos.length === 0 && (
     <figure class="detail-media">
       <Image
         src={cover}
@@ -111,7 +112,9 @@ const facts = [
     </figure>
   )}
 
-  {demoVideo && (
+  {demos.length > 0 && <DemoGallery demos={demos} locale={locale} />}
+
+  {demoVideo && demos.length === 0 && (
     <figure class="detail-media">
       <video controls playsinline preload="metadata" poster={ogImage} aria-label={`${title} demonstration`} width="1280" height="720" style="display:block;width:100%;height:auto;border-radius:12px">
         <source src={url(demoVideo)} type="video/mp4" />

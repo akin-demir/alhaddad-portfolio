@@ -51,6 +51,7 @@ const prefix = `/${language}`;
             <p class="product-showcase-status"><span aria-hidden="true"></span>{text.status}</p>
             <div class="product-showcase-links">
               <a href={url(`${prefix}/projects/${project.id}/`)}>{t.explore}<span aria-hidden="true">↗</span></a>
+              {project.data.demos.length > 0 && <a href={url(`${prefix}/projects/${project.id}/#demos`)}>{t.watchDemos.replace('{count}', String(project.data.demos.length))}<span aria-hidden="true">↗</span></a>}
               {project.data.repo && <a href={project.data.repo}>{t.source}<span aria-hidden="true">↗</span></a>}
             </div>
           </div>

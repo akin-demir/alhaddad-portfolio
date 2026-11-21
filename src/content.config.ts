@@ -21,6 +21,12 @@ const projects = defineCollection({
       cover: image().optional(),
       coverAlt: z.string().default(''),
       demoVideo: z.string().startsWith('/files/demos/').optional(),
+      demos: z.array(z.object({
+        title: z.string(),
+        caption: z.string(),
+        video: z.string().startsWith('/files/demos/'),
+        poster: image(),
+      })).default([]),
       // Deployment facts — rendered as a strip on the project page. All
       // optional, so a project with none simply omits the block.
       deployment: z.array(z.string()).default([]),

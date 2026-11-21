@@ -21,7 +21,8 @@
       "kind": "VIN LOOKUP",
       "summary": "Vehicle specifications from a VIN, in English, Turkish and Arabic, with experimental browser photo scanning.",
       "status": "Live · Photo scanning experimental"
-    }
+    },
+    "watchDemos": "Watch {count} demos"
   },
   "de": {
     "eyebrow": "Eigenständige Projekte",
@@ -45,7 +46,8 @@
       "kind": "FIN-ABFRAGE",
       "summary": "Fahrzeugdaten anhand der FIN auf Englisch, Türkisch und Arabisch, mit experimenteller Fotoerkennung im Browser.",
       "status": "Live · Fotoerkennung experimentell"
-    }
+    },
+    "watchDemos": "{count} Demos ansehen"
   },
   "ar": {
     "eyebrow": "مشاريع مستقلة",
@@ -69,7 +71,8 @@
       "kind": "فك رقم الهيكل",
       "summary": "مواصفات المركبة من رقم الهيكل بالإنجليزية والتركية والعربية، مع قراءة تجريبية من الصور داخل المتصفح.",
       "status": "متاح الآن · قراءة الصور تجريبية"
-    }
+    },
+    "watchDemos": "شاهد {count} عروض"
   },
   "tr": {
     "eyebrow": "Bağımsız projeler",
@@ -93,6 +96,7 @@
       "kind": "ŞASİ NUMARASI SORGULAMA",
       "summary": "İngilizce, Türkçe ve Arapça araç bilgisi sorgulama; tarayıcıda deneysel fotoğraftan şasi numarası okuma.",
       "status": "Yayında · Fotoğraftan okuma deneysel"
-    }
+    },
+    "watchDemos": "{count} demoyu izle"
   }
 }
