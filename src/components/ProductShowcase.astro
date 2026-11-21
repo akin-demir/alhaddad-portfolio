@@ -13,7 +13,7 @@ const products = projects.filter(p => p.data.category === 'product' && p.data.fe
   .sort((a, b) => a.data.order - b.data.order);
 const cards = await Promise.all(products.map(async project => ({
   project,
-  text: t[project.id as 'workguard' | 'arabic-calligraphy-skill'] || {
+  text: t[project.id as 'workguard' | 'arabic-calligraphy-skill' | 'vinme'] || {
     title: project.data.title, summary: project.data.summary, kind: project.data.tags[0] || '', status: project.data.status || '',
   },
   poster: project.data.demoVideo && project.data.cover

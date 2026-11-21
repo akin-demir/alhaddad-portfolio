@@ -1,7 +1,7 @@
 {
   "en": {
     "eyebrow": "Independent projects",
-    "intro": "Tools I’m building beyond my professional work, from worker safety to Arabic creative software.",
+    "intro": "Independent tools I’m building, including worker safety, Arabic creative software and vehicle data.",
     "explore": "Explore project",
     "source": "View source",
     "workguard": {
@@ -15,11 +15,17 @@
       "kind": "OPEN-SOURCE TOOLKIT",
       "summary": "Arabic artwork for AI coding agents, with local typography exports and editable Square Kufic grid studies.",
       "status": "Experimental release · RC4"
+    },
+    "vinme": {
+      "title": "Vinme",
+      "kind": "VIN LOOKUP",
+      "summary": "Vehicle specifications from a VIN, in English, Turkish and Arabic, with experimental browser photo scanning.",
+      "status": "Live · Photo scanning experimental"
     }
   },
   "de": {
     "eyebrow": "Eigenständige Projekte",
-    "intro": "Eigene Werkzeuge neben meiner beruflichen Arbeit – von Arbeitssicherheit bis zu arabischer Kreativsoftware.",
+    "intro": "Eigene Werkzeuge für Arbeitssicherheit, arabische Kreativsoftware und Fahrzeugdaten.",
     "explore": "Projekt entdecken",
     "source": "Quellcode",
     "workguard": {
@@ -33,11 +39,17 @@
       "kind": "OPEN-SOURCE-TOOLKIT",
       "summary": "Arabische Gestaltung für KI-Coding-Agenten mit lokalen Typografie-Exporten und editierbaren quadratischen Kufi-Studien.",
       "status": "Experimentelle Version · RC4"
+    },
+    "vinme": {
+      "title": "Vinme",
+      "kind": "FIN-ABFRAGE",
+      "summary": "Fahrzeugdaten anhand der FIN auf Englisch, Türkisch und Arabisch, mit experimenteller Fotoerkennung im Browser.",
+      "status": "Live · Fotoerkennung experimentell"
     }
   },
   "ar": {
     "eyebrow": "مشاريع مستقلة",
-    "intro": "أدوات أطورها إلى جانب عملي المهني، من دعم سلامة العاملين إلى برمجيات الإبداع العربي.",
+    "intro": "أدوات مستقلة أطورها لدعم سلامة العاملين والإبداع العربي وبيانات المركبات.",
     "explore": "استكشف المشروع",
     "source": "المصدر",
     "workguard": {
@@ -51,11 +63,17 @@
       "kind": "أدوات مفتوحة المصدر",
       "summary": "أعمال عربية لوكلاء البرمجة بالذكاء الاصطناعي، مع تصدير محلي للتنضيد ودراسات كوفي مربع قابلة للتعديل.",
       "status": "إصدار تجريبي · RC4"
+    },
+    "vinme": {
+      "title": "Vinme",
+      "kind": "فك رقم الهيكل",
+      "summary": "مواصفات المركبة من رقم الهيكل بالإنجليزية والتركية والعربية، مع قراءة تجريبية من الصور داخل المتصفح.",
+      "status": "متاح الآن · قراءة الصور تجريبية"
     }
   },
   "tr": {
     "eyebrow": "Bağımsız projeler",
-    "intro": "Profesyonel çalışmalarımın yanında geliştirdiğim araçlar; çalışan güvenliğinden Arapça yaratıcı yazılımlara.",
+    "intro": "Çalışan güvenliği, Arapça yaratıcı yazılımlar ve araç verileri için geliştirdiğim bağımsız araçlar.",
     "explore": "Projeyi keşfet",
     "source": "Kaynak kodu",
     "workguard": {
@@ -69,6 +87,12 @@
       "kind": "AÇIK KAYNAK ARAÇ SETİ",
       "summary": "Yapay zekâ kodlama ajanları için yerel tipografi çıktıları ve düzenlenebilir kare Kufi çalışmalarıyla Arapça tasarım.",
       "status": "Deneysel sürüm · RC4"
+    },
+    "vinme": {
+      "title": "Vinme",
+      "kind": "ŞASİ NUMARASI SORGULAMA",
+      "summary": "İngilizce, Türkçe ve Arapça araç bilgisi sorgulama; tarayıcıda deneysel fotoğraftan şasi numarası okuma.",
+      "status": "Yayında · Fotoğraftan okuma deneysel"
     }
   }
 }
